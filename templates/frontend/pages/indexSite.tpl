@@ -24,11 +24,13 @@
 			{assign var=spupSearchUrlParameters value=$activeTheme->getSearchFormParameters($spupSearchUrl)}
 			<form class="spup-site-hero__search" method="get" action="{$spupSearchUrl|strtok:"?"|escape}" role="search">
 				{foreach from=$spupSearchUrlParameters key=paramKey item=paramValue}
-					<input type="hidden" name="{$paramKey|escape}" value="{$paramValue|escape}">
+					{if $paramKey != 'query' && $paramKey != 'searchJournal'}
+						<input type="hidden" name="{$paramKey|escape}" value="{$paramValue|escape}">
+					{/if}
 				{/foreach}
-				<label class="spup-site-hero__search-label" for="spup-site-search-query">{translate key="plugins.themes.spupLightExplorerTheme.hero.searchLabel"}</label>
+				<label class="spup-site-hero__search-label" for="spup-site-search-query">{translate key="plugins.themes.spupLightExplorerTheme.search.allJournals"}</label>
 				<div class="spup-site-hero__search-controls">
-					<input id="spup-site-search-query" type="search" name="query" placeholder="{translate|escape key="plugins.themes.spupLightExplorerTheme.hero.searchLabel"}" required>
+					<input id="spup-site-search-query" type="search" name="query" placeholder="{translate|escape key="plugins.themes.spupLightExplorerTheme.search.allJournals"}" required>
 					<button type="submit">{translate key="common.search"}</button>
 				</div>
 			</form>

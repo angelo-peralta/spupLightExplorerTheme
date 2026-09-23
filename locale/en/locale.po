@@ -23,6 +23,15 @@ msgstr "Search articles, authors, or keywords"
 msgid "plugins.themes.spupLightExplorerTheme.directory.openJournal"
 msgstr "Open Journal"
 
+msgid "plugins.themes.spupLightExplorerTheme.search.allJournals"
+msgstr "Search all journals"
+
+msgid "plugins.themes.spupLightExplorerTheme.search.thisJournal"
+msgstr "Search this journal"
+
+msgid "plugins.themes.spupLightExplorerTheme.search.allJournalsOption"
+msgstr "All journals"
+
 msgid "plugins.themes.spupLightExplorerTheme.option.primaryColor.label"
 msgstr "Primary color"
 
