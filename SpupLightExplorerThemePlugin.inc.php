@@ -1,30 +1,35 @@
 <?php
 
 /**
- * @file plugins/themes/traditional/ClassicThemePlugin.inc.php
+ * @file plugins/themes/spupLightExplorerTheme/SpupLightExplorerThemePlugin.inc.php
  *
  * Copyright (c) 2014-2025 Simon Fraser University
  * Copyright (c) 2003-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class ClassicThemePlugin
- * @ingroup plugins_themes_classic
+ * @class SpupLightExplorerThemePlugin
+ * @ingroup plugins_themes_spupLightExplorerTheme
  *
- * @brief Classic theme
+ * @brief The Light Explorer Theme
+ *
+ * Based on the PKP Classic Theme.
+ * Modified by St. Paul University Philippines, 2026.
+ *
+ * Distributed under the GNU GPL v3.
  */
 
 use APP\publication\Publication;
 use PKP\plugins\ThemePlugin;
 
-class ClassicThemePlugin extends ThemePlugin
+class SpupLightExplorerThemePlugin extends ThemePlugin
 {
     public function init()
     {
         /* Additional theme options */
         // Changing theme primary color
         $this->addOption('primaryColor', 'colour', [
-            'label' => 'plugins.themes.classic.option.primaryColor.label',
-            'description' => 'plugins.themes.classic.option.primaryColor.description',
+            'label' => 'plugins.themes.spupLightExplorerTheme.option.primaryColor.label',
+            'description' => 'plugins.themes.spupLightExplorerTheme.option.primaryColor.description',
             'default' => '#ffd120',
         ]);
 
@@ -32,27 +37,27 @@ class ClassicThemePlugin extends ThemePlugin
         $this->addOption('journalSummary', 'radio', [
             'label' => 'manager.setup.contextSummary',
             'options' => [
-                0 => 'plugins.themes.classic.options.journalSummary.disable',
-                1 => 'plugins.themes.classic.options.journalSummary.enable'
+                0 => 'plugins.themes.spupLightExplorerTheme.options.journalSummary.disable',
+                1 => 'plugins.themes.spupLightExplorerTheme.options.journalSummary.enable'
             ]
         ]);
 
         // Add usage stats display options
         $this->addOption('displayStats', 'FieldOptions', [
             'type' => 'radio',
-            'label' => __('plugins.themes.classic.option.displayStats.label'),
+            'label' => __('plugins.themes.spupLightExplorerTheme.option.displayStats.label'),
             'options' => [
                 [
                     'value' => 'none',
-                    'label' => __('plugins.themes.classic.option.displayStats.none'),
+                    'label' => __('plugins.themes.spupLightExplorerTheme.option.displayStats.none'),
                 ],
                 [
                     'value' => 'bar',
-                    'label' => __('plugins.themes.classic.option.displayStats.bar'),
+                    'label' => __('plugins.themes.spupLightExplorerTheme.option.displayStats.bar'),
                 ],
                 [
                     'value' => 'line',
-                    'label' => __('plugins.themes.classic.option.displayStats.line'),
+                    'label' => __('plugins.themes.spupLightExplorerTheme.option.displayStats.line'),
                 ],
             ],
             'default' => 'none',
@@ -93,7 +98,7 @@ class ClassicThemePlugin extends ThemePlugin
         // Load icon font Ionicons
         $this->addScript(
             'ionicons',
-            $this->getRequest()->getBaseUrl() . '/plugins/themes/classic/resources/ionicons.js',
+            $this->getRequest()->getBaseUrl() . '/plugins/themes/spupLightExplorerTheme/resources/ionicons.js',
             ['baseUrl' => '']
         );
 
@@ -118,12 +123,12 @@ class ClassicThemePlugin extends ThemePlugin
 
     public function getDisplayName(): string
     {
-        return __('plugins.themes.classic.name');
+        return __('plugins.themes.spupLightExplorerTheme.name');
     }
 
     public function getDescription(): string
     {
-        return __('plugins.themes.classic.description');
+        return __('plugins.themes.spupLightExplorerTheme.description');
     }
 
     public function loadAdditionalData($hookName, $args)
@@ -166,13 +171,13 @@ class ClassicThemePlugin extends ThemePlugin
         $issueIdentificationString = null;
 
         if ($issue->getVolume() && $issue->getShowVolume()) {
-            $issueIdentificationString .= __('plugins.themes.classic.volume-abbr') . " " . $issue->getVolume();
+            $issueIdentificationString .= __('plugins.themes.spupLightExplorerTheme.volume-abbr') . " " . $issue->getVolume();
         }
         if ($issue->getNumber() && $issue->getShowNumber()) {
             if ($issue->getVolume() && $issue->getShowVolume()) {
                 $issueIdentificationString .= ", ";
             }
-            $issueIdentificationString .= __('plugins.themes.classic.number-abbr') . " " . $issue->getNumber();
+            $issueIdentificationString .= __('plugins.themes.spupLightExplorerTheme.number-abbr') . " " . $issue->getNumber();
         }
         if ($issue->getYear() && $issue->getShowYear()) {
             if ($issueIdentificationString !== null) {

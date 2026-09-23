@@ -12,80 +12,77 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.18.2\n"
 
-msgid "plugins.themes.classic.name"
-msgstr "Темасы \"Классикалык\""
+msgid "plugins.themes.spupLightExplorerTheme.name"
+msgstr "The Light Explorer Theme"
 
-msgid "plugins.themes.classic.description"
-msgstr ""
-"Адабий классиктердин китеп дизайнына негизделген түс жана шрифт контрастында "
-"ойнолуучу OJS темасы, ыңгайлаштырылган түстөгү жогорку контрасттуу кара баш "
-"жана төмөнкү колонтитул."
+msgid "plugins.themes.spupLightExplorerTheme.description"
+msgstr "A custom OJS theme for the St. Paul University Philippines journal network."
 
-msgid "plugins.themes.classic.option.primaryColor.label"
+msgid "plugins.themes.spupLightExplorerTheme.option.primaryColor.label"
 msgstr "Негизги түс"
 
-msgid "plugins.themes.classic.option.primaryColor.description"
+msgid "plugins.themes.spupLightExplorerTheme.option.primaryColor.description"
 msgstr "Негизги теманын түсүн өзгөртүү"
 
-msgid "plugins.themes.classic.menu"
+msgid "plugins.themes.spupLightExplorerTheme.menu"
 msgstr "Меню"
 
-msgid "plugins.themes.classic.more"
+msgid "plugins.themes.spupLightExplorerTheme.more"
 msgstr "Дагы"
 
-msgid "plugins.themes.classic.less"
+msgid "plugins.themes.spupLightExplorerTheme.less"
 msgstr "Азыраак"
 
-msgid "plugins.themes.classic.fullIssue"
+msgid "plugins.themes.spupLightExplorerTheme.fullIssue"
 msgstr "Толук чыгаруу"
 
-msgid "plugins.themes.classic.tableOfContents"
+msgid "plugins.themes.spupLightExplorerTheme.tableOfContents"
 msgstr "Мазмун"
 
-msgid "plugins.themes.classic.close"
+msgid "plugins.themes.spupLightExplorerTheme.close"
 msgstr "Жабуу"
 
-msgid "plugins.themes.classic.biography"
+msgid "plugins.themes.spupLightExplorerTheme.biography"
 msgstr "Өмүр баяны"
 
-msgid "plugins.themes.classic.more-info"
+msgid "plugins.themes.spupLightExplorerTheme.more-info"
 msgstr "көбүрөөк маалымат"
 
-msgid "plugins.themes.classic.pagination"
+msgid "plugins.themes.spupLightExplorerTheme.pagination"
 msgstr "Барактоо"
 
-msgid "plugins.themes.classic.volume-abbr"
+msgid "plugins.themes.spupLightExplorerTheme.volume-abbr"
 msgstr "Көлөм"
 
-msgid "plugins.themes.classic.number-abbr"
+msgid "plugins.themes.spupLightExplorerTheme.number-abbr"
 msgstr "№"
 
-msgid "plugins.themes.classic.options.journalSummary.disable"
+msgid "plugins.themes.spupLightExplorerTheme.options.journalSummary.disable"
 msgstr "Журналдын башкы бетинде көрсөтпөңүз."
 
-msgid "plugins.themes.classic.options.journalSummary.enable"
+msgid "plugins.themes.spupLightExplorerTheme.options.journalSummary.enable"
 msgstr "Журналдын башкы бетинде көрсөтүү."
 
-msgid "plugins.themes.classic.language.toggle"
+msgid "plugins.themes.spupLightExplorerTheme.language.toggle"
 msgstr "Тилди өзгөртүү. Учурдагы тил:"
 
-msgid "plugins.themes.classic.option.displayStats.label"
+msgid "plugins.themes.spupLightExplorerTheme.option.displayStats.label"
 msgstr "Колдонуу статистикасын көрсөтүү параметрлери"
 
-msgid "plugins.themes.classic.option.displayStats.none"
+msgid "plugins.themes.spupLightExplorerTheme.option.displayStats.none"
 msgstr "Окурманга материалды колдонуу статистикасынын графигин көрсөтпөңүз."
 
-msgid "plugins.themes.classic.option.displayStats.bar"
+msgid "plugins.themes.spupLightExplorerTheme.option.displayStats.bar"
 msgstr "Колдонуу статистикасын көрсөтүү үчүн тилке диаграммасын колдонуңуз."
 
-msgid "plugins.themes.classic.option.displayStats.line"
+msgid "plugins.themes.spupLightExplorerTheme.option.displayStats.line"
 msgstr "Колдонуу статистикасын көрсөтүү үчүн сызык диаграммасын колдонуңуз."
 
-msgid "plugins.themes.classic.displayStats.monthInitials"
+msgid "plugins.themes.spupLightExplorerTheme.displayStats.monthInitials"
 msgstr "Янв Фев Мар Апр Май Июн Июл Авг Сен Окт Ноя Дек"
 
-msgid "plugins.themes.classic.displayStats.downloads"
+msgid "plugins.themes.spupLightExplorerTheme.displayStats.downloads"
 msgstr "Жүктөлүп алынгандар"
 
-msgid "plugins.themes.classic.displayStats.noStats"
+msgid "plugins.themes.spupLightExplorerTheme.displayStats.noStats"
 msgstr "Жүктөө дайындары азырынча жеткиликтүү эмес."

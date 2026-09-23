@@ -11,80 +11,80 @@ msgstr ""
 "PO-Revision-Date: 2020-04-22T15:43:40+00:00\n"
 "Language: \n"
 
-msgid "plugins.themes.classic.name"
-msgstr "Classic Theme"
+msgid "plugins.themes.spupLightExplorerTheme.name"
+msgstr "The Light Explorer Theme"
 
-msgid "plugins.themes.classic.description"
-msgstr "An OJS theme that plays on colour and font contrasts based on literary classics’ book design and featuring a starkly contrasting black header and brand coloured-footer."
+msgid "plugins.themes.spupLightExplorerTheme.description"
+msgstr "A custom OJS theme for the St. Paul University Philippines journal network."
 
-msgid "plugins.themes.classic.option.primaryColor.label"
+msgid "plugins.themes.spupLightExplorerTheme.option.primaryColor.label"
 msgstr "Primary color"
 
-msgid "plugins.themes.classic.option.primaryColor.description"
+msgid "plugins.themes.spupLightExplorerTheme.option.primaryColor.description"
 msgstr "Change primary color of the theme"
 
-msgid "plugins.themes.classic.menu"
+msgid "plugins.themes.spupLightExplorerTheme.menu"
 msgstr "Menu"
 
-msgid "plugins.themes.classic.issueDescription"
+msgid "plugins.themes.spupLightExplorerTheme.issueDescription"
 msgstr "Issue Description"
 
-msgid "plugins.themes.classic.more"
+msgid "plugins.themes.spupLightExplorerTheme.more"
 msgstr "More"
 
-msgid "plugins.themes.classic.less"
+msgid "plugins.themes.spupLightExplorerTheme.less"
 msgstr "Less"
 
-msgid "plugins.themes.classic.fullIssue"
+msgid "plugins.themes.spupLightExplorerTheme.fullIssue"
 msgstr "Full Issue"
 
-msgid "plugins.themes.classic.tableOfContents"
+msgid "plugins.themes.spupLightExplorerTheme.tableOfContents"
 msgstr "Table of Contents"
 
-msgid "plugins.themes.classic.close"
+msgid "plugins.themes.spupLightExplorerTheme.close"
 msgstr "Close"
 
-msgid "plugins.themes.classic.biography"
+msgid "plugins.themes.spupLightExplorerTheme.biography"
 msgstr "Bio"
 
-msgid "plugins.themes.classic.more-info"
+msgid "plugins.themes.spupLightExplorerTheme.more-info"
 msgstr "more info"
 
-msgid "plugins.themes.classic.pagination"
+msgid "plugins.themes.spupLightExplorerTheme.pagination"
 msgstr "Pagination"
 
-msgid "plugins.themes.classic.volume-abbr"
+msgid "plugins.themes.spupLightExplorerTheme.volume-abbr"
 msgstr "Vol"
 
-msgid "plugins.themes.classic.number-abbr"
+msgid "plugins.themes.spupLightExplorerTheme.number-abbr"
 msgstr "No"
 
-msgid "plugins.themes.classic.options.journalSummary.disable"
+msgid "plugins.themes.spupLightExplorerTheme.options.journalSummary.disable"
 msgstr "Do not show on the journal's homepage."
 
-msgid "plugins.themes.classic.options.journalSummary.enable"
+msgid "plugins.themes.spupLightExplorerTheme.options.journalSummary.enable"
 msgstr "Show on the journal's homepage."
 
-msgid "plugins.themes.classic.language.toggle"
+msgid "plugins.themes.spupLightExplorerTheme.language.toggle"
 msgstr "Change the language. The current language is:"
 
-msgid "plugins.themes.classic.option.displayStats.label"
+msgid "plugins.themes.spupLightExplorerTheme.option.displayStats.label"
 msgstr "Usage statistics display options"
 
-msgid "plugins.themes.classic.option.displayStats.none"
+msgid "plugins.themes.spupLightExplorerTheme.option.displayStats.none"
 msgstr "Do not display submission usage statistics chart for reader."
 
-msgid "plugins.themes.classic.option.displayStats.bar"
+msgid "plugins.themes.spupLightExplorerTheme.option.displayStats.bar"
 msgstr "Use bar type of the chart for usage statistics display."
 
-msgid "plugins.themes.classic.option.displayStats.line"
+msgid "plugins.themes.spupLightExplorerTheme.option.displayStats.line"
 msgstr "Use line type of the chart for usage statistics display."
 
-msgid "plugins.themes.classic.displayStats.monthInitials"
+msgid "plugins.themes.spupLightExplorerTheme.displayStats.monthInitials"
 msgstr "Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec"
 
-msgid "plugins.themes.classic.displayStats.downloads"
+msgid "plugins.themes.spupLightExplorerTheme.displayStats.downloads"
 msgstr "Downloads"
 
-msgid "plugins.themes.classic.displayStats.noStats"
+msgid "plugins.themes.spupLightExplorerTheme.displayStats.noStats"
 msgstr "Download data is not yet available."

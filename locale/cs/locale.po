@@ -13,83 +13,80 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Weblate 4.18.2\n"
 
-msgid "plugins.themes.classic.options.journalSummary.enable"
+msgid "plugins.themes.spupLightExplorerTheme.options.journalSummary.enable"
 msgstr "Zobrazit na domovské stránce časopisu."
 
-msgid "plugins.themes.classic.options.journalSummary.disable"
+msgid "plugins.themes.spupLightExplorerTheme.options.journalSummary.disable"
 msgstr "Nezobrazovat na domovské stránce časopisu."
 
-msgid "plugins.themes.classic.number-abbr"
+msgid "plugins.themes.spupLightExplorerTheme.number-abbr"
 msgstr "Číslo"
 
-msgid "plugins.themes.classic.volume-abbr"
+msgid "plugins.themes.spupLightExplorerTheme.volume-abbr"
 msgstr "Ročník"
 
-msgid "plugins.themes.classic.pagination"
+msgid "plugins.themes.spupLightExplorerTheme.pagination"
 msgstr "Stránkování"
 
-msgid "plugins.themes.classic.more-info"
+msgid "plugins.themes.spupLightExplorerTheme.more-info"
 msgstr "více informací"
 
-msgid "plugins.themes.classic.biography"
+msgid "plugins.themes.spupLightExplorerTheme.biography"
 msgstr "Bio (životopis)"
 
-msgid "plugins.themes.classic.close"
+msgid "plugins.themes.spupLightExplorerTheme.close"
 msgstr "Zavřít"
 
-msgid "plugins.themes.classic.tableOfContents"
+msgid "plugins.themes.spupLightExplorerTheme.tableOfContents"
 msgstr "Obsah"
 
-msgid "plugins.themes.classic.fullIssue"
+msgid "plugins.themes.spupLightExplorerTheme.fullIssue"
 msgstr "Celé vydání"
 
-msgid "plugins.themes.classic.less"
+msgid "plugins.themes.spupLightExplorerTheme.less"
 msgstr "Méně"
 
-msgid "plugins.themes.classic.more"
+msgid "plugins.themes.spupLightExplorerTheme.more"
 msgstr "Více"
 
-msgid "plugins.themes.classic.issueDescription"
+msgid "plugins.themes.spupLightExplorerTheme.issueDescription"
 msgstr "Popis vydání"
 
-msgid "plugins.themes.classic.menu"
+msgid "plugins.themes.spupLightExplorerTheme.menu"
 msgstr "Menu"
 
-msgid "plugins.themes.classic.option.primaryColor.description"
+msgid "plugins.themes.spupLightExplorerTheme.option.primaryColor.description"
 msgstr "Změna primární barvy tématu"
 
-msgid "plugins.themes.classic.option.primaryColor.label"
+msgid "plugins.themes.spupLightExplorerTheme.option.primaryColor.label"
 msgstr "Základní barva"
 
-msgid "plugins.themes.classic.description"
-msgstr ""
-"Téma OJS, které si hraje s kontrasty barev a písma podle knižního designu "
-"literárních klasiků a má výrazně kontrastní černé záhlaví a barevnou patičku "
-"značky."
+msgid "plugins.themes.spupLightExplorerTheme.description"
+msgstr "A custom OJS theme for the St. Paul University Philippines journal network."
 
-msgid "plugins.themes.classic.name"
-msgstr "Téma Classic"
+msgid "plugins.themes.spupLightExplorerTheme.name"
+msgstr "The Light Explorer Theme"
 
-msgid "plugins.themes.classic.language.toggle"
+msgid "plugins.themes.spupLightExplorerTheme.language.toggle"
 msgstr "Změna jazyka. Aktuální jazyk je:"
 
-msgid "plugins.themes.classic.option.displayStats.bar"
+msgid "plugins.themes.spupLightExplorerTheme.option.displayStats.bar"
 msgstr "Pro zobrazení statistik používání použijte sloupcový typ grafu."
 
-msgid "plugins.themes.classic.option.displayStats.line"
+msgid "plugins.themes.spupLightExplorerTheme.option.displayStats.line"
 msgstr "Pro zobrazení statistik používání použijte čarový typ grafu."
 
-msgid "plugins.themes.classic.displayStats.monthInitials"
+msgid "plugins.themes.spupLightExplorerTheme.displayStats.monthInitials"
 msgstr "Led Úno Bře Dub Kvě Čer Čvc Srp Zář Říj Lis Pro"
 
-msgid "plugins.themes.classic.displayStats.downloads"
+msgid "plugins.themes.spupLightExplorerTheme.displayStats.downloads"
 msgstr "Stažení"
 
-msgid "plugins.themes.classic.displayStats.noStats"
+msgid "plugins.themes.spupLightExplorerTheme.displayStats.noStats"
 msgstr "Data ke stažení zatím nejsou k dispozici."
 
-msgid "plugins.themes.classic.option.displayStats.label"
+msgid "plugins.themes.spupLightExplorerTheme.option.displayStats.label"
 msgstr "Možnosti zobrazení statistik používání"
 
-msgid "plugins.themes.classic.option.displayStats.none"
+msgid "plugins.themes.spupLightExplorerTheme.option.displayStats.none"
 msgstr "Nezobrazujte čtenářům tabulku statistik zobrazování příspěvku."

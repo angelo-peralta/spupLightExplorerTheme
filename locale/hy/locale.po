@@ -13,88 +13,85 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 4.13.1\n"
 
-msgid "plugins.themes.classic.options.journalSummary.enable"
+msgid "plugins.themes.spupLightExplorerTheme.options.journalSummary.enable"
 msgstr "Ցուցադրեք ամսագրի գլխավոր էջում:"
 
-msgid "plugins.themes.classic.options.journalSummary.disable"
+msgid "plugins.themes.spupLightExplorerTheme.options.journalSummary.disable"
 msgstr "Մի ցուցադրեք ամսագրի գլխավոր էջում:"
 
-msgid "plugins.themes.classic.number-abbr"
+msgid "plugins.themes.spupLightExplorerTheme.number-abbr"
 msgstr "Հմր"
 
-msgid "plugins.themes.classic.volume-abbr"
+msgid "plugins.themes.spupLightExplorerTheme.volume-abbr"
 msgstr "Հատոր"
 
-msgid "plugins.themes.classic.pagination"
+msgid "plugins.themes.spupLightExplorerTheme.pagination"
 msgstr "Էջակալում"
 
-msgid "plugins.themes.classic.more-info"
+msgid "plugins.themes.spupLightExplorerTheme.more-info"
 msgstr "ավելի տեղեկատվություն"
 
-msgid "plugins.themes.classic.biography"
+msgid "plugins.themes.spupLightExplorerTheme.biography"
 msgstr "Կենսագրություն"
 
-msgid "plugins.themes.classic.close"
+msgid "plugins.themes.spupLightExplorerTheme.close"
 msgstr "Փակել"
 
-msgid "plugins.themes.classic.tableOfContents"
+msgid "plugins.themes.spupLightExplorerTheme.tableOfContents"
 msgstr "Բովանդակություն"
 
-msgid "plugins.themes.classic.fullIssue"
+msgid "plugins.themes.spupLightExplorerTheme.fullIssue"
 msgstr "Ամբողջական թողարկում"
 
-msgid "plugins.themes.classic.less"
+msgid "plugins.themes.spupLightExplorerTheme.less"
 msgstr "Պակաս"
 
-msgid "plugins.themes.classic.more"
+msgid "plugins.themes.spupLightExplorerTheme.more"
 msgstr "Ավելին"
 
-msgid "plugins.themes.classic.issueDescription"
+msgid "plugins.themes.spupLightExplorerTheme.issueDescription"
 msgstr "Թողարկման նկարագրություն"
 
-msgid "plugins.themes.classic.menu"
+msgid "plugins.themes.spupLightExplorerTheme.menu"
 msgstr "Ընտրացանկ"
 
-msgid "plugins.themes.classic.option.primaryColor.description"
+msgid "plugins.themes.spupLightExplorerTheme.option.primaryColor.description"
 msgstr "Փոխեք թեմայի հիմնական գույնը"
 
-msgid "plugins.themes.classic.option.primaryColor.label"
+msgid "plugins.themes.spupLightExplorerTheme.option.primaryColor.label"
 msgstr "Հիմնական գույն"
 
-msgid "plugins.themes.classic.description"
-msgstr ""
-"OJS թեմա, որը խաղում է գույների և տառատեսակների հակադրությունների հետ՝ "
-"հիմնված գրական դասականների գրքերի ձևավորման վրա և առանձնանում է խիստ "
-"հակադրվող սև վերնախորագրով և գունավորված տողատակով:"
+msgid "plugins.themes.spupLightExplorerTheme.description"
+msgstr "A custom OJS theme for the St. Paul University Philippines journal network."
 
-msgid "plugins.themes.classic.name"
-msgstr "Թեմա Դասական"
+msgid "plugins.themes.spupLightExplorerTheme.name"
+msgstr "The Light Explorer Theme"
 
-msgid "plugins.themes.classic.language.toggle"
+msgid "plugins.themes.spupLightExplorerTheme.language.toggle"
 msgstr "Փոխեք լեզուն։ Ներկայիս լեզուն է:"
 
-msgid "plugins.themes.classic.displayStats.monthInitials"
+msgid "plugins.themes.spupLightExplorerTheme.displayStats.monthInitials"
 msgstr "Հնվ Փտր Մար Ապր Մյս Հնս Հլս Օգս Սպտ Հկտ Նյբ Դկտ"
 
-msgid "plugins.themes.classic.option.displayStats.label"
+msgid "plugins.themes.spupLightExplorerTheme.option.displayStats.label"
 msgstr "Օգտագործման վիճակագրության ցուցադրման ընտրանքներ"
 
-msgid "plugins.themes.classic.option.displayStats.none"
+msgid "plugins.themes.spupLightExplorerTheme.option.displayStats.none"
 msgstr ""
 "Մի ցուցադրեք ներկայացումների օգտագործման վիճակագրության աղյուսակը ընթերցողի "
 "համար:"
 
-msgid "plugins.themes.classic.option.displayStats.bar"
+msgid "plugins.themes.spupLightExplorerTheme.option.displayStats.bar"
 msgstr ""
 "Օգտագործման վիճակագրության ցուցադրման համար օգտագործեք աղյուսակի գծապատկերի "
 "տեսակը:"
 
-msgid "plugins.themes.classic.option.displayStats.line"
+msgid "plugins.themes.spupLightExplorerTheme.option.displayStats.line"
 msgstr ""
 "Օգտագործման վիճակագրության ցուցադրման համար օգտագործեք աղյուսակի գծի տեսակը:"
 
-msgid "plugins.themes.classic.displayStats.downloads"
+msgid "plugins.themes.spupLightExplorerTheme.displayStats.downloads"
 msgstr "Ներբեռնումներ"
 
-msgid "plugins.themes.classic.displayStats.noStats"
+msgid "plugins.themes.spupLightExplorerTheme.displayStats.noStats"
 msgstr "Ներբեռնման տվյալները դեռ հասանելի չեն:"

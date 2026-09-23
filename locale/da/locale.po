@@ -15,83 +15,80 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.13.1\n"
 
-msgid "plugins.themes.classic.name"
-msgstr "Classic Theme"
+msgid "plugins.themes.spupLightExplorerTheme.name"
+msgstr "The Light Explorer Theme"
 
-msgid "plugins.themes.classic.description"
-msgstr ""
-"Et OJS-tema, der spiller på farve- og skrifttype-kontraster, der er baseret "
-"på litterære klassikeres bogdesign og med et stærk kontrasterende sort "
-"sidehoved og en slags varemærket sidefod."
+msgid "plugins.themes.spupLightExplorerTheme.description"
+msgstr "A custom OJS theme for the St. Paul University Philippines journal network."
 
-msgid "plugins.themes.classic.option.primaryColor.label"
+msgid "plugins.themes.spupLightExplorerTheme.option.primaryColor.label"
 msgstr "Grundfarve"
 
-msgid "plugins.themes.classic.option.primaryColor.description"
+msgid "plugins.themes.spupLightExplorerTheme.option.primaryColor.description"
 msgstr "Skift temaets primærfarve"
 
-msgid "plugins.themes.classic.menu"
+msgid "plugins.themes.spupLightExplorerTheme.menu"
 msgstr "Menu"
 
-msgid "plugins.themes.classic.issueDescription"
+msgid "plugins.themes.spupLightExplorerTheme.issueDescription"
 msgstr "Nummerbeskrivelse"
 
-msgid "plugins.themes.classic.more"
+msgid "plugins.themes.spupLightExplorerTheme.more"
 msgstr "Mere"
 
-msgid "plugins.themes.classic.less"
+msgid "plugins.themes.spupLightExplorerTheme.less"
 msgstr "Mindre"
 
-msgid "plugins.themes.classic.fullIssue"
+msgid "plugins.themes.spupLightExplorerTheme.fullIssue"
 msgstr "Helt nummer"
 
-msgid "plugins.themes.classic.tableOfContents"
+msgid "plugins.themes.spupLightExplorerTheme.tableOfContents"
 msgstr "Indholdsfortegnelse"
 
-msgid "plugins.themes.classic.close"
+msgid "plugins.themes.spupLightExplorerTheme.close"
 msgstr "Luk"
 
-msgid "plugins.themes.classic.biography"
+msgid "plugins.themes.spupLightExplorerTheme.biography"
 msgstr "Bio"
 
-msgid "plugins.themes.classic.more-info"
+msgid "plugins.themes.spupLightExplorerTheme.more-info"
 msgstr "mere info"
 
-msgid "plugins.themes.classic.pagination"
+msgid "plugins.themes.spupLightExplorerTheme.pagination"
 msgstr "Sidenummerering"
 
-msgid "plugins.themes.classic.volume-abbr"
+msgid "plugins.themes.spupLightExplorerTheme.volume-abbr"
 msgstr "Årgang/Bind"
 
-msgid "plugins.themes.classic.number-abbr"
+msgid "plugins.themes.spupLightExplorerTheme.number-abbr"
 msgstr "Nr."
 
-msgid "plugins.themes.classic.options.journalSummary.enable"
+msgid "plugins.themes.spupLightExplorerTheme.options.journalSummary.enable"
 msgstr "Vis på tidsskriftets hjemmeside."
 
-msgid "plugins.themes.classic.options.journalSummary.disable"
+msgid "plugins.themes.spupLightExplorerTheme.options.journalSummary.disable"
 msgstr "Vis ikke på tidsskriftets hjemmeside."
 
-msgid "plugins.themes.classic.language.toggle"
+msgid "plugins.themes.spupLightExplorerTheme.language.toggle"
 msgstr "Skift sprog. Det aktuelle sprog er:"
 
-msgid "plugins.themes.classic.option.displayStats.none"
+msgid "plugins.themes.spupLightExplorerTheme.option.displayStats.none"
 msgstr "Fremvis ikke diagram over indsendelsesstatistik for læseren."
 
-msgid "plugins.themes.classic.option.displayStats.line"
+msgid "plugins.themes.spupLightExplorerTheme.option.displayStats.line"
 msgstr "Anvend kurvediagram til visning af brugsstatistik."
 
-msgid "plugins.themes.classic.displayStats.monthInitials"
+msgid "plugins.themes.spupLightExplorerTheme.displayStats.monthInitials"
 msgstr "Jan Feb Mar Apr Maj Jun Jul Aug Sep Okt Nov Dec"
 
-msgid "plugins.themes.classic.displayStats.downloads"
+msgid "plugins.themes.spupLightExplorerTheme.displayStats.downloads"
 msgstr "Downloads"
 
-msgid "plugins.themes.classic.displayStats.noStats"
+msgid "plugins.themes.spupLightExplorerTheme.displayStats.noStats"
 msgstr "Download-data er endnu ikke tilgængelige."
 
-msgid "plugins.themes.classic.option.displayStats.label"
+msgid "plugins.themes.spupLightExplorerTheme.option.displayStats.label"
 msgstr "Visningsmuligheder for brugsstatistik"
 
-msgid "plugins.themes.classic.option.displayStats.bar"
+msgid "plugins.themes.spupLightExplorerTheme.option.displayStats.bar"
 msgstr "Anvend søjlediagram til visning af brugsstatistik."

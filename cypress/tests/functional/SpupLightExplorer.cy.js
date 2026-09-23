@@ -1,5 +1,5 @@
 /**
- * @file cypress/tests/functional/Classic.spec.js
+ * @file cypress/tests/functional/SpupLightExplorer.cy.js
  *
  * Copyright (c) 2014-2025 Simon Fraser University
  * Copyright (c) 2000-2025 John Willinsky
@@ -43,13 +43,13 @@ describe('Theme plugin tests', function() {
 		cy.get('button[id="plugins-button"]').click();
 
 		// Find and enable the plugin
-		cy.get('input[id^="select-cell-classicthemeplugin-enabled"]').click();
-		cy.get('div:contains(\'The plugin "Classic Theme" has been enabled.\')');
+		cy.get('input[id^="select-cell-spuplightexplorerthemeplugin-enabled"]').click();
+		cy.get('div:contains(\'The plugin "The Light Explorer Theme" has been enabled.\')');
 		cy.reload();
 
-		// Select the Classic theme
+		// Select The Light Explorer Theme
 		cy.get('button[id="appearance-button"]').click();
-		cy.get('select[id="theme-themePluginPath-control"]').select('classic');
+		cy.get('select[id="theme-themePluginPath-control"]').select('spupLightExplorerTheme');
 		cy.get('#theme button').contains('Save').click();
 		cy.get('#theme [role="status"]').contains('Saved');
 	});

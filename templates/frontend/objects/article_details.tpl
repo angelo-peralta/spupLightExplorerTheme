@@ -127,7 +127,7 @@
 							<a class="more-authors-info-button" id="collapseButton" data-bs-toggle="collapse" href="#authorInfoCollapse" role="button" aria-expanded="false" aria-controls="authorInfoCollapse">
 								<ion-icon name="add" class="ion_icon" id="more-authors-data-symbol"></ion-icon>
 								<ion-icon name="remove" class="ion_icon hide" id="less-authors-data-symbol"></ion-icon>
-								<span class="ion-icon-text">{translate key="plugins.themes.classic.more-info"}</span>
+								<span class="ion-icon-text">{translate key="plugins.themes.spupLightExplorerTheme.more-info"}</span>
 							</a>
 						{/if}
 						<div class="collapse" id="authorInfoCollapse">
@@ -161,7 +161,7 @@
 										{if $author->getLocalizedBiography()}
 											<br/>
 											<a class="more_button" data-toggle="modal" data-target="#modalAuthorBio-{$number}">
-												{translate key="plugins.themes.classic.biography"}
+												{translate key="plugins.themes.spupLightExplorerTheme.biography"}
 											</a>
 											{* author's biography *}
 											<div class="modal fade" id="modalAuthorBio-{$number}" tabindex="-1" role="dialog" aria-labelledby="modalAuthorBioTitle" aria-hidden="true">
@@ -177,7 +177,7 @@
 															{$author->getLocalizedBiography()|strip_unsafe_html}
 														</div>
 														<div class="modal-footer">
-															<button type="button" class="btn btn-primary" data-dismiss="modal">{translate key="plugins.themes.classic.close"}</button>
+															<button type="button" class="btn btn-primary" data-dismiss="modal">{translate key="plugins.themes.spupLightExplorerTheme.close"}</button>
 														</div>
 													</div>
 												</div>
@@ -300,11 +300,11 @@
 					{/foreach}
 					{if $keywords|@count > 5}<span class="ellipsis" id="keywords-ellipsis">...</span>
 						<a class="more_button" id="more_keywords">
-							{translate key="plugins.themes.classic.more"}
+							{translate key="plugins.themes.spupLightExplorerTheme.more"}
 						</a>
 						<br/>
 						<a class="more_button hide" id="less_keywords">
-							{translate key="plugins.themes.classic.less"}
+							{translate key="plugins.themes.spupLightExplorerTheme.less"}
 						</a>
 					{/if}
 				</ul>
@@ -368,7 +368,7 @@
 										{$licenseTerms|strip_unsafe_html}
 									</div>
 									<div class="modal-footer">
-										<button type="button" class="btn btn-primary" data-dismiss="modal">{translate key="plugins.themes.classic.close"}</button>
+										<button type="button" class="btn btn-primary" data-dismiss="modal">{translate key="plugins.themes.spupLightExplorerTheme.close"}</button>
 									</div>
 								</div>
 							</div>
@@ -416,12 +416,12 @@
 				{$activeTheme->displayUsageStatsGraph($article->getId())}
 				<section class="item downloads_chart">
 					<h2 class="label">
-						{translate key="plugins.themes.classic.displayStats.downloads"}
+						{translate key="plugins.themes.spupLightExplorerTheme.displayStats.downloads"}
 					</h2>
 					<div class="value">
 						<canvas class="usageStatsGraph" data-object-type="Submission" data-object-id="{$article->getId()|escape}"></canvas>
 						<div class="usageStatsUnavailable" data-object-type="Submission" data-object-id="{$article->getId()|escape}">
-							{translate key="plugins.themes.classic.displayStats.noStats"}
+							{translate key="plugins.themes.spupLightExplorerTheme.displayStats.noStats"}
 						</div>
 					</div>
 				</section>
