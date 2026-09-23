@@ -49,54 +49,43 @@
 			</div>
 		{/if}
 
-		<div class="index-site-journals">
-			<h2>
+		<section class="index-site-journals" aria-labelledby="spup-journals-heading">
+			<h2 id="spup-journals-heading">
 				{translate key="context.contexts"}
 			</h2>
 			{if !$journals|@count}
-				{translate key="site.noJournals"}
+				<p class="spup-journal-empty">{translate key="site.noJournals"}</p>
 			{else}
-				<div>
+				<div class="spup-journal-grid">
 					{foreach from=$journals item=journal}
 						{capture assign="url"}{url journal=$journal->getPath()}{/capture}
 						{assign var="thumb" value=$journal->getLocalizedData('journalThumbnail')}
 						{assign var="description" value=$journal->getLocalizedDescription()}
-						<div class="index-site-journal">
-							<div class="index-site-journal-header">
-								<h3>
-									<a href="{$url|escape}" rel="bookmark">
-										{$journal->getLocalizedName()}
-									</a>
-								</h3>
-							</div>
-
-							{if $thumb}
-								<div class="index-site-journal-thumb">
-									<a href="{$url|escape}">
-										<img src="{$journalFilesPath}{$journal->getId()}/{$thumb.uploadName|escape:"url"}"{if $thumb.altText} alt="{$thumb.altText|escape|default:''}"{/if}>
-									</a>
+						{assign var="descriptionPreview" value=$activeTheme->getJournalDescriptionPreview($description)}
+						<article class="spup-journal-card{if !$thumb} spup-journal-card--no-thumb{/if}">
+							<a class="spup-journal-card__link" href="{$url|escape}" rel="bookmark" aria-labelledby="spup-journal-title-{$journal->getId()|escape}"{if $descriptionPreview} aria-describedby="spup-journal-description-{$journal->getId()|escape}"{/if}>
+								<div class="spup-journal-card__media">
+									{if $thumb}
+										<img class="spup-journal-card__image" src="{$journalFilesPath}{$journal->getId()}/{$thumb.uploadName|escape:"url"}" alt="{$thumb.altText|escape|default:''}" loading="lazy" decoding="async">
+									{else}
+										<div class="spup-journal-card__fallback" aria-hidden="true">
+											<span>{$journal->getLocalizedName()|escape}</span>
+										</div>
+									{/if}
 								</div>
-							{/if}
-
-							{if $description}
-								<div class="index-site-journal-description{if !$thumb} full-width{/if}">
-									{$description|nl2br}
+								<div class="spup-journal-card__overlay">
+									<h3 id="spup-journal-title-{$journal->getId()|escape}" class="spup-journal-card__title">{$journal->getLocalizedName()|escape}</h3>
+									{if $descriptionPreview}
+										<p id="spup-journal-description-{$journal->getId()|escape}" class="spup-journal-card__description">{$descriptionPreview|escape}</p>
+									{/if}
+									<span class="spup-journal-card__action">{translate key="plugins.themes.spupLightExplorerTheme.directory.openJournal"}<span aria-hidden="true"> &rarr;</span></span>
 								</div>
-							{/if}
-
-							<div class="index-site-journal-links">
-								<a class="btn btn-primary view" href="{$url|escape}">
-									{translate key="site.journalView"}
-								</a>
-								<a class="btn btn-secondary view" href="{url|escape journal=$journal->getPath() page="issue" op="current"}">
-									{translate key="site.journalCurrent"}
-								</a>
-							</div>
-						</div>
+							</a>
+						</article>
 					{/foreach}
 				</div>
 			{/if}
-		</div>
+		</section>
 	</div>
 
 </main><!-- .page_index_site -->

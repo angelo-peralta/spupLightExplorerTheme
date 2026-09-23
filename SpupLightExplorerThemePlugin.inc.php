@@ -143,6 +143,20 @@ class SpupLightExplorerThemePlugin extends ThemePlugin
         return array_filter($parameters, 'is_scalar');
     }
 
+    /** Return safe plain text for the root journal directory preview. */
+    public function getJournalDescriptionPreview(?string $description): string
+    {
+        if (!$description) {
+            return '';
+        }
+
+        $withoutScripts = preg_replace('~<(script|style)\b[^>]*>.*?</\1\s*>~is', ' ', $description) ?? $description;
+        $withSpacing = preg_replace('~</?(?:p|div|br|li|ul|ol|h[1-6]|section|article)\b[^>]*>~i', ' ', $withoutScripts) ?? $withoutScripts;
+        $plainText = html_entity_decode(strip_tags($withSpacing), ENT_QUOTES | ENT_HTML5, 'UTF-8');
+
+        return trim(preg_replace('/\s+/u', ' ', $plainText) ?? $plainText);
+    }
+
     public function loadAdditionalData($hookName, $args)
     {
         $smarty = $args[0];
