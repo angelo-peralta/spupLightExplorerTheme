@@ -17,20 +17,30 @@
  * @uses $yearEnd Latest year that can be used in from/to filters
  *}
 
-{include file="frontend/components/header.tpl" pageTitle="common.search"}
+{if $currentContext}
+	{assign var="spupSearchScopeKey" value="plugins.themes.spupLightExplorerTheme.search.thisJournal"}
+	{capture assign="spupSearchUrl"}{url router=$smarty.const.ROUTE_PAGE journal=$currentContext->getPath() page="search" op="search" escape=false}{/capture}
+{else}
+	{assign var="spupSearchScopeKey" value="plugins.themes.spupLightExplorerTheme.search.allJournals"}
+	{capture assign="spupSearchUrl"}{url router=$smarty.const.ROUTE_PAGE page="search" op="search" escape=false}{/capture}
+{/if}
+{assign var=formUrlParameters value=$activeTheme->getSearchFormParameters($spupSearchUrl)}
+{include file="frontend/components/header.tpl" pageTitle=$spupSearchScopeKey}
 
 <main class="page page_search">
 	<section class="container-fluid container-page">
 
-		{include file="frontend/components/headings.tpl" currentTitleKey="common.search"}
+		{include file="frontend/components/headings.tpl" currentTitleKey=$spupSearchScopeKey}
+		{if $currentContext}
+			<p class="spup-search-scope">{$currentContext->getLocalizedName()|escape}</p>
+		{/if}
 
-		{capture name="searchFormUrl"}{url op="search" escape=false}{/capture}
-		{assign var=formUrlParameters value=[]}{* Prevent Smarty warning *}
-		{$smarty.capture.searchFormUrl|parse_url:$smarty.const.PHP_URL_QUERY|parse_str:$formUrlParameters}
 		<div class="row">
-			<form class="cmp_form col-sm-10 offset-sm-1 col-md-8 offset-md-2" method="get" action="{$smarty.capture.searchFormUrl|strtok:"?"|escape}">
+			<form class="cmp_form col-sm-10 offset-sm-1 col-md-8 offset-md-2" role="search" method="get" action="{$spupSearchUrl|strtok:"?"|escape}">
 				{foreach from=$formUrlParameters key=paramKey item=paramValue}
-					<input type="hidden" name="{$paramKey|escape}" value="{$paramValue|escape}"/>
+					{if $paramKey != 'query' && $paramKey != 'searchJournal'}
+						<input type="hidden" name="{$paramKey|escape}" value="{$paramValue|escape}">
+					{/if}
 				{/foreach}
 
 				{* Repeat the label text just so that screen readers have a clear
@@ -49,23 +59,32 @@
 						{translate key="search.advancedFilters"}
 					</legend>
 
-					<div class="search-form-label">
-						<span>{translate key="search.dateFrom"}</span>
-					</div>
-					<div id="dateFrom">
-						{html_select_date prefix="dateFrom" time=$dateFrom start_year=$yearStart end_year=$yearEnd year_empty="" month_empty="" day_empty="" field_order="YMD"}
-					</div>
-
-					<div class="search-form-label">
-						<span>{translate key="search.dateTo"}</span>
-					</div>
-					<div id="dataAfter">
-						{html_select_date prefix="dateTo" time=$dateTo start_year=$yearStart end_year=$yearEnd year_empty="" month_empty="" day_empty="" field_order="YMD"}
+					<div class="spup-search-date-range">
+						<div>
+							{capture assign="dateFromLegend"}{translate key="search.dateFrom"}{/capture}
+							{html_select_date_a11y legend=$dateFromLegend prefix="dateFrom" time=$dateFrom start_year=$yearStart end_year=$yearEnd}
+						</div>
+						<div>
+							{capture assign="dateToLegend"}{translate key="search.dateTo"}{/capture}
+							{html_select_date_a11y legend=$dateToLegend prefix="dateTo" time=$dateTo start_year=$yearStart end_year=$yearEnd}
+						</div>
 					</div>
 
 					<div class="filter-authors">
-						<input type="text" class="form-control" for="authors" name="authors" value="{$authors|escape}" placeholder="{translate key="search.author"}">
+						<label for="authors">{translate key="search.author"}</label>
+						<input id="authors" type="text" class="form-control" name="authors" value="{$authors|escape}">
 					</div>
+					{if !$currentContext && $searchableContexts}
+						<div class="spup-search-journal-filter">
+							<label for="searchJournal">{translate key="search.journal"}</label>
+							<select id="searchJournal" name="searchJournal" class="form-control">
+								<option value="">{translate key="plugins.themes.spupLightExplorerTheme.search.allJournalsOption"}</option>
+								{foreach from=$searchableContexts item=searchableContext}
+									<option value="{$searchableContext->id|escape}"{if $searchJournal == $searchableContext->id} selected{/if}>{$searchableContext->name|escape}</option>
+								{/foreach}
+							</select>
+						</div>
+					{/if}
 				</fieldset>
 
 
@@ -78,9 +97,14 @@
 		{* Search results, finally! *}
 		{if !$results->wasEmpty()}
 
-			<div class="search_results">
+			<div id="results" class="search_results">
 				{iterate from=results item=result}
-					{include file="frontend/objects/article_summary.tpl" headingLevel="2" article=$result.publishedSubmission journal=$result.journal showDatePublished=true hideGalleys=true}
+					<div class="spup-search-result">
+						{if !$currentContext && $result.journal}
+							<p class="spup-search-result-journal">{$result.journal->getLocalizedName()|escape}</p>
+						{/if}
+						{include file="frontend/objects/article_summary.tpl" headingLevel="2" article=$result.publishedSubmission journal=$result.journal showDatePublished=true hideGalleys=true}
+					</div>
 				{/iterate}
 			</div>
 		{/if}

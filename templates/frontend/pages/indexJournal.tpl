@@ -41,6 +41,20 @@
 	{/if}
 
 	<div class="container-fluid container-page">
+		{capture assign="journalSearchUrl"}{url router=$smarty.const.ROUTE_PAGE journal=$currentJournal->getPath() page="search" op="search" escape=false}{/capture}
+		{assign var=journalSearchUrlParameters value=$activeTheme->getSearchFormParameters($journalSearchUrl)}
+		<form class="spup-journal-search" role="search" method="get" action="{$journalSearchUrl|strtok:"?"|escape}">
+			{foreach from=$journalSearchUrlParameters key=paramKey item=paramValue}
+				{if $paramKey != 'query' && $paramKey != 'searchJournal'}
+					<input type="hidden" name="{$paramKey|escape}" value="{$paramValue|escape}">
+				{/if}
+			{/foreach}
+			<label for="spup-journal-search-query">{translate key="plugins.themes.spupLightExplorerTheme.search.thisJournal"}</label>
+			<div class="spup-journal-search__controls">
+				<input id="spup-journal-search-query" type="search" name="query" placeholder="{translate|escape key="plugins.themes.spupLightExplorerTheme.hero.searchLabel"}" required>
+				<button type="submit">{translate key="common.search"}</button>
+			</div>
+		</form>
 
 		{* Announcements *}
 		{if $announcements}
