@@ -131,6 +131,18 @@ class SpupLightExplorerThemePlugin extends ThemePlugin
         return __('plugins.themes.spupLightExplorerTheme.description');
     }
 
+    /** Preserve OJS route parameters when a GET search form submits a query. */
+    public function getSearchFormParameters(string $url): array
+    {
+        $query = parse_url($url, PHP_URL_QUERY);
+        if (!is_string($query) || $query === '') {
+            return [];
+        }
+
+        parse_str($query, $parameters);
+        return array_filter($parameters, 'is_scalar');
+    }
+
     public function loadAdditionalData($hookName, $args)
     {
         $smarty = $args[0];

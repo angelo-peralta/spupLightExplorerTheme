@@ -17,6 +17,9 @@ msgstr "The Light Explorer Theme"
 msgid "plugins.themes.spupLightExplorerTheme.description"
 msgstr "A custom OJS theme for the St. Paul University Philippines journal network."
 
+msgid "plugins.themes.spupLightExplorerTheme.hero.searchLabel"
+msgstr "Search articles, authors, or keywords"
+
 msgid "plugins.themes.spupLightExplorerTheme.option.primaryColor.label"
 msgstr "Primary color"
 
