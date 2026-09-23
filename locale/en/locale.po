@@ -32,6 +32,33 @@ msgstr "Search this journal"
 msgid "plugins.themes.spupLightExplorerTheme.search.allJournalsOption"
 msgstr "All journals"
 
+msgid "plugins.themes.spupLightExplorerTheme.footer.network"
+msgstr "Journal Network"
+
+msgid "plugins.themes.spupLightExplorerTheme.footer.institution"
+msgstr "St. Paul University Philippines"
+
+msgid "plugins.themes.spupLightExplorerTheme.footer.sealAlt"
+msgstr "St. Paul University Philippines seal"
+
+msgid "plugins.themes.spupLightExplorerTheme.footer.description"
+msgstr "Scholarly journals from St. Paul University Philippines."
+
+msgid "plugins.themes.spupLightExplorerTheme.footer.contact"
+msgstr "Publishing contact"
+
+msgid "plugins.themes.spupLightExplorerTheme.footer.location"
+msgstr "Location"
+
+msgid "plugins.themes.spupLightExplorerTheme.footer.address"
+msgstr "Tuguegarao City, Cagayan 3500, Philippines"
+
+msgid "plugins.themes.spupLightExplorerTheme.footer.viewMap"
+msgstr "View location on map"
+
+msgid "plugins.themes.spupLightExplorerTheme.footer.poweredBy"
+msgstr "Website Powered by: SPUP-ICT Unit"
+
 msgid "plugins.themes.spupLightExplorerTheme.option.primaryColor.label"
 msgstr "Primary color"
 

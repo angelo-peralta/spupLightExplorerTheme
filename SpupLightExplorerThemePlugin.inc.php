@@ -176,6 +176,10 @@ class SpupLightExplorerThemePlugin extends ThemePlugin
                 'languageToggleLocales' => $locales
             ]);
         }
+
+        if (!$context) {
+            $smarty->assign('spupFooterContactEmail', $request->getSite()->getLocalizedData('contactEmail'));
+        }
     }
 
     public function loadIssueData($hookName, $args)
