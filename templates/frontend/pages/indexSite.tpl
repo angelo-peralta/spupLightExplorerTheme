@@ -5,13 +5,43 @@
  * Copyright (c) 2003-2020 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @brief Template for side-wide index page
+ * @brief Template for site-wide index page
  *
  *}
-{include file="frontend/components/header.tpl"}
+{include file="frontend/components/header.tpl" spupSiteHeroHeading=true}
 
-<div class="page_index_site">
-	<div class="container-fluid container-page container-narrow">
+<main class="page_index_site">
+	<section class="spup-site-hero" aria-labelledby="spup-site-hero-title">
+		<div class="spup-site-container spup-site-hero__inner">
+			<p class="spup-site-hero__institution">St. Paul University Philippines</p>
+			<h1 id="spup-site-hero-title" class="spup-site-hero__title">
+				{if $siteTitle}{$siteTitle|escape}{else}The Light Explorer{/if}
+			</h1>
+			<p class="spup-site-hero__subtitle">Journal Network</p>
+			<div class="spup-site-hero__divider" aria-hidden="true"></div>
+
+			{capture assign="spupSearchUrl"}{url page="search" op="search" router=$smarty.const.ROUTE_PAGE escape=false}{/capture}
+			{assign var=spupSearchUrlParameters value=$activeTheme->getSearchFormParameters($spupSearchUrl)}
+			<form class="spup-site-hero__search" method="get" action="{$spupSearchUrl|strtok:"?"|escape}" role="search">
+				{foreach from=$spupSearchUrlParameters key=paramKey item=paramValue}
+					<input type="hidden" name="{$paramKey|escape}" value="{$paramValue|escape}">
+				{/foreach}
+				<label class="spup-site-hero__search-label" for="spup-site-search-query">{translate key="plugins.themes.spupLightExplorerTheme.hero.searchLabel"}</label>
+				<div class="spup-site-hero__search-controls">
+					<input id="spup-site-search-query" type="search" name="query" placeholder="{translate|escape key="plugins.themes.spupLightExplorerTheme.hero.searchLabel"}" required>
+					<button type="submit">{translate key="common.search"}</button>
+				</div>
+			</form>
+
+			{if $journals|@count}
+				<p class="spup-site-hero__meta">
+					{$journals|@count} {if $journals|@count == 1}{translate key="context.context"}{else}{translate key="context.contexts"}{/if}
+				</p>
+			{/if}
+		</div>
+	</section>
+
+	<div class="spup-site-container spup-site-content">
 
 		{if $about}
 			<div class="about_site">
@@ -69,6 +99,6 @@
 		</div>
 	</div>
 
-</div><!-- .page -->
+</main><!-- .page_index_site -->
 
 {include file="frontend/components/footer.tpl"}
