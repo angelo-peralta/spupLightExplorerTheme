@@ -66,7 +66,7 @@
 					<li class="nav-item">
 						<a id="show-modal" class="nav-link">
 							<ion-icon name="menu"></ion-icon>
-							<span class="ion-icon-text">{translate key="plugins.themes.classic.menu"}</span>
+							<span class="ion-icon-text">{translate key="plugins.themes.spupLightExplorerTheme.menu"}</span>
 						</a>
 					</li>
 				</ul>
