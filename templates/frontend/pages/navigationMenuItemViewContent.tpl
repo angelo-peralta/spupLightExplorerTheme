@@ -11,7 +11,8 @@
 
 <main class="page navigation-item-content">
 	<div class="container-fluid container-page container-narrow">
-		<h1 class="page_title text-center">{$title|escape}</h1>
+		{if !$currentContext}<p class="spup-page-eyebrow">{translate key="plugins.themes.spupLightExplorerTheme.root.publisherEyebrow"}</p>{/if}
+		<h1 class="page_title{if $currentContext} text-center{/if}">{$title|escape}</h1>
 		{$content}
 	</div>
 </main>

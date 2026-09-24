@@ -20,7 +20,7 @@
 	{capture assign="pageTitleTranslated"}{translate key=$pageTitle}{/capture}
 {/if}
 {include file="frontend/components/headerHead.tpl"}
-<body>
+<body{if !$currentContext} class="spup-root"{/if}>
 <header class="spup-header spup-header--{if $currentContext}journal{else}site{/if}">
 	<div class="spup-header__inner">
 		<div class="spup-header__top">

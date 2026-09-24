@@ -22,15 +22,17 @@
 	{capture assign="spupSearchUrl"}{url router=$smarty.const.ROUTE_PAGE journal=$currentContext->getPath() page="search" op="search" escape=false}{/capture}
 {else}
 	{assign var="spupSearchScopeKey" value="plugins.themes.spupLightExplorerTheme.search.allJournals"}
+	{assign var="spupSearchTitleKey" value="plugins.themes.spupLightExplorerTheme.root.searchTitle"}
 	{capture assign="spupSearchUrl"}{url router=$smarty.const.ROUTE_PAGE page="search" op="search" escape=false}{/capture}
 {/if}
 {assign var=formUrlParameters value=$activeTheme->getSearchFormParameters($spupSearchUrl)}
-{include file="frontend/components/header.tpl" pageTitle=$spupSearchScopeKey}
+{include file="frontend/components/header.tpl" pageTitle=$spupSearchTitleKey|default:$spupSearchScopeKey}
 
 <main class="page page_search">
 	<section class="container-fluid container-page">
 
-		{include file="frontend/components/headings.tpl" currentTitleKey=$spupSearchScopeKey}
+		{if !$currentContext}<p class="spup-page-eyebrow">{translate key="plugins.themes.spupLightExplorerTheme.root.searchEyebrow"}</p>{/if}
+		{include file="frontend/components/headings.tpl" currentTitleKey=$spupSearchTitleKey|default:$spupSearchScopeKey}
 		{if $currentContext}
 			<p class="spup-search-scope">{$currentContext->getLocalizedName()|escape}</p>
 		{/if}
@@ -96,14 +98,24 @@
 
 		{* Search results, finally! *}
 		{if !$results->wasEmpty()}
+			{if !$currentContext}<p class="spup-search-count">{page_info iterator=$results}</p>{/if}
 
 			<div id="results" class="search_results">
 				{iterate from=results item=result}
 					<div class="spup-search-result">
-						{if !$currentContext && $result.journal}
+						{if !$currentContext}
+							{assign var=spupResultPublication value=$result.publishedSubmission->getCurrentPublication()}
+							<p class="spup-search-result-type">{translate key="plugins.themes.spupLightExplorerTheme.root.researchArticle"}</p>
+							<h2><a href="{url journal=$result.journal->getPath() page="article" op="view" path=$result.publishedSubmission->getBestId()}">{$spupResultPublication->getLocalizedFullTitle(null, 'text')|escape}</a></h2>
 							<p class="spup-search-result-journal">{$result.journal->getLocalizedName()|escape}</p>
+							{assign var=spupResultAuthors value=$activeTheme->getPublicationAuthors($spupResultPublication)}
+							{if $spupResultAuthors}<p class="spup-search-result-authors">{$spupResultAuthors|escape}</p>{/if}
+							{if $spupResultPublication->getData('datePublished')}<time datetime="{$spupResultPublication->getData('datePublished')|date_format:'Y-m-d'|escape}">{$spupResultPublication->getData('datePublished')|date_format:$dateFormatShort}</time>{/if}
+							{if $spupResultPublication->getLocalizedData('abstract')}<div class="spup-search-result-abstract">{$spupResultPublication->getLocalizedData('abstract')|strip_unsafe_html}</div>{/if}
+							<a class="spup-text-link" href="{url journal=$result.journal->getPath() page="article" op="view" path=$result.publishedSubmission->getBestId()}">{translate key="plugins.themes.spupLightExplorerTheme.root.readArticle"} <span aria-hidden="true">&rarr;</span></a>
+						{else}
+							{include file="frontend/objects/article_summary.tpl" headingLevel="2" article=$result.publishedSubmission journal=$result.journal showDatePublished=true hideGalleys=true}
 						{/if}
-						{include file="frontend/objects/article_summary.tpl" headingLevel="2" article=$result.publishedSubmission journal=$result.journal showDatePublished=true hideGalleys=true}
 					</div>
 				{/iterate}
 			</div>
@@ -111,6 +123,8 @@
 
 		{* No results found *}
 		{if $results->wasEmpty()}
+			{if !$currentContext && !$error}<div class="spup-empty-state"><h2>{translate key="plugins.themes.spupLightExplorerTheme.root.noSearchResults"}</h2><p>{translate key="plugins.themes.spupLightExplorerTheme.root.searchEmptyHelp"} <a href="{url page="index"}#journals">{translate key="plugins.themes.spupLightExplorerTheme.root.exploreJournals"}</a></p></div>{/if}
+			{if $currentContext || $error}
 			<div class="row">
 				<div class="search-notifications col-sm-10 offset-sm-1 col-md-8 offset-md-2">
 					{if $error}
@@ -120,6 +134,7 @@
 					{/if}
 				</div>
 			</div>
+			{/if}
 
 		{* Results pagination *}
 		{else}

@@ -32,6 +32,75 @@ msgstr "Search this journal"
 msgid "plugins.themes.spupLightExplorerTheme.search.allJournalsOption"
 msgstr "All journals"
 
+msgid "plugins.themes.spupLightExplorerTheme.root.networkStatistics"
+msgstr "Network statistics"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.journals"
+msgstr "Journals"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.articles"
+msgstr "Published articles"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.issues"
+msgstr "Published issues"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.discover"
+msgstr "Discover"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.exploreJournals"
+msgstr "Explore the Journals"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.publishing"
+msgstr "Publishing"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.latestScholarship"
+msgstr "Latest Scholarship"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.recentPublications"
+msgstr "Recent Publications"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.noPublications"
+msgstr "Recent publications will appear here when available."
+
+msgid "plugins.themes.spupLightExplorerTheme.root.allAnnouncements"
+msgstr "All announcements"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.searchEyebrow"
+msgstr "Search"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.searchTitle"
+msgstr "Search The Light Explorer"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.researchArticle"
+msgstr "Research article"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.readArticle"
+msgstr "Read article"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.searchEmptyHelp"
+msgstr "Try a different term or browse the journals."
+
+msgid "plugins.themes.spupLightExplorerTheme.root.noSearchResults"
+msgstr "No results found"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.announcementsEyebrow"
+msgstr "Network updates"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.announcementEyebrow"
+msgstr "Announcement"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.announcementsIntro"
+msgstr "News and updates from The Light Explorer journal network."
+
+msgid "plugins.themes.spupLightExplorerTheme.root.noAnnouncements"
+msgstr "No announcements are available yet."
+
+msgid "plugins.themes.spupLightExplorerTheme.root.publisherEyebrow"
+msgstr "The Light Explorer"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.backHome"
+msgstr "Return to the homepage"
+
 msgid "plugins.themes.spupLightExplorerTheme.footer.network"
 msgstr "Journal Network"
 

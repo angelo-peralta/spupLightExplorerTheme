@@ -16,10 +16,11 @@
 		{$announcement->getLocalizedData('title')|escape}
 	</h1>
 	<div class="announcement-full-wrapper">
-		<div class="announcement-full-date">
+		{if !$currentContext}<p class="spup-announcement-source">{$siteTitle|escape}</p>{/if}
+		<time class="announcement-full-date" datetime="{$announcement->datePosted|date_format:'Y-m-d'|escape}">
 			<i class="far fa-calendar-alt"></i>
 			{$announcement->datePosted|date_format:$dateFormatShort}
-		</div>
+		</time>
 		<div class="announcement-full-description">
 			{if $announcement->getLocalizedData('description')}
 				{$announcement->getLocalizedData('description')|strip_unsafe_html}

@@ -19,6 +19,12 @@
  */
 
 use APP\publication\Publication;
+use APP\facades\Repo;
+use APP\core\Application;
+use APP\submission\Submission;
+use APP\submission\Collector as SubmissionCollector;
+use PKP\announcement\Announcement;
+use PKP\db\DAORegistry;
 use PKP\plugins\ThemePlugin;
 
 class SpupLightExplorerThemePlugin extends ThemePlugin
@@ -122,6 +128,7 @@ class SpupLightExplorerThemePlugin extends ThemePlugin
         HookRegistry::add('TemplateManager::display', [$this, 'hasAuthorsInfo']);
         // Display journal summary on the homepage
         HookRegistry::add('TemplateManager::display', [$this, 'homepageJournalSummary']);
+        HookRegistry::add('TemplateManager::display', [$this, 'loadRootHomepageData']);
     }
 
     /** @see ThemePlugin::saveOption */
@@ -165,6 +172,12 @@ class SpupLightExplorerThemePlugin extends ThemePlugin
         $plainText = html_entity_decode(strip_tags($withSpacing), ENT_QUOTES | ENT_HTML5, 'UTF-8');
 
         return trim(preg_replace('/\s+/u', ' ', $plainText) ?? $plainText);
+    }
+
+    /** Use OJS author data without requiring a per-result user-group query. */
+    public function getPublicationAuthors($publication): string
+    {
+        return $publication->getAuthorString(collect());
     }
 
     public function loadAdditionalData($hookName, $args)
@@ -276,5 +289,78 @@ class SpupLightExplorerThemePlugin extends ThemePlugin
         $templateMgr->assign([
             'showJournalSummary' => $this->getOption('journalSummary'),
         ]);
+    }
+
+    /** Load bounded network data only for the public site homepage. */
+    public function loadRootHomepageData($hookName, $args)
+    {
+        if ($args[1] !== 'frontend/pages/indexSite.tpl' || $this->getRequest()->getContext()) {
+            return false;
+        }
+
+        $journalDao = DAORegistry::getDAO('JournalDAO');
+        $journals = $journalDao->getAll(true)->toArray();
+        $journalIds = array_map(static fn ($journal) => $journal->getId(), $journals);
+        $journalById = [];
+        foreach ($journals as $journal) {
+            $journalById[$journal->getId()] = $journal;
+        }
+
+        $stats = [
+            'journals' => count($journals),
+            'articles' => 0,
+            'issues' => 0,
+        ];
+        $recentPublications = [];
+        if ($journalIds) {
+            $submissions = Repo::submission()->getCollector()
+                ->filterByContextIds($journalIds)
+                ->filterByStatus([Submission::STATUS_PUBLISHED]);
+            $stats['articles'] = $submissions->getCount();
+            $stats['issues'] = Repo::issue()->getCollector()
+                ->filterByContextIds($journalIds)
+                ->filterByPublished(true)
+                ->getCount();
+
+            $recent = Repo::submission()->getCollector()
+                ->filterByContextIds($journalIds)
+                ->filterByStatus([Submission::STATUS_PUBLISHED])
+                ->orderBy(SubmissionCollector::ORDERBY_DATE_PUBLISHED)
+                ->limit(4)
+                ->getMany();
+            foreach ($recent as $submission) {
+                $publication = $submission->getCurrentPublication();
+                $journal = $journalById[$submission->getData('contextId')] ?? null;
+                if (!$publication || !$journal) {
+                    continue;
+                }
+                $recentPublications[] = [
+                    'submission' => $submission,
+                    'publication' => $publication,
+                    'journal' => $journal,
+                    'authors' => $publication->getAuthorString(collect()),
+                    'datePublished' => $publication->getData('datePublished'),
+                ];
+            }
+        }
+
+        // OJS supports site-wide announcements (a null association ID).
+        $announcements = Announcement::query()
+            ->where('assoc_type', Application::get()->getContextAssocType())
+            ->whereNull('assoc_id')
+            ->where('date_posted', '<=', now())
+            ->where(function ($query) {
+                $query->whereNull('date_expire')->orWhere('date_expire', '>', now());
+            })
+            ->orderByDesc('date_posted')
+            ->limit(3)
+            ->get();
+
+        $args[0]->assign([
+            'spupNetworkStats' => $stats,
+            'spupRecentPublications' => $recentPublications,
+            'spupNetworkAnnouncements' => $announcements,
+        ]);
+        return false;
     }
 }
