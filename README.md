@@ -1,35 +1,48 @@
 # The Light Explorer Theme
 
-The Light Explorer Theme is a custom Open Journal Systems 3.5 theme developed for the journal network of St. Paul University Philippines. It is based on the [PKP Classic Theme](https://github.com/pkp/classic), with modifications developed by St. Paul University Philippines. This release establishes an independent plugin identity while retaining the Classic visual design and features.
+The Light Explorer Theme is an OJS 3.5 theme for the St. Paul University Philippines journal network. It is based on the PKP Classic Theme and keeps OJS journals, publications, issues, announcements, authentication, and navigation menus as the source of their own data.
 
-## Base theme and compatibility
+Version 1.0.0.0 designs the **root publisher site**. Individual journal design systems are planned for V2; this release does not redesign their homepages, issues, or articles.
 
-- Base: PKP Classic Theme, stable-3_5_0 branch
-- Target platform: Open Journal Systems 3.5
-- Plugin folder: plugins/themes/spupLightExplorerTheme
-- Plugin version: 1.0.0.0
+## Install in OJS
 
-The theme has been exercised in a local OJS 3.5 installation. Production deployment and browser visual verification remain separate checks.
+1. Sign in as a site administrator and open **Dashboard → Plugins → Upload a New Plugin**.
+2. Upload `spupLightExplorerTheme-v1.0.0.zip`, enable **The Light Explorer Theme**, and select it under **Settings → Website → Appearance** for the root site.
+3. Set the OJS **Site Name**, **Site Logo**, **Site About**, and **Site Contact Email**. These remain native OJS settings.
+4. Assign the site's **User Navigation Menu** to the `user` area, the publisher menu to `primary`, and the footer menus to `footerExplore` and `footerInformation` in OJS Navigation Menus.
+5. Configure the root theme options under Appearance. If a changed template or LESS file is not visible, clear the OJS template and stylesheet caches.
 
-## Installation
+The installed theme does not require Node.js, npm, Gulp, or Composer. The official Classic Theme can remain installed separately. The ZIP is larger than PHP's default 2 MB upload limit; set `upload_max_filesize` and `post_max_size` above the ZIP size before uploading.
 
-1. Copy or extract this repository into plugins/themes/spupLightExplorerTheme under the OJS installation root. Keep that exact folder name.
-2. In OJS, open **Settings > Website > Plugins** and enable **The Light Explorer Theme**.
-3. Open **Settings > Website > Appearance** and select **The Light Explorer Theme** as the journal theme.
-4. Clear OJS caches if the plugin or its translated name does not appear, then reload the page.
+## Root navigation and content
 
-The official Classic Theme may remain installed alongside this theme. The plugin folder, application ID, PHP class, and translation keys are distinct.
+Create site-level Custom Navigation Menu Items with these paths and assign them to the site's menus as needed:
 
-## Development
+| Label | Path | Content source |
+| --- | --- | --- |
+| Journals | `journals` | Enabled OJS journals and their uploaded covers |
+| About | `publisher-about` | OJS Site About, network statistics, journals, and publisher details |
+| Contact | `publisher-contact` | OJS Site Contact Email and the theme's publisher address |
+| Submission Overview | `publisher-submit` | Administrator-edited item content plus live journal covers |
 
-The repository includes the existing Classic Theme LESS, templates, JavaScript, and assets. Keep those files when installing the theme. After changing `dev_js/main-theme.js`, run `npx gulp scripts` and then `npx gulp compress` to rebuild the committed JavaScript assets. OJS compiles the LESS stylesheet when its stylesheet cache is cleared.
+The theme renders the first three pages dynamically; their custom-item content may be empty. Keep Submission Overview's guidance in the OJS custom item's content field. Its links should lead to individual journals, because manuscripts are submitted inside a journal.
 
-The root footer uses two OJS Navigation Menu areas, `footerExplore` and `footerInformation`. Assign root navigation items to those areas in Site Management to populate the footer links. They are separate from the primary and user menus, and journal pages keep their existing footer.
+The homepage uses site-level OJS announcements, published OJS submissions, and enabled journal contexts. Journal names, article titles, counts, and cover paths are not stored in the theme.
 
-## Credits and license
+## Root theme options
 
-The original Classic Theme was designed and developed by Sophy Ouch, Vitalii Bezsheiko, John Willinsky, and Kevin Stranack for the Public Knowledge Project. Original PKP, Simon Fraser University, and John Willinsky copyright and GNU GPL notices are retained in the source.
+The site administrator may edit the network subtitle, publisher address, and Google Maps embed URL; show or hide network statistics, Latest Scholarship, announcements, About sections, and maps; and choose the recent publication and announcement counts. Counts are restricted to the choices shown in Appearance. Map URLs must be HTTPS Google Maps embed URLs; an empty or invalid URL renders no iframe. No Custom CSS, font, color, layout, or animation setting is provided for the root design.
 
-Modifications: Copyright © 2026 St. Paul University Philippines.
+Upload journal cover images through each OJS journal's settings. A journal without a cover receives a text fallback. The maps on About and Contact are optional and use the same configured URL. The footer map is off by default.
 
-This project is distributed under the [GNU General Public License v3.0](LICENSE). The Cardo and Montserrat fonts retain their [Open Font License](https://openfontlicense.org/) terms.
+## Development and packaging
+
+The runtime stylesheet is compiled by OJS from `less/import.less`. The committed `resources/app.min.js` and `resources/app.min.css` provide the runtime JavaScript and Bootstrap styles. If `dev_js/main-theme.js` changes, run `npx gulp scripts` and `npx gulp compress` before packaging. These tools are only needed by developers.
+
+Run `python scripts/build_release.py` to create `dist/spupLightExplorerTheme-v1.0.0.zip`. The archive has one top-level `spupLightExplorerTheme/` folder and contains only runtime code, styles, fonts, locales, templates, and license/documentation files. It excludes `.git`, `.local-dev`, `node_modules`, database dumps, credentials, screenshots, and development output. Test the exact ZIP through OJS's plugin upload workflow before publishing a release tag.
+
+## Credits and licenses
+
+The theme is based on the [PKP Classic Theme](https://github.com/pkp/classic). Original PKP, Simon Fraser University, and John Willinsky copyright and GNU GPL notices are retained. Classic Theme design credits include Sophy Ouch, Vitalii Bezsheiko, John Willinsky, and Kevin Stranack.
+
+Modified by St. Paul University Philippines, 2026. The theme is distributed under [GNU GPL v3](LICENSE). Bundled Cardo and Montserrat fonts are distributed under the SIL Open Font License; their notices are in [fonts/OFL-Cardo.txt](fonts/OFL-Cardo.txt) and [fonts/OFL-Montserrat.txt](fonts/OFL-Montserrat.txt).

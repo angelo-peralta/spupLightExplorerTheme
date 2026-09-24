@@ -11,8 +11,9 @@
 
 {include file="frontend/components/header.tpl" pageTitle="user.login"}
 
-<div class="page page_login">
+<main class="page page_login">
 	<div class="container-fluid container-page container-narrow">
+		{if !$currentContext}<div class="spup-auth-shell">{include file="frontend/components/rootAuthIdentity.tpl"}<div class="spup-auth-content">{/if}
 
 		{include file="frontend/components/headings.tpl" currentTitleKey="user.login"}
 
@@ -104,9 +105,11 @@
 						{/if}
 					</div>
 
+				</div>
 			</fieldset>
 		</form>
+		{if !$currentContext}</div></div>{/if}
 	</div>
-</div><!-- .page -->
+</main><!-- .page -->
 
 {include file="frontend/components/footer.tpl"}

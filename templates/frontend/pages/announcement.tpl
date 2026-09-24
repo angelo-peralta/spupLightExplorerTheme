@@ -13,7 +13,10 @@
 
 <main class="page page_announcement">
 	<div class="container-fluid container-page container-narrow">
-		{if !$currentContext}<p class="spup-page-eyebrow">{translate key="plugins.themes.spupLightExplorerTheme.root.announcementEyebrow"}</p>{/if}
+		{if !$currentContext}
+			{capture assign="spupAnnouncementsUrl"}{url page="announcement"}{/capture}
+			{include file="frontend/components/rootBreadcrumbs.tpl" currentTitle=$announcement->getLocalizedData('title') parentTitleKey="announcement.announcements" parentUrl=$spupAnnouncementsUrl}
+		{/if}
 		{* Display book details *}
 		{include file="frontend/objects/announcement_full.tpl"}
 	</div>

@@ -23,6 +23,9 @@ msgstr "Search articles, authors, or keywords"
 msgid "plugins.themes.spupLightExplorerTheme.directory.openJournal"
 msgstr "Open Journal"
 
+msgid "plugins.themes.spupLightExplorerTheme.directory.viewJournal"
+msgstr "View Journal"
+
 msgid "plugins.themes.spupLightExplorerTheme.search.allJournals"
 msgstr "Search all journals"
 
@@ -49,6 +52,111 @@ msgstr "Discover"
 
 msgid "plugins.themes.spupLightExplorerTheme.root.exploreJournals"
 msgstr "Explore the Journals"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.aboutNetwork"
+msgstr "About the Network"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.networkAtGlance"
+msgstr "Network at a Glance"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.publisher"
+msgstr "Publisher"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.institutionalWebsite"
+msgstr "SPUP website"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.publishWithUs"
+msgstr "Publish with the Network"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.submitHelp"
+msgstr "Select a journal, review its author guidelines, and submit your manuscript through that journal."
+
+msgid "plugins.themes.spupLightExplorerTheme.root.submissionOverview"
+msgstr "Submission Overview"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.chooseJournal"
+msgstr "Choose a Journal"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.publishingContact"
+msgstr "Publishing Contact"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.mapTitle"
+msgstr "St. Paul University Philippines location map"
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.yes"
+msgstr "Yes"
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.no"
+msgstr "No"
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.networkSubtitle"
+msgstr "Network subtitle"
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.networkSubtitle.description"
+msgstr "Short subtitle shown below the site name on the root homepage."
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.publisherAddress"
+msgstr "Publisher address"
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.publisherAddress.description"
+msgstr "Address shown on the root About, Contact, and footer pages."
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.googleMapsEmbedUrl"
+msgstr "Google Maps embed URL"
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.googleMapsEmbedUrl.description"
+msgstr "Paste an HTTPS Google Maps URL beginning with https://www.google.com/maps/embed."
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.showNetworkStats"
+msgstr "Show network statistics on homepage"
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.showLatestScholarship"
+msgstr "Show Latest Scholarship"
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.showAnnouncements"
+msgstr "Show announcements in Latest Scholarship"
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.showMapAbout"
+msgstr "Show map on About"
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.showMapContact"
+msgstr "Show map on Contact"
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.showMapFooter"
+msgstr "Show map in footer"
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.showAboutStats"
+msgstr "Show network statistics on About"
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.showAboutJournals"
+msgstr "Show journal gallery on About"
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.showAboutPublisher"
+msgstr "Show publisher information on About"
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.showAboutSubmission"
+msgstr "Show submission section on About"
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.recentPublicationCount"
+msgstr "Recent publication count"
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.announcementCount"
+msgstr "Announcement count"
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.count2"
+msgstr "2"
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.count3"
+msgstr "3"
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.count4"
+msgstr "4"
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.count5"
+msgstr "5"
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.count6"
+msgstr "6"
 
 msgid "plugins.themes.spupLightExplorerTheme.root.publishing"
 msgstr "Publishing"

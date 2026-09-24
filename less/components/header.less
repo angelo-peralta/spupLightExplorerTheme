@@ -271,8 +271,8 @@
 	.spup-header__inner { display: flex; align-items: center; justify-content: space-between; }
 	.spup-header__utility-band { background: #13412F; border-bottom: 1px solid #DDE5DE; color: #F6F7F3; }
 	.spup-header__utility-band .spup-header__inner { min-height: 32px; gap: 20px; }
-	.spup-header__utilities { display: flex; justify-content: flex-end; justify-self: auto; margin-left: auto; gap: 12px; }
-	#navigationUser { justify-content: flex-end; gap: 4px 18px; }
+	.spup-header__utilities { display: flex; justify-content: flex-start; justify-self: auto; margin-left: 0; gap: 12px; }
+	#navigationUser { justify-content: flex-start; gap: 4px 18px; }
 	#languageNav { border-left-color: rgba(255,255,255,.32); }
 	.spup-header__utility-band .nav-link,
 	.spup-header__utility-band .spup-header__language-button,
@@ -292,7 +292,8 @@
 	.spup-header__utility-band .spup-header__language-button:focus,
 	.spup-header__institutional-link:hover,
 	.spup-header__institutional-link:focus { color: #F4D471; border-bottom-color: #F4D471; }
-	.spup-header__institutional-link { flex: 0 0 auto; display: inline-flex; align-items: center; border-bottom: 2px solid transparent; }
+	.spup-header__institutional-link { flex: 0 0 auto; display: inline-flex; align-items: center; margin-left: auto; border-bottom: 2px solid transparent; }
+	.navigation-dropdown.show .dropdown-item { animation: spup-dropdown-enter 180ms ease-out; }
 	.spup-header__identity-band { background: #fff; }
 	.spup-header__identity-band .spup-header__inner { justify-content: center; min-height: 106px; padding-top: 12px; padding-bottom: 12px; }
 	.spup-header__home-link { gap: 22px; }
@@ -575,9 +576,14 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+	.spup-header--site .navigation-dropdown.show .dropdown-item { animation: none; }
 	.spup-header--site .spup-header__site-title,
 	.spup-header--site .spup-header__utility-band .nav-link,
 	.spup-header--site .spup-header__institutional-link,
 	.spup-header--site #navigationPrimary .nav-link,
 	.spup-header--site #navigationPrimary .spup-header__nav-label::after { transition: none; }
+}
+@keyframes spup-dropdown-enter {
+	from { opacity: .7; transform: translateY(-3px); }
+	to { opacity: 1; transform: translateY(0); }
 }

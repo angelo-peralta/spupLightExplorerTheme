@@ -12,6 +12,7 @@
 
 <main class="page page_lost_password">
 	<div class="container-fluid container-page">
+		{if !$currentContext}<div class="spup-auth-shell">{include file="frontend/components/rootAuthIdentity.tpl"}<div class="spup-auth-content">{/if}
 
 		{include file="frontend/components/headings.tpl" currentTitleKey="user.login.resetPassword"}
 
@@ -78,6 +79,7 @@
 			</fieldset>
 
 		</form>
+		{if !$currentContext}</div></div>{/if}
 
 	</div>
 </main><!-- .page -->

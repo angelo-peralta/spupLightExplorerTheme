@@ -30,10 +30,11 @@
 								<a href="mailto:{$spupFooterContactEmail|escape}">{$spupFooterContactEmail|escape}</a>
 							</section>
 						{/if}
-						<section class="spup-footer__detail">
+						{if $spupRootOptions.publisherAddress}<section class="spup-footer__detail">
 							<h3>{translate key="plugins.themes.spupLightExplorerTheme.footer.location"}</h3>
-							<p>{translate key="plugins.themes.spupLightExplorerTheme.footer.institution"}<br>{translate key="plugins.themes.spupLightExplorerTheme.footer.address"}</p>
-						</section>
+							<p>{translate key="plugins.themes.spupLightExplorerTheme.footer.institution"}<br>{$spupRootOptions.publisherAddress|escape|nl2br}</p>
+						</section>{/if}
+						{if $spupRootOptions.mapUrl && $spupRootOptions.showMapFooter}{include file="frontend/components/rootLocationMap.tpl"}{/if}
 					</div>
 					<div class="spup-footer__identity">
 						{if $displayPageHeaderLogo}
@@ -41,17 +42,23 @@
 						{/if}
 						<p class="spup-footer__eyebrow">{translate key="plugins.themes.spupLightExplorerTheme.footer.institution"}</p>
 						<h2 class="spup-footer__institution">{$siteTitle|escape}</h2>
-						<p class="spup-footer__site-title">{translate key="plugins.themes.spupLightExplorerTheme.footer.network"}</p>
+						<p class="spup-footer__site-title">{$spupRootOptions.networkSubtitle|escape}</p>
 					</div>
 					<div class="spup-footer__navigation">
+						{capture assign="spupFooterExploreMenu"}{load_menu name="footerExplore" id="spupFooterExplore" ulClass="spup-footer__menu"}{/capture}
+						{capture assign="spupFooterInformationMenu"}{load_menu name="footerInformation" id="spupFooterInformation" ulClass="spup-footer__menu"}{/capture}
+						{if $spupFooterExploreMenu|trim}
 						<section class="spup-footer__menu-section">
 							<h3 id="spupFooterExploreHeading">{translate key="plugins.themes.spupLightExplorerTheme.footer.explore"}</h3>
-							<nav aria-labelledby="spupFooterExploreHeading">{load_menu name="footerExplore" id="spupFooterExplore" ulClass="spup-footer__menu"}</nav>
+							<nav aria-labelledby="spupFooterExploreHeading">{$spupFooterExploreMenu}</nav>
 						</section>
+						{/if}
+						{if $spupFooterInformationMenu|trim}
 						<section class="spup-footer__menu-section">
 							<h3 id="spupFooterInformationHeading">{translate key="plugins.themes.spupLightExplorerTheme.footer.information"}</h3>
-							<nav aria-labelledby="spupFooterInformationHeading">{load_menu name="footerInformation" id="spupFooterInformation" ulClass="spup-footer__menu"}</nav>
+							<nav aria-labelledby="spupFooterInformationHeading">{$spupFooterInformationMenu}</nav>
 						</section>
+						{/if}
 					</div>
 				</div>
 				{if $pageFooter}
@@ -63,10 +70,9 @@
 			<div class="spup-footer__container spup-footer__bottom-inner">
 				<div class="spup-footer__credits">
 					<p>&copy; {$smarty.now|date_format:"Y"} {translate key="plugins.themes.spupLightExplorerTheme.footer.institution"}</p>
-					<p>{translate key="plugins.themes.spupLightExplorerTheme.footer.poweredBy"}</p>
 				</div>
 				<div class="spup-footer__platform">
-					<span>{translate key="plugins.themes.spupLightExplorerTheme.footer.platform"}</span>
+
 					<div class="pkpbrand-wrapper" role="complementary">
 						<a href="{url page="about" op="aboutThisPublishingSystem"}">
 							<img class="footer-brand-image" alt="{translate key="about.aboutThisPublishingSystem"}" src="{$baseUrl}/{$brandImage}">

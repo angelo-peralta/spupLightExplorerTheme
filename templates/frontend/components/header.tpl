@@ -25,13 +25,13 @@
 	{if !$currentContext}
 		<div class="spup-header__utility-band">
 			<div class="spup-header__inner">
-				<a class="spup-header__institutional-link" href="https://spup.edu.ph/">St. Paul University Philippines</a>
 				<div id="spupHeaderUtilities" class="spup-header__utilities">
 					<nav class="spup-header__user-navigation" aria-label="{translate|escape key="plugins.themes.spupLightExplorerTheme.accountNavigation"}">
 						{load_menu name="user" id="navigationUser" ulClass="pkp_navigation_user"}
 					</nav>
 					{include file="frontend/components/languageSwitcher.tpl" id="languageNav"}
 				</div>
+				<a class="spup-header__institutional-link" href="{$spupInstitutionalUrl|escape}">{translate key="plugins.themes.spupLightExplorerTheme.footer.institution"}</a>
 			</div>
 		</div>
 		<div class="spup-header__identity-band">

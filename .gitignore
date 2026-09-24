@@ -1,3 +1,5 @@
 node_modules/
 .idea/
 .local-dev/
+/nav contents
+dist/

@@ -9,11 +9,21 @@
  *}
 {include file="frontend/components/header.tpl" pageTitleTranslated=$title|escape}
 
-<main class="page navigation-item-content">
+<main class="page navigation-item-content{if !$currentContext && $requestedPage == 'journals'} page_journals{/if}">
 	<div class="container-fluid container-page container-narrow">
-		{if !$currentContext}<p class="spup-page-eyebrow">{translate key="plugins.themes.spupLightExplorerTheme.root.publisherEyebrow"}</p>{/if}
+		{if !$currentContext}{include file="frontend/components/rootBreadcrumbs.tpl" currentTitle=$title}{/if}
 		<h1 class="page_title{if $currentContext} text-center{/if}">{$title|escape}</h1>
-		{$content}
+		{if !$currentContext && $requestedPage == 'publisher-about'}
+			{include file="frontend/components/rootPublisherAbout.tpl"}
+		{elseif !$currentContext && $requestedPage == 'publisher-contact'}
+			{include file="frontend/components/rootPublisherContact.tpl"}
+		{elseif !$currentContext && $requestedPage == 'publisher-submit'}
+			{include file="frontend/components/rootPublisherSubmission.tpl"}
+		{elseif !$currentContext && $requestedPage == 'journals'}
+			{include file="frontend/components/rootJournalDirectory.tpl"}
+		{else}
+			{$content}
+		{/if}
 	</div>
 </main>
 

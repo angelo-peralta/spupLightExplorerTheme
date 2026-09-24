@@ -31,8 +31,12 @@
 <main class="page page_search">
 	<section class="container-fluid container-page">
 
-		{if !$currentContext}<p class="spup-page-eyebrow">{translate key="plugins.themes.spupLightExplorerTheme.root.searchEyebrow"}</p>{/if}
-		{include file="frontend/components/headings.tpl" currentTitleKey=$spupSearchTitleKey|default:$spupSearchScopeKey}
+		{if !$currentContext}
+			{include file="frontend/components/rootBreadcrumbs.tpl" currentTitleKey=$spupSearchTitleKey}
+			<h1 class="page_title">{translate key=$spupSearchTitleKey}</h1>
+		{else}
+			{include file="frontend/components/headings.tpl" currentTitleKey=$spupSearchScopeKey}
+		{/if}
 		{if $currentContext}
 			<p class="spup-search-scope">{$currentContext->getLocalizedName()|escape}</p>
 		{/if}
@@ -123,7 +127,7 @@
 
 		{* No results found *}
 		{if $results->wasEmpty()}
-			{if !$currentContext && !$error}<div class="spup-empty-state"><h2>{translate key="plugins.themes.spupLightExplorerTheme.root.noSearchResults"}</h2><p>{translate key="plugins.themes.spupLightExplorerTheme.root.searchEmptyHelp"} <a href="{url page="index"}#journals">{translate key="plugins.themes.spupLightExplorerTheme.root.exploreJournals"}</a></p></div>{/if}
+			{if !$currentContext && !$error}<div class="spup-empty-state"><h2>{translate key="plugins.themes.spupLightExplorerTheme.root.noSearchResults"}</h2><p>{translate key="plugins.themes.spupLightExplorerTheme.root.searchEmptyHelp"} <a href="{url page="journals"}">{translate key="plugins.themes.spupLightExplorerTheme.root.exploreJournals"}</a></p></div>{/if}
 			{if $currentContext || $error}
 			<div class="row">
 				<div class="search-notifications col-sm-10 offset-sm-1 col-md-8 offset-md-2">
