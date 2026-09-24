@@ -119,9 +119,6 @@ msgstr "St. Paul University Philippines"
 msgid "plugins.themes.spupLightExplorerTheme.footer.sealAlt"
 msgstr "St. Paul University Philippines seal"
 
-msgid "plugins.themes.spupLightExplorerTheme.footer.description"
-msgstr "Scholarly journals from St. Paul University Philippines."
-
 msgid "plugins.themes.spupLightExplorerTheme.footer.contact"
 msgstr "Publishing contact"
 

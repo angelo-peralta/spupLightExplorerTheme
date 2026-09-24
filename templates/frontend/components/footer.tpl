@@ -42,7 +42,6 @@
 						<p class="spup-footer__eyebrow">{translate key="plugins.themes.spupLightExplorerTheme.footer.institution"}</p>
 						<h2 class="spup-footer__institution">{$siteTitle|escape}</h2>
 						<p class="spup-footer__site-title">{translate key="plugins.themes.spupLightExplorerTheme.footer.network"}</p>
-						<p class="spup-footer__description">{translate key="plugins.themes.spupLightExplorerTheme.footer.description"}</p>
 					</div>
 					<div class="spup-footer__navigation">
 						<section class="spup-footer__menu-section">
