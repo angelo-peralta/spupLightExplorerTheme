@@ -68,6 +68,27 @@ msgstr "Change primary color of the theme"
 msgid "plugins.themes.spupLightExplorerTheme.menu"
 msgstr "Menu"
 
+msgid "plugins.themes.spupLightExplorerTheme.closeMenu"
+msgstr "Close menu"
+
+msgid "plugins.themes.spupLightExplorerTheme.primaryNavigation"
+msgstr "Primary navigation"
+
+msgid "plugins.themes.spupLightExplorerTheme.accountNavigation"
+msgstr "Account"
+
+msgid "plugins.themes.spupLightExplorerTheme.option.showJournalTitleInHeader.label"
+msgstr "Show journal title in header"
+
+msgid "plugins.themes.spupLightExplorerTheme.option.showJournalTitleInHeader.description"
+msgstr "On journal pages, show the title beside its header image. The title always appears when no image is configured."
+
+msgid "plugins.themes.spupLightExplorerTheme.option.showJournalTitleInHeader.hide"
+msgstr "Hide when a header image is available"
+
+msgid "plugins.themes.spupLightExplorerTheme.option.showJournalTitleInHeader.show"
+msgstr "Show beside the header image"
+
 msgid "plugins.themes.spupLightExplorerTheme.issueDescription"
 msgstr "Issue Description"
 

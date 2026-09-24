@@ -18,13 +18,13 @@
 			{if !empty($navigationMenuItemAssignment->children)}
 				{assign var=navItemType value=$navigationMenuItemAssignment->navigationMenuItem->getType()|escape}
 				<li class="{$liClass|escape} nav-item dropdown">
-					<a{if $navItemType === "NMI_TYPE_USER_DASHBOARD"} id="user-dashboard-link"{/if}
+					<a id="{if $navItemType === "NMI_TYPE_USER_DASHBOARD"}user-dashboard-link{else}{$id|escape}-dropdown-{$field|escape}{/if}"
 							class="nav-link dropdown-toggle{if !($languageToggleLocales && $languageToggleLocales|@count > 1)} locales-toggle-off{/if}"
 							href="{$navigationMenuItemAssignment->navigationMenuItem->getUrl()}" role="button"
 							data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						{$navigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
 					</a>
-					<div class="navigation-dropdown dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+					<div class="navigation-dropdown dropdown-menu dropdown-menu-end" aria-labelledby="{if $navItemType === "NMI_TYPE_USER_DASHBOARD"}user-dashboard-link{else}{$id|escape}-dropdown-{$field|escape}{/if}">
 						{foreach key=childField item=childNavigationMenuItemAssignment from=$navigationMenuItemAssignment->children}
 							{if $childNavigationMenuItemAssignment->navigationMenuItem->getIsDisplayed()}
 								<a class="{$liClass|escape} dropdown-item"

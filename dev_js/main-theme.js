@@ -9,29 +9,54 @@
  */
 
 
-/* This self-invoking function provides primary menu rendering for small screens
- * We want to treat it like a typical modal
- */
+/* Keep OJS's single set of menu links available in an inline mobile panel. */
 (function () {
-	var modal = document.getElementById('modal-on-small');
-	var btn = document.getElementById("show-modal");
-	var span = document.getElementById("close-small-modal");
+	const header = document.querySelector('.spup-header');
+	const toggle = document.getElementById('spup-menu-toggle');
+	if (!header || !toggle) {
+		return;
+	}
 
-	if ((btn && span && modal) !== null) {
-		btn.onclick = function () {
-			modal.classList.remove('hide');
-		};
+	function setOpen(open) {
+		header.classList.toggle('is-open', open);
+		toggle.setAttribute('aria-expanded', String(open));
+	}
 
-		span.onclick = function () {
-			modal.classList.add('hide');
-		};
+	header.classList.add('spup-header--enhanced');
+	toggle.hidden = false;
+	toggle.addEventListener('click', function () {
+		setOpen(!header.classList.contains('is-open'));
+	});
 
-		// Close the menu when user clicks outside it
-		window.onclick = function (event) {
-			if (event.target == modal) {
-				modal.classList.add('hide');
-			}
-		};
+	header.addEventListener('keydown', function (event) {
+		if (event.key === ' ' && event.target.matches('.dropdown-toggle[role="button"]')) {
+			event.preventDefault();
+			event.target.click();
+			return;
+		}
+
+		if (event.key === 'Escape' && header.classList.contains('is-open') && !header.querySelector('.dropdown-menu.show')) {
+			setOpen(false);
+			toggle.focus();
+		}
+	});
+
+	document.addEventListener('click', function (event) {
+		if (header.classList.contains('is-open') && !header.contains(event.target)) {
+			setOpen(false);
+		}
+	});
+
+	const desktopQuery = window.matchMedia('(min-width: 992px)');
+	function closeAtDesktop(event) {
+		if (event.matches) {
+			setOpen(false);
+		}
+	}
+	if (desktopQuery.addEventListener) {
+		desktopQuery.addEventListener('change', closeAtDesktop);
+	} else if (desktopQuery.addListener) {
+		desktopQuery.addListener(closeAtDesktop);
 	}
 })();
 

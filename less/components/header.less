@@ -5,364 +5,479 @@
  * Copyright (c) 2003-2020 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @brief Stylesheet for site header
- *
+ * @brief Shared site and journal header
  */
 
-// all header
+.spup-header {
+	position: relative;
+	z-index: 20;
+	background: #fff;
+	border-bottom: 1px solid #DEE3DF;
+	color: #1F2A25;
+	font-family: @font-family-secondary;
 
-.header {
-	background-color: #000;
-	padding-top: 7px;
-}
+	.spup-header__inner {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) auto;
+		grid-template-areas: "top utilities" "navigation navigation";
+		align-items: center;
+		width: 100%;
+		max-width: @spup-content-width;
+		margin: 0 auto;
+		padding: 0 24px;
+	}
 
-.home-link {
+	.spup-header__top {
+		grid-area: top;
+		display: flex;
+		align-items: center;
+		min-width: 0;
+		min-height: 76px;
+		padding: 12px 24px 12px 0;
+	}
 
-	&:hover, &:focus {
-		text-decoration: none;
-		background-color: inherit;
+	.spup-header__identity,
+	.spup-header__home-link {
+		min-width: 0;
+	}
+
+	.spup-header__journal-heading {
+		display: inline-flex;
+		align-items: center;
+		gap: 14px;
+		min-width: 0;
+		max-width: 100%;
+		margin: 0;
+		font-size: inherit;
+	}
+
+	.spup-header__home-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 14px;
+		max-width: 100%;
 		border: 0;
-	}
-}
+		color: inherit;
+		text-decoration: none;
 
-.header .row {
-	min-height: @minHeight-userMenu;
-}
-
-.nav-link {
-	color: #FFF;
-	font-family: @font-family-secondary;
-	font-size: 14px;
-	box-shadow: none;
-
-	&:hover, &:focus, &:active {
-		background: none;
-	}
-}
-
-.user-dropdown a:focus {
-	background-color: @primary-colour;
-}
-
-@media (min-width: 992px) {
-	.header {
-		.container-padding()
-	}
-
-	header {
-		& .nav-link {
-			margin-left: -15px;
-		}
-		& li:last-child .nav-link.locales-toggle-off {
-			padding-right: 0;
-		}
-	}
-}
-
-@media (max-width: 991px) {
-	#show-modal {
-		padding-left: 0;
-	}
-}
-
-#nav-small {
-	display: none;
-}
-
-.nav-tabs .nav-link {
-	border: 0;
-	&:focus, &:hover {
-		color: @secondary-colour;
-	}
-}
-
-
-// user navigation menu & language toggle block
-#navigationUser {
-	justify-content: flex-end;
-	border-bottom: 0;
-}
-
-#navigationUser a, #user-nav-wraper a {
-	font-size: 12px;
-	border: 0;
-}
-
-#user-nav-wraper {
-	display: flex;
-	justify-content: flex-end;
-}
-
-#languageNav {
-	border-bottom: none;
-
-	& li > a {
-		padding-left: 16px;
-	}
-
-	& .dropdown-toggle {
-		color: white;
-		cursor: pointer;
-	}
-}
-
-#languageNav .show #languageToggleMenulanguageNav {
-	color: @secondary-colour;
-}
-
-#languageToggleMenulanguageNav {
-	&:hover {
-		background-color: inherit;
-		color: @secondary-colour;
-	}
-
-	&:focus {
-		color: @secondary-colour;
-	}
-}
-
-.task_count {
-	background-color: white;
-	color: #000;
-	font-weight: bolder;
-	display: inline-block;
-	border-radius: 10px;
-	padding-left: 5px;
-	padding-right: 5px;
-	margin-left: 3px;
-}
-
-#user-dashboard-link:hover .task_count {
-	background-color: @primary-colour;
-}
-
-.show #user-dashboard-link .task_count {
-	background-color: @primary-colour;
-}
-
-.navigation-dropdown.show .task_count {
-	display: inline-block;
-	background-color: #000;
-	padding-left: 7px;
-	padding-right: 7px;
-	border-radius: 10px;
-	color: white;
-	font-weight: bolder;
-}
-
-
-// Dropdown menu
-.dropdown-menu {
-	padding: 0;
-	border-radius: 0;
-	border-color: #000;
-}
-
-.dropdown-item {
-	padding: 0.5rem 0.25rem;
-	text-align: center;
-	font-family: @font-family-secondary;
-	font-size: 0.75rem;
-
-	&:focus, &:hover, &:active {
-		background-color: @primary-colour;
-		color: @contrast-colour;
-	}
-}
-
-.nav-tabs .nav-item.show .nav-link,
-.nav-tabs .nav-link.active {
-	background-color: #000;
-}
-
-// Journal logo
-.upper-header {
-	padding-top: 7px;
-	padding-left: 16px;
-}
-
-.journal-logo-text {
-	color: #FFF;
-	padding-top: 5px;
-	font-family: @font-family-primary;
-	font-size: 22px;
-	&:focus, &:hover {
-		color: @secondary-colour;
-	}
-}
-
-.journal-logo {
-	max-height: @minHeight-userMenu;
-}
-
-.logo-wrapper {
-	padding-left: 0;
-
-	& a {
-		border-bottom: none;
-	}
-}
-
-/* user navigation
- * menu && language toggle FOR small SCREENS
- */
-@media (max-width: 991px) {
-	#navigationUser, #languageNav {
-		& .nav-item.show .nav-link.dropdown-toggle {
-			background-color: #000;
+		&:hover,
+		&:focus {
+			color: inherit;
+			text-decoration: none;
 		}
 	}
 
-}
-
-@media (max-width: 767px) {
-	#user-nav-wraper {
-		justify-content: flex-start;
-		padding-left: 0;
-	}
-
-	#navigationUser li:first-child .nav-link {
-		padding-left: 0;
-	}
-}
-
-
-/* primary navigation menu
- * FOR LARGE SCREENS
- */
-@media (min-width: 992px) {
-	// always show primary menu on big screens
-	#modal-on-small {
+	.spup-header__logo {
 		display: block;
+		flex: 0 1 auto;
+		width: auto;
+		height: auto;
+		max-width: 100%;
+		object-fit: contain;
 	}
 
-	#close-small-modal {
+	.spup-header__logo--site {
+		flex: 0 0 44px;
+		width: 44px;
+		height: 44px;
+		border-radius: 50%;
+	}
+
+	.spup-header__logo--journal {
+		max-height: 72px;
+	}
+
+	.spup-header__institution {
+		font-size: 14px;
+		font-weight: 700;
+		letter-spacing: 0.01em;
+		line-height: 1.35;
+	}
+
+	.spup-header__journal-title {
+		min-width: 0;
+		font-family: @font-family-primary;
+		font-size: 23px;
+		font-weight: 700;
+		line-height: 1.2;
+		overflow-wrap: anywhere;
+	}
+
+	.spup-header__navigation {
+		grid-area: navigation;
+		min-width: 0;
+		border-top: 1px solid #EEF0ED;
+	}
+
+	.spup-header__utilities {
+		grid-area: utilities;
+		display: flex;
+		align-items: center;
+		justify-self: end;
+		min-width: 0;
+		gap: 8px;
+	}
+
+	.spup-header__account-label {
 		display: none;
 	}
 
-	#navigationPrimary {
+	.spup-header__user-navigation {
+		min-width: 0;
+	}
+
+	#navigationPrimary,
+	#navigationUser,
+	#languageNav {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		margin: 0;
+		padding: 0;
 		border: 0;
-		justify-content: space-between;
-		padding-bottom: 15px;
+		list-style: none;
+	}
+
+	#navigationPrimary {
+		gap: 4px 28px;
+	}
+
+	#navigationUser {
+		justify-content: flex-end;
+		gap: 4px 14px;
+	}
+
+	.nav-item {
+		margin: 0;
+	}
+
+	.nav-link,
+	.spup-header__language-button {
+		display: inline-flex;
+		align-items: center;
+		min-height: 44px;
+		padding: 8px 0;
+		border: 0;
+		border-bottom: 2px solid transparent;
+		border-radius: 0;
+		background: transparent;
+		box-shadow: none;
+		color: #26382E;
+		font-family: @font-family-secondary;
+		font-size: 13px;
+		font-weight: 600;
+		line-height: 1.4;
+		text-align: left;
+		text-decoration: none;
+		white-space: normal;
+
+		&:hover,
+		&:focus,
+		&:active {
+			background: transparent;
+			color: #26382E;
+		}
 	}
 
 	#navigationPrimary .nav-link {
-		text-transform: uppercase;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		font-size: 14px;
 	}
-}
 
-/* primary navigation
- * menu FOR small SCREENS
- */
-@media (max-width: 991px) {
-	#show-modal {
+	#navigationUser .nav-link,
+	.spup-header__language-button {
+		font-size: 12px;
+	}
+
+	#languageNav {
+		padding-left: 10px;
+		border-left: 1px solid #DEE3DF;
+	}
+
+	.spup-header__language-button {
 		cursor: pointer;
-		color: #fff;
-		&:focus, &:hover {
-			color: #fff;
-			background-color: inherit;
-		}
 	}
 
-	#nav-small {
-		display: flex;
-		border-bottom: 0;
-		padding-bottom: 15px;
+	.nav-tabs .nav-item.show .nav-link,
+	.nav-tabs .nav-link.active {
+		background: transparent;
+		color: #26382E;
 	}
 
-	#nav-small li {
-		margin-bottom: 0;
+	.navigation-dropdown {
+		min-width: 196px;
+		max-width: 320px;
+		padding: 6px;
+		border: 1px solid #DEE3DF;
+		border-radius: 6px;
+		background: #fff;
+		box-shadow: 0 10px 28px rgba(24, 44, 32, 0.12);
 	}
 
-	#nav-small a {
-		border: 0;
-		text-transform: uppercase;
+	.spup-header__utilities .navigation-dropdown {
+		right: 0;
+		left: auto;
 	}
 
-	.nav-modal {
-		.modal();
+	.navigation-dropdown .dropdown-item {
+		min-height: 40px;
+		padding: 10px 12px;
+		border-radius: 3px;
+		color: #26382E;
+		font-family: @font-family-secondary;
+		font-size: 13px;
+		line-height: 1.4;
+		text-align: left;
+		white-space: normal;
 	}
 
-	// we don't want to display modal element while it has hide class value
-	.nav-modal.hide {
+	.navigation-dropdown .dropdown-item:hover,
+	.navigation-dropdown .dropdown-item:focus {
+		background: #F3F6F3;
+		color: #26382E;
+	}
+
+	.task_count {
+		display: inline-block;
+		margin-left: 4px;
+		padding: 2px 6px;
+		border-radius: 10px;
+		background: #E8EDE9;
+		color: #1F2A25;
+		font-size: 11px;
+		font-weight: 700;
+	}
+
+	.spup-header__menu-toggle {
 		display: none;
 	}
 
-	#primary-nav-wraper {
-		position: absolute;
-		top: 0;
-		left: 0;
-		height: 100%;
-		background-color: #fefefe;
-		margin: auto;
-		padding-top: 20px;
-		padding-bottom: 20px;
-		width: 50%;
-		overflow-y: auto;
+	.spup-header__menu-toggle[hidden] {
+		display: none !important;
 	}
 
-	#close-small-modal {
-		position: absolute;
-		right: 10px;
-		top: 0;
-		color: #aaaaaa;
-		font-size: 28px;
-		font-weight: bold;
+	a:focus-visible,
+	button:focus-visible {
+		outline: 3px solid #245B3A;
+		outline-offset: 3px;
+	}
+}
+
+.spup-header--site {
+	.spup-header__institution {
+		color: #00492A;
 	}
 
-	#close-small-modal:hover,
-	#close-small-modal:focus {
-		color: #000;
-		text-decoration: none;
-		cursor: pointer;
+	.nav-link:hover,
+	.nav-link:focus,
+	.spup-header__language-button:hover,
+	.spup-header__language-button:focus {
+		border-bottom-color: #00663B;
+		color: #00492A;
 	}
 
-	// styling nav inside modal menu
-	#navigationPrimary {
-		display: block;
-		border-bottom: 0;
+	.navigation-dropdown .dropdown-item:hover,
+	.navigation-dropdown .dropdown-item:focus {
+		box-shadow: inset 3px 0 #00663B;
+	}
+}
+
+.spup-header--journal {
+	.nav-link:hover,
+	.nav-link:focus,
+	.spup-header__language-button:hover,
+	.spup-header__language-button:focus {
+		border-bottom-color: @primary-colour;
 	}
 
-	#navigationPrimary a {
-		border: 0;
-		color: #0a0a0a;
+	.navigation-dropdown .dropdown-item:hover,
+	.navigation-dropdown .dropdown-item:focus {
+		box-shadow: inset 3px 0 @primary-colour;
 	}
+}
 
-	#navigationPrimary .user-dropdown a {
-		font-size: 16px;
-	}
+@media (max-width: 991px) {
+	.spup-header {
+		.spup-header__inner {
+			display: block;
+		}
 
-	// overriding the Bootstrap and look for big screens
+		.spup-header__top {
+			justify-content: space-between;
+			min-height: 68px;
+			padding: 10px 0;
+			gap: 16px;
+		}
 
-	.nav-item.show .nav-link.dropdown-toggle {
-		background-color: white;
-	}
+		.spup-header__identity {
+			flex: 1 1 auto;
+		}
 
-	#navigationPrimary .navigation-dropdown.dropdown-menu {
-		transform: translate3d(15px, 37px, 0px) !important;
-	}
+		.spup-header__menu-toggle {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			flex: 0 0 auto;
+			min-width: 82px;
+			min-height: 44px;
+			gap: 9px;
+			padding: 8px 12px;
+			border: 1px solid #CCD8CF;
+			border-radius: 4px;
+			background: #fff;
+			color: #26382E;
+			font-family: @font-family-secondary;
+			font-size: 13px;
+			font-weight: 700;
+			cursor: pointer;
+		}
 
-	// styling nav menu
+		.spup-header__menu-icon {
+			position: relative;
+			display: block;
+			width: 18px;
+			height: 2px;
+			background: currentColor;
 
-	#navigationPrimary > li {
-		padding-top: 8px;
-		padding-bottom: 8px;
+			&::before,
+			&::after {
+				position: absolute;
+				left: 0;
+				width: 18px;
+				height: 2px;
+				background: currentColor;
+				content: "";
+			}
 
-		&:not(:last-child) {
-			border-bottom: 1px solid #ced4da;
+			&::before { top: -6px; }
+			&::after { top: 6px; }
+		}
+
+		.spup-header__menu-close-label {
+			display: none;
+		}
+
+		&.is-open {
+			.spup-header__menu-icon {
+				background: transparent;
+
+				&::before { transform: translateY(6px) rotate(45deg); }
+				&::after { transform: translateY(-6px) rotate(-45deg); }
+			}
+
+			.spup-header__menu-open-label { display: none; }
+			.spup-header__menu-close-label { display: inline; }
+		}
+
+		.spup-header__navigation,
+		.spup-header__utilities {
+			padding: 10px 0;
+			border-top: 1px solid #DEE3DF;
+			background: #FAFAF7;
+		}
+
+		&.spup-header--enhanced:not(.is-open) {
+			.spup-header__navigation,
+			.spup-header__utilities {
+				display: none;
+			}
+		}
+
+		.spup-header__utilities {
+			display: block;
+		}
+
+		.spup-header__account-label {
+			display: block;
+			padding: 8px 0 4px;
+			color: #65736B;
+			font-size: 11px;
+			font-weight: 700;
+			letter-spacing: 0.1em;
+			text-transform: uppercase;
+		}
+
+		#navigationPrimary,
+		#navigationUser,
+		#languageNav {
+			display: flex;
+			align-items: stretch;
+			flex-direction: column;
+			gap: 0;
+		}
+
+		#languageNav {
+			padding: 0;
+			border: 0;
+		}
+
+		#navigationPrimary > li,
+		#navigationUser > li,
+		#languageNav > li {
+			width: 100%;
+		}
+
+		#navigationPrimary .nav-link,
+		#navigationUser .nav-link,
+		.spup-header__language-button {
+			display: flex;
+			width: 100%;
+			min-height: 46px;
+			padding: 11px 0;
+			font-size: 14px;
+		}
+
+		.navigation-dropdown {
+			position: static !important;
+			width: 100%;
+			max-width: none;
+			margin: 0 0 8px;
+			padding: 2px 0 2px 14px;
+			transform: none !important;
+			border: 0;
+			border-left: 2px solid #CCD8CF;
+			border-radius: 0;
+			background: transparent;
+			box-shadow: none;
+		}
+
+		.navigation-dropdown .dropdown-item {
+			min-height: 44px;
 		}
 	}
-
 }
 
-@media (max-width: 767px) {
-	#primary-nav-wraper {
-		width: 67%;
-	}
-}
+@media (max-width: 575px) {
+	.spup-header {
+		.spup-header__inner {
+			padding: 0 18px;
+		}
 
-@media (max-width: 576px) {
-	#primary-nav-wraper {
-		width: 100%;
+		.spup-header__home-link {
+			gap: 10px;
+		}
+
+		.spup-header__journal-heading {
+			gap: 10px;
+		}
+
+		.spup-header__logo--site {
+			flex-basis: 40px;
+			width: 40px;
+			height: 40px;
+		}
+
+		.spup-header__logo--journal {
+			max-height: 56px;
+		}
+
+		.spup-header__institution {
+			font-size: 12px;
+		}
+
+		.spup-header__journal-title {
+			font-size: 18px;
+		}
 	}
 }

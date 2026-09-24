@@ -42,6 +42,16 @@ class SpupLightExplorerThemePlugin extends ThemePlugin
             ]
         ]);
 
+        $this->addOption('showJournalTitleInHeader', 'radio', [
+            'label' => 'plugins.themes.spupLightExplorerTheme.option.showJournalTitleInHeader.label',
+            'description' => 'plugins.themes.spupLightExplorerTheme.option.showJournalTitleInHeader.description',
+            'options' => [
+                0 => 'plugins.themes.spupLightExplorerTheme.option.showJournalTitleInHeader.hide',
+                1 => 'plugins.themes.spupLightExplorerTheme.option.showJournalTitleInHeader.show',
+            ],
+            'default' => 0,
+        ]);
+
         // Add usage stats display options
         $this->addOption('displayStats', 'FieldOptions', [
             'type' => 'radio',
@@ -179,6 +189,8 @@ class SpupLightExplorerThemePlugin extends ThemePlugin
 
         if (!$context) {
             $smarty->assign('spupFooterContactEmail', $request->getSite()->getLocalizedData('contactEmail'));
+        } else {
+            $smarty->assign('spupShowJournalTitleInHeader', (string) $this->getOption('showJournalTitleInHeader') === '1');
         }
     }
 
