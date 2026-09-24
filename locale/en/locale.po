@@ -104,6 +104,15 @@ msgstr "Return to the homepage"
 msgid "plugins.themes.spupLightExplorerTheme.footer.network"
 msgstr "Journal Network"
 
+msgid "plugins.themes.spupLightExplorerTheme.footer.explore"
+msgstr "Explore"
+
+msgid "plugins.themes.spupLightExplorerTheme.footer.information"
+msgstr "Information"
+
+msgid "plugins.themes.spupLightExplorerTheme.footer.platform"
+msgstr "Powered by Open Journal Systems"
+
 msgid "plugins.themes.spupLightExplorerTheme.footer.institution"
 msgstr "St. Paul University Philippines"
 

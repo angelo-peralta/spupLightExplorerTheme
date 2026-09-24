@@ -22,29 +22,38 @@
 		{/if}
 		<div class="spup-footer__main">
 			<div class="spup-footer__container">
-				<div class="spup-footer__identity">
-					{if $displayPageHeaderLogo}
-						<img class="spup-footer__seal" src="{$sitePublicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}" alt="{translate|escape key="plugins.themes.spupLightExplorerTheme.footer.sealAlt"}" width="88" height="88" loading="lazy">
-					{/if}
-					<div>
-						<p class="spup-footer__eyebrow">{translate key="plugins.themes.spupLightExplorerTheme.footer.network"}</p>
-						<h2 class="spup-footer__institution">{translate key="plugins.themes.spupLightExplorerTheme.footer.institution"}</h2>
-						<p class="spup-footer__site-title">{$siteTitle|escape}</p>
+				<div class="spup-footer__grid">
+					<div class="spup-footer__details">
+						{if $spupFooterContactEmail}
+							<section class="spup-footer__detail">
+								<h3>{translate key="plugins.themes.spupLightExplorerTheme.footer.contact"}</h3>
+								<a href="mailto:{$spupFooterContactEmail|escape}">{$spupFooterContactEmail|escape}</a>
+							</section>
+						{/if}
+						<section class="spup-footer__detail">
+							<h3>{translate key="plugins.themes.spupLightExplorerTheme.footer.location"}</h3>
+							<p>{translate key="plugins.themes.spupLightExplorerTheme.footer.institution"}<br>{translate key="plugins.themes.spupLightExplorerTheme.footer.address"}</p>
+						</section>
+					</div>
+					<div class="spup-footer__identity">
+						{if $displayPageHeaderLogo}
+							<img class="spup-footer__seal" src="{$sitePublicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}" alt="" loading="lazy">
+						{/if}
+						<p class="spup-footer__eyebrow">{translate key="plugins.themes.spupLightExplorerTheme.footer.institution"}</p>
+						<h2 class="spup-footer__institution">{$siteTitle|escape}</h2>
+						<p class="spup-footer__site-title">{translate key="plugins.themes.spupLightExplorerTheme.footer.network"}</p>
 						<p class="spup-footer__description">{translate key="plugins.themes.spupLightExplorerTheme.footer.description"}</p>
 					</div>
-				</div>
-				<div class="spup-footer__details">
-					{if $spupFooterContactEmail}
-						<section class="spup-footer__detail">
-							<h3>{translate key="plugins.themes.spupLightExplorerTheme.footer.contact"}</h3>
-						<a href="mailto:{$spupFooterContactEmail|escape}">{$spupFooterContactEmail|escape}</a>
+					<div class="spup-footer__navigation">
+						<section class="spup-footer__menu-section">
+							<h3 id="spupFooterExploreHeading">{translate key="plugins.themes.spupLightExplorerTheme.footer.explore"}</h3>
+							<nav aria-labelledby="spupFooterExploreHeading">{load_menu name="footerExplore" id="spupFooterExplore" ulClass="spup-footer__menu"}</nav>
 						</section>
-					{/if}
-					<section class="spup-footer__detail">
-						<h3>{translate key="plugins.themes.spupLightExplorerTheme.footer.location"}</h3>
-						<p>{translate key="plugins.themes.spupLightExplorerTheme.footer.address"}</p>
-						<a href="https://www.google.com/maps/search/?api=1&amp;query=St.+Paul+University+Philippines+Tuguegarao+City">{translate key="plugins.themes.spupLightExplorerTheme.footer.viewMap"}<span aria-hidden="true"> &rarr;</span></a>
-					</section>
+						<section class="spup-footer__menu-section">
+							<h3 id="spupFooterInformationHeading">{translate key="plugins.themes.spupLightExplorerTheme.footer.information"}</h3>
+							<nav aria-labelledby="spupFooterInformationHeading">{load_menu name="footerInformation" id="spupFooterInformation" ulClass="spup-footer__menu"}</nav>
+						</section>
+					</div>
 				</div>
 				{if $pageFooter}
 					<div class="spup-footer__admin-content user-page-footer">{$pageFooter}</div>
@@ -57,10 +66,13 @@
 					<p>&copy; {$smarty.now|date_format:"Y"} {translate key="plugins.themes.spupLightExplorerTheme.footer.institution"}</p>
 					<p>{translate key="plugins.themes.spupLightExplorerTheme.footer.poweredBy"}</p>
 				</div>
-				<div class="pkpbrand-wrapper" role="complementary">
-					<a href="{url page="about" op="aboutThisPublishingSystem"}">
-						<img class="footer-brand-image" alt="{translate key="about.aboutThisPublishingSystem"}" src="{$baseUrl}/{$brandImage}">
-					</a>
+				<div class="spup-footer__platform">
+					<span>{translate key="plugins.themes.spupLightExplorerTheme.footer.platform"}</span>
+					<div class="pkpbrand-wrapper" role="complementary">
+						<a href="{url page="about" op="aboutThisPublishingSystem"}">
+							<img class="footer-brand-image" alt="{translate key="about.aboutThisPublishingSystem"}" src="{$baseUrl}/{$brandImage}">
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>

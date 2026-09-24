@@ -9,7 +9,7 @@ The Light Explorer Theme is a custom Open Journal Systems 3.5 theme developed fo
 - Plugin folder: plugins/themes/spupLightExplorerTheme
 - Plugin version: 1.0.0.0
 
-The theme has not yet been tested in a running OJS 3.5 installation. Test it locally before deploying it to a journal network.
+The theme has been exercised in a local OJS 3.5 installation. Production deployment and browser visual verification remain separate checks.
 
 ## Installation
 
@@ -22,7 +22,9 @@ The official Classic Theme may remain installed alongside this theme. The plugin
 
 ## Development
 
-The repository includes the existing Classic Theme LESS, templates, JavaScript, and assets. Keep those files when installing the theme. The existing Gulp tasks in gulpfile.js can rebuild assets after npm install; no asset rebuild is required for this identity release.
+The repository includes the existing Classic Theme LESS, templates, JavaScript, and assets. Keep those files when installing the theme. After changing `dev_js/main-theme.js`, run `npx gulp scripts` and then `npx gulp compress` to rebuild the committed JavaScript assets. OJS compiles the LESS stylesheet when its stylesheet cache is cleared.
+
+The root footer uses two OJS Navigation Menu areas, `footerExplore` and `footerInformation`. Assign root navigation items to those areas in Site Management to populate the footer links. They are separate from the primary and user menus, and journal pages keep their existing footer.
 
 ## Credits and license
 

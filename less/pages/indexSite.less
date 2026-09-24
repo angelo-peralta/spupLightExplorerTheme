@@ -5,6 +5,8 @@
 @spup-site-text: #1F2A25;
 @spup-site-muted: #64706A;
 @spup-site-border: #D9E0DB;
+@spup-root-hover: #075B39;
+@spup-root-transition: 180ms ease;
 
 .spup-root {
   background: @spup-site-background;
@@ -47,14 +49,15 @@
     color: @spup-site-green;
     font: 700 12px/1.5 @font-family-secondary;
     text-decoration: none;
-    &:hover { text-decoration: underline; }
+    transition: color @spup-root-transition;
+    &:hover, &:focus { color: @spup-root-hover; text-decoration: underline; text-underline-offset: 3px; }
     &:focus-visible { outline: 3px solid @spup-site-green; outline-offset: 3px; }
   }
 }
 
 .page_index_site {
-  .spup-site-hero { text-align: center; }
-  .spup-site-hero__inner { padding-top: 62px; padding-bottom: 48px; }
+  .spup-site-hero { text-align: center; border-bottom: 1px solid @spup-site-border; }
+  .spup-site-hero__inner { display: flex; flex-direction: column; justify-content: center; min-height: ~"clamp(500px, 52vh, 620px)"; padding-top: 65px; padding-bottom: 70px; }
   .spup-site-hero__institution {
     margin: 0 0 12px;
     color: @spup-site-green;
@@ -69,7 +72,7 @@
     overflow-wrap: anywhere;
   }
   .spup-site-hero__subtitle {
-    margin: 8px 0 0;
+    margin: 14px 0 0;
     color: @spup-site-muted;
     font: 17px/1.5 @font-family-secondary;
     letter-spacing: .02em;
@@ -80,7 +83,7 @@
     margin: 22px auto 28px;
     background: @spup-site-gold;
   }
-  .spup-site-hero__search { max-width: 700px; margin: 0 auto; }
+  .spup-site-hero__search { width: 100%; max-width: 700px; margin: 0 auto; }
   .spup-site-hero__search-label {
     position: absolute;
     width: 1px; height: 1px; padding: 0; margin: -1px;
@@ -113,7 +116,9 @@
       color: #fff;
       font: 700 14px @font-family-secondary;
       cursor: pointer;
-      &:hover { background: @spup-site-deep-green; }
+      transition: background-color @spup-root-transition;
+      &:hover, &:focus { background: @spup-root-hover; }
+      &:active { background: @spup-site-deep-green; }
     }
     :is(input, button):focus-visible { outline: 3px solid @spup-site-green; outline-offset: 3px; }
   }
@@ -121,7 +126,7 @@
     display: flex;
     justify-content: center;
     max-width: 700px;
-    margin: 34px auto 0;
+    margin: 42px auto 0;
     padding: 22px 0 0;
     border-top: 1px solid @spup-site-border;
     > div { display: flex; flex-direction: column; flex: 1 1 0; padding: 0 16px; }
@@ -195,7 +200,7 @@
     margin: 0; padding: 0; list-style: none;
     li { padding: 18px 0 20px; border-top: 1px solid @spup-site-border; }
     h4 { margin: 0; color: @spup-site-text; font: 700 21px/1.3 @font-family-primary; }
-    h4 a { color: inherit; text-decoration: none; &:hover { color: @spup-site-green; text-decoration: underline; } }
+    h4 a { color: inherit; text-decoration: none; transition: color @spup-root-transition; &:hover, &:focus { color: @spup-root-hover; text-decoration: underline; text-underline-offset: 3px; } &:focus-visible { outline: 3px solid @spup-site-green; outline-offset: 3px; } }
     time { display: block; margin-bottom: 8px; color: @spup-site-green; font: 700 11px/1.5 @font-family-secondary; letter-spacing: .04em; }
   }
   .spup-editorial-list__meta { margin: 9px 0 0; color: @spup-site-muted; font: 12px/1.6 @font-family-secondary; }
@@ -209,10 +214,13 @@
     padding: 20px;
     background: fade(#172B22, 94%);
     opacity: 0;
-    transition: opacity 200ms ease;
+    transition: opacity @spup-root-transition;
   }
+  .page_index_site .spup-journal-cover__overlay > * { transform: translateY(6px); transition: transform @spup-root-transition; }
   .page_index_site .spup-journal-cover__link:hover .spup-journal-cover__overlay,
   .page_index_site .spup-journal-cover__link:focus-visible .spup-journal-cover__overlay { opacity: 1; }
+  .page_index_site .spup-journal-cover__link:hover .spup-journal-cover__overlay > *,
+  .page_index_site .spup-journal-cover__link:focus-visible .spup-journal-cover__overlay > * { transform: translateY(0); }
 }
 @media (max-width: 1023px) {
   .page_index_site .spup-journal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -225,7 +233,7 @@
 @media (max-width: 575px) {
   .spup-root .spup-site-container { padding: 0 18px; }
   .page_index_site {
-    .spup-site-hero__inner { padding-top: 42px; padding-bottom: 38px; }
+    .spup-site-hero__inner { min-height: 0; padding-top: 58px; padding-bottom: 56px; }
     .spup-site-hero__title { font-size: 36px; }
     .spup-site-hero__institution { font-size: 11px; }
     .spup-site-hero__search-controls { flex-direction: column; input { min-height: 50px; } button { min-height: 46px; border-radius: 0 0 3px 3px; } }
@@ -237,5 +245,7 @@
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .page_index_site .spup-journal-cover__overlay { transition: none; }
+  .spup-root .spup-text-link, .page_index_site .spup-journal-cover__overlay,
+  .page_index_site .spup-journal-cover__overlay > *, .page_index_site .spup-editorial-list h4 a,
+  .page_index_site .spup-site-hero__search-controls button { transition: none; }
 }

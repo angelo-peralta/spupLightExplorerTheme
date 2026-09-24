@@ -120,6 +120,9 @@ class SpupLightExplorerThemePlugin extends ThemePlugin
 
         // Adding navigation menu as in OJS 3.1+ we can have custom
         $this->addMenuArea(['primary', 'user']);
+        if (!$this->getRequest()->getContext()) {
+            $this->addMenuArea(['footerExplore', 'footerInformation']);
+        }
 
         HookRegistry::add('TemplateManager::display', [$this, 'loadAdditionalData']);
         // Get additional issue data to the issue page

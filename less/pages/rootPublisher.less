@@ -24,13 +24,13 @@
     .spup-search-date-range { gap: 16px; }
     .spup-search-journal-filter select, .search_advanced select, .filter-authors input { min-height: 44px; border: 1px solid @spup-site-border; border-radius: 4px; background: #fff; }
     .buttons { margin-top: 20px; }
-    .btn-primary { min-height: 44px; padding: 10px 22px; border: 0; border-radius: 4px; background: @spup-site-green; color: #fff; }
+    .btn-primary { min-height: 44px; padding: 10px 22px; border: 0; border-radius: 4px; background: @spup-site-green; color: #fff; transition: background-color @spup-root-transition; &:hover, &:focus { background: @spup-root-hover; color: #fff; } &:active { background: @spup-site-deep-green; } }
     .search_results { display: block; max-width: 860px; margin: 42px 0 30px; }
     .spup-search-count { margin: 26px 0 -26px; color: @spup-site-muted; font: 12px/1.5 @font-family-secondary; }
     .spup-search-result { padding: 27px 0 24px; border-top: 1px solid @spup-site-border; }
     .spup-search-result-type { margin: 0 0 8px; color: @spup-site-green; font: 700 10px/1.5 @font-family-secondary; letter-spacing: .12em; text-transform: uppercase; }
     .spup-search-result h2 { margin: 0 0 8px; font: 700 24px/1.3 @font-family-primary; }
-    .spup-search-result h2 a { color: @spup-site-text; text-decoration: none; &:hover { color: @spup-site-green; text-decoration: underline; } }
+    .spup-search-result h2 a { color: @spup-site-text; text-decoration: none; transition: color @spup-root-transition; &:hover, &:focus { color: @spup-root-hover; text-decoration: underline; } }
     .spup-search-result-journal, .spup-search-result-authors, .spup-search-result time { display: block; margin: 0 0 5px; color: @spup-site-muted; font: 12px/1.5 @font-family-secondary; }
     .spup-search-result-abstract { display: -webkit-box; max-height: 4.8em; margin-top: 12px; overflow: hidden; color: @spup-site-text; font: 13px/1.6 @font-family-secondary; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
     .spup-search-result-abstract p { margin: 0; }
@@ -44,12 +44,12 @@
     .obj_announcement_summary { display: flex; flex-direction: column; }
     .spup-announcement-source { order: 2; margin: 0; color: @spup-site-muted; font: 11px/1.5 @font-family-secondary; }
     .announcement-summary-heading { order: 2; margin: 5px 0 8px; font: 700 25px/1.3 @font-family-primary; }
-    .announcement-summary-heading a { color: @spup-site-text; &:hover { color: @spup-site-green; } }
+    .announcement-summary-heading a { color: @spup-site-text; transition: color @spup-root-transition; &:hover, &:focus { color: @spup-root-hover; text-decoration: underline; text-underline-offset: 3px; } }
     .obj_announcement_summary .date { order: 0; margin: 0; color: @spup-site-green; font: 700 11px/1.5 @font-family-secondary; }
     .obj_announcement_summary .summary { order: 3; color: @spup-site-muted; font: 13px/1.65 @font-family-secondary; }
     .obj_announcement_summary .summary p { margin: 0; }
     .obj_announcement_summary .buttons { order: 4; margin: 10px 0 0; }
-    .obj_announcement_summary .btn { padding: 0; border: 0; background: transparent; box-shadow: none; color: @spup-site-green; font: 700 12px/1.5 @font-family-secondary; }
+    .obj_announcement_summary .btn { padding: 0; border: 0; background: transparent; box-shadow: none; color: @spup-site-green; font: 700 12px/1.5 @font-family-secondary; transition: color @spup-root-transition; &:hover, &:focus { color: @spup-root-hover; text-decoration: underline; } }
   }
   .page_announcement {
     .container-page { max-width: 860px; }
@@ -63,9 +63,15 @@
     h1 { padding-bottom: 18px; border-bottom: 1px solid @spup-site-border; }
     h2 { margin: 34px 0 10px; color: @spup-site-text; font: 700 27px/1.3 @font-family-primary; }
     p, li { color: @spup-site-text; font: 15px/1.75 @font-family-secondary; }
-    a { color: @spup-site-green; text-underline-offset: 3px; }
+    a { color: @spup-site-green; text-underline-offset: 3px; transition: color @spup-root-transition; &:hover, &:focus { color: @spup-root-hover; } }
   }
   .page_error .container-page { max-width: 860px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .spup-root .page_search .btn-primary, .spup-root .page_search .spup-search-result h2 a,
+  .spup-root .page_announcements .announcement-summary-heading a,
+  .spup-root .page_announcements .obj_announcement_summary .btn,
+  .spup-root .navigation-item-content a { transition: none; }
 }
 @media (max-width: 767px) {
   .spup-root {
