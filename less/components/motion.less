@@ -19,7 +19,57 @@
   to { clip-path: inset(0 0 0 0); transform: translateX(0); }
 }
 
+@keyframes spup-hero-art-settle {
+  from { transform: translate3d(0, 18px, 0) scale(1.035); }
+  to { transform: translate3d(0, 0, 0) scale(1); }
+}
+
+@keyframes spup-hero-copy-reveal {
+  from { clip-path: inset(100% 0 0 0); transform: translateY(16px); }
+  to { clip-path: inset(0 0 0 0); transform: translateY(0); }
+}
+
+@keyframes spup-hero-search-settle {
+  from { transform: translateY(12px); }
+  to { transform: translateY(0); }
+}
+
+@keyframes spup-hero-stat-settle {
+  from { opacity: .6; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spup-hero-divider-draw {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
 @media (prefers-reduced-motion: no-preference) {
+  .page_index_site .spup-site-hero .spup-site-hero-bg {
+    animation: spup-hero-art-settle 900ms cubic-bezier(.2, .7, .2, 1) both;
+  }
+  .page_index_site .spup-site-hero .spup-site-hero__institution,
+  .page_index_site .spup-site-hero .spup-site-hero__title,
+  .page_index_site .spup-site-hero .spup-site-hero__subtitle {
+    animation: spup-hero-copy-reveal 600ms cubic-bezier(.2, .7, .2, 1) both;
+  }
+  .page_index_site .spup-site-hero .spup-site-hero__institution { animation-delay: 40ms; }
+  .page_index_site .spup-site-hero .spup-site-hero__title { animation-delay: 100ms; }
+  .page_index_site .spup-site-hero .spup-site-hero__subtitle { animation-delay: 170ms; }
+  .page_index_site .spup-site-hero .spup-site-hero__divider {
+    animation: spup-hero-divider-draw 480ms cubic-bezier(.2, .7, .2, 1) 230ms both;
+    transform-origin: center;
+  }
+  .page_index_site .spup-site-hero .spup-site-hero__search {
+    animation: spup-hero-search-settle 560ms cubic-bezier(.2, .7, .2, 1) 200ms both;
+  }
+  .page_index_site .spup-site-hero .spup-network-stats > div {
+    animation: spup-hero-stat-settle 500ms cubic-bezier(.2, .7, .2, 1) both;
+  }
+  .page_index_site .spup-site-hero .spup-network-stats > div:nth-child(1) { animation-delay: 280ms; }
+  .page_index_site .spup-site-hero .spup-network-stats > div:nth-child(2) { animation-delay: 340ms; }
+  .page_index_site .spup-site-hero .spup-network-stats > div:nth-child(3) { animation-delay: 400ms; }
+
   .spup-root .spup-site-hero__divider { animation: spup-rule-grow 540ms ease-out both; transform-origin: center; }
 
   .spup-root .spup-publisher-section,
@@ -58,6 +108,17 @@
   .page_index_site .spup-site-hero__search-controls button:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(19, 65, 47, .14); }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .page_index_site .spup-site-hero .spup-site-hero-bg,
+  .page_index_site .spup-site-hero .spup-site-hero__institution,
+  .page_index_site .spup-site-hero .spup-site-hero__title,
+  .page_index_site .spup-site-hero .spup-site-hero__subtitle,
+  .page_index_site .spup-site-hero .spup-site-hero__divider,
+  .page_index_site .spup-site-hero .spup-site-hero__search,
+  .page_index_site .spup-site-hero .spup-network-stats > div { animation: none; }
+}
+
 @media print {
   .spup-root .spup-scroll-reveal.is-pending { opacity: 1; transform: none; }
+  .page_index_site .spup-site-hero * { animation: none !important; }
 }
