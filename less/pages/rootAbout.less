@@ -1,0 +1,100 @@
+.spup-root .page_publisher_about {
+  .container-page { max-width: 1240px; }
+
+  .spup-publisher-about {
+    color: @spup-site-text;
+
+    .spup-about__hero { max-width: 860px; padding: 28px 0 66px; border-bottom: 1px solid @spup-site-border; }
+    .spup-about__hero h1 { margin: 0 0 24px; padding: 0; border: 0; font: 700 54px/1.12 @font-family-primary; }
+    .spup-about__lead { max-width: 780px; color: @spup-site-muted; font-size: 18px; line-height: 1.7; }
+
+    .spup-about__section.spup-publisher-section { margin-top: 96px; padding: 0; border: 0; }
+    .spup-about__section-heading { margin-bottom: 26px; }
+    .spup-about__section-heading h2, .spup-about__audience h2 { margin: 0; font: 700 36px/1.2 @font-family-primary; }
+    .spup-about__section-heading .spup-section-rule { margin: 20px 0 0; }
+    .spup-about__prose { max-width: 820px; overflow-wrap: anywhere; }
+    .spup-about__prose p { margin: 0 0 20px; line-height: 1.78; }
+    .spup-about__prose p:last-child { margin-bottom: 0; }
+    .spup-about__measure { max-width: 820px; }
+
+    .spup-about__story { display: grid; grid-template-columns: minmax(180px, 270px) minmax(0, 820px); gap: 48px; align-items: start; }
+    .spup-about__story-copy { padding-left: 28px; border-left: 2px solid @spup-site-gold; }
+    .spup-about__identity-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(260px, .75fr); gap: 80px; align-items: start; }
+    .spup-about__function-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid @spup-site-border; }
+    .spup-about__function-list li { margin: 0; padding: 12px 0; border-bottom: 1px solid @spup-site-border; font-size: 14px; }
+
+    .spup-about__stats .spup-network-stats { max-width: none; margin: 30px 0 0; padding: 28px 0; border-top: 1px solid @spup-site-border; border-bottom: 1px solid @spup-site-border; }
+    .spup-about__stats .spup-network-stats > div { padding: 0 32px; }
+    .spup-about__stats .spup-network-stats > div:first-child { padding-left: 0; }
+    .spup-about__stats .spup-network-stats dd { font-size: 40px; }
+
+    .spup-about__section-intro { max-width: 760px; margin: 0 0 34px; color: @spup-site-muted; }
+    .spup-about__journals .spup-journal-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 26px 20px; }
+    .spup-about__journals .spup-journal-cover__media img { object-fit: contain; }
+
+    .spup-about__audiences { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 80px; }
+    .spup-about__audience { min-width: 0; padding-top: 24px; border-top: 1px solid @spup-site-border; }
+    .spup-about__audience h2 { margin-bottom: 22px; }
+    .spup-about__audience .spup-about__prose { min-height: 120px; }
+    .spup-about__links { display: flex; flex-wrap: wrap; gap: 12px 30px; }
+    .spup-about__text-link { display: inline-flex; min-height: 44px; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; text-decoration: none; }
+    .spup-about__text-link:hover, .spup-about__text-link:focus { text-decoration: underline; text-underline-offset: 4px; }
+
+    .spup-about__publisher-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 80px; padding-top: 24px; border-top: 1px solid @spup-site-border; }
+    address { display: flex; flex-direction: column; gap: 8px; margin: 0; font-style: normal; line-height: 1.7; }
+    .spup-about__publisher-grid dl { margin: 0; }
+    .spup-about__publisher-grid dl > div + div { margin-top: 24px; }
+    .spup-about__publisher-grid dt { margin-bottom: 7px; color: @spup-site-muted; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+    .spup-about__publisher-grid dd { margin: 0; overflow-wrap: anywhere; }
+    .spup-about__location address { margin-bottom: 28px; }
+    .spup-about__location .spup-location-map { max-width: 960px; height: 380px; }
+
+    .spup-about__platform { color: @spup-site-muted; }
+    .spup-about__platform h2 { color: @spup-site-text; }
+    .spup-about__next { padding-top: 32px !important; border-top: 1px solid @spup-site-border !important; }
+    .spup-about__next .spup-about__section-heading { margin-bottom: 12px; }
+  }
+}
+
+@media (max-width: 1023px) {
+  .spup-root .page_publisher_about .spup-publisher-about {
+    .spup-about__story { grid-template-columns: 210px minmax(0, 1fr); gap: 30px; }
+    .spup-about__identity-grid, .spup-about__audiences, .spup-about__publisher-grid { gap: 40px; }
+    .spup-about__journals .spup-journal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+}
+
+@media (max-width: 767px) {
+  .spup-root .page_publisher_about .spup-publisher-about {
+    .spup-about__hero { padding: 8px 0 52px; }
+    .spup-about__hero h1 { font-size: 42px; }
+    .spup-about__lead { font-size: 16px; }
+    .spup-about__section.spup-publisher-section { margin-top: 64px; }
+    .spup-about__section-heading h2, .spup-about__audience h2 { font-size: 30px; }
+    .spup-about__story, .spup-about__identity-grid, .spup-about__audiences, .spup-about__publisher-grid { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+    .spup-about__story-copy { padding-left: 18px; }
+    .spup-about__audience .spup-about__prose { min-height: 0; }
+    .spup-about__audience + .spup-about__audience { margin-top: 18px; }
+    .spup-about__prose p, .spup-about__section-intro { text-align: left; hyphens: none; }
+    .spup-about__stats .spup-network-stats > div { padding: 0 12px; }
+    .spup-about__stats .spup-network-stats dd { font-size: 30px; }
+    .spup-about__location .spup-location-map { height: 290px; }
+  }
+}
+
+@media (max-width: 575px) {
+  .spup-root .page_publisher_about .spup-publisher-about {
+    .spup-about__journals .spup-journal-grid { grid-template-columns: minmax(0, 1fr); }
+    .spup-about__stats .spup-network-stats > div { padding: 0 7px; }
+    .spup-about__journals .spup-journal-cover__overlay {
+      inset: auto 0 0 16px;
+      max-height: none;
+      padding: 30px 14px 12px;
+      background: linear-gradient(transparent, fade(#172B22, 93%) 42%);
+      opacity: 1;
+    }
+    .spup-about__journals .spup-journal-cover__overlay > * { transform: none; }
+    .spup-about__journals .spup-journal-cover__description,
+    .spup-about__journals .spup-journal-cover__action { display: none; }
+  }
+}

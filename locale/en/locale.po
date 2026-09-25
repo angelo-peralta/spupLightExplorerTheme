@@ -56,6 +56,120 @@ msgstr "Explore the Journals"
 msgid "plugins.themes.spupLightExplorerTheme.root.aboutNetwork"
 msgstr "About the Network"
 
+msgid "plugins.themes.spupLightExplorerTheme.about.eyebrow"
+msgstr "About"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.intro"
+msgstr "The Light Explorer Journal Network is the scholarly publishing network of St. Paul University Philippines, bringing together the University's specialized academic journals within one publishing and discovery platform."
+
+msgid "plugins.themes.spupLightExplorerTheme.about.history"
+msgstr "History"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.story"
+msgstr "Our Story"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.storyOne"
+msgstr "The Light Explorer Journal Network evolved from The Light Explorer Multidisciplinary Journal, the earlier scholarly publication platform of St. Paul University Philippines."
+
+msgid "plugins.themes.spupLightExplorerTheme.about.storyTwo"
+msgstr "As the University's research and publication activities expanded across different academic disciplines, The Light Explorer developed into a network of specialized scholarly journals, each with its own disciplinary focus, editorial scope, policies, and publication identity."
+
+msgid "plugins.themes.spupLightExplorerTheme.about.storyThree"
+msgstr "Today, The Light Explorer serves as the unified journal network of St. Paul University Philippines, connecting these distinct journals through a common publishing and discovery platform while preserving the individual identity and academic focus of each publication."
+
+msgid "plugins.themes.spupLightExplorerTheme.about.present"
+msgstr "Present"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.whoWeAre"
+msgstr "Who We Are"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.identity"
+msgstr "The Light Explorer is SPUP's scholarly journal network. It provides a shared publishing environment and a common discovery gateway for distinct journals, rather than operating as one multidisciplinary journal."
+
+msgid "plugins.themes.spupLightExplorerTheme.about.functionJournals"
+msgstr "Discover SPUP journals"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.functionSearch"
+msgstr "Search scholarship across the network"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.functionIssues"
+msgstr "Access current and past issues"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.functionAnnouncements"
+msgstr "Read announcements"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.functionSubmit"
+msgstr "Find a journal's submissions and policies"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.network"
+msgstr "The Network"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.ourJournals"
+msgstr "Our Journals"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.journalsIntro"
+msgstr "The Light Explorer brings together specialized scholarly journals serving distinct academic disciplines within St. Paul University Philippines."
+
+msgid "plugins.themes.spupLightExplorerTheme.about.structureEyebrow"
+msgstr "Journal Identity"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.structure"
+msgstr "One Network, Distinct Journals"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.structureOne"
+msgstr "Each journal maintains its own aims and scope, editorial leadership, author guidelines, peer-review and editorial procedures, publication policies, announcements, issues and articles, and submission process."
+
+msgid "plugins.themes.spupLightExplorerTheme.about.structureTwo"
+msgstr "The Light Explorer provides the shared publishing and discovery environment without replacing each journal's individual scholarly identity."
+
+msgid "plugins.themes.spupLightExplorerTheme.about.audiences"
+msgstr "For readers and authors"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.audienceEyebrow"
+msgstr "Explore and Publish"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.readers"
+msgstr "For Readers"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.readersCopy"
+msgstr "Readers can browse journals, search across the network, access recent publications, read announcements, and continue to individual journal issues and archives."
+
+msgid "plugins.themes.spupLightExplorerTheme.about.authors"
+msgstr "For Authors"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.authorsCopy"
+msgstr "Authors should identify the appropriate journal, review its aims and scope, read the Author Guidelines and publication and ethics policies, then submit directly through the selected journal."
+
+msgid "plugins.themes.spupLightExplorerTheme.about.institution"
+msgstr "Institution"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.institutionalWebsite"
+msgstr "Institutional Website"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.whereWeAre"
+msgstr "Where We Are"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.platformEyebrow"
+msgstr "Publishing System"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.platform"
+msgstr "Our Publishing Platform"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.platformCopy"
+msgstr "The Light Explorer operates using Open Journal Systems (OJS), an open-source scholarly publishing platform developed by the Public Knowledge Project (PKP). OJS supports journal publishing workflows, archives, editorial activities, user accounts, and access to published scholarly content."
+
+msgid "plugins.themes.spupLightExplorerTheme.about.nextEyebrow"
+msgstr "Next Steps"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.exploreNetwork"
+msgstr "Explore the Network"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.exploreJournals"
+msgstr "Explore the Journals"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.searchPublications"
+msgstr "Search Publications"
+
 msgid "plugins.themes.spupLightExplorerTheme.root.networkAtGlance"
 msgstr "Network at a Glance"
 

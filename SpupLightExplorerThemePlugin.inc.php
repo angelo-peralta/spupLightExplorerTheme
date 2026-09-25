@@ -220,6 +220,42 @@ class SpupLightExplorerThemePlugin extends ThemePlugin
         return in_array($value, $allowed, true) ? $value : ($name === 'recentPublicationCount' ? 4 : 3);
     }
 
+    /** Split editor-managed Site About or custom-page HTML into the root About layout. */
+    private function getRootAboutSections(string $pageContent, string $siteAbout): array
+    {
+        $allowed = ['intro', 'story', 'identity', 'structure', 'readers', 'authors', 'platform'];
+        $sections = [];
+        // A custom About page may override individual sections from Site About.
+        foreach ([$siteAbout, $pageContent] as $html) {
+            if (!trim($html)) {
+                continue;
+            }
+            $document = new DOMDocument();
+            $previous = libxml_use_internal_errors(true);
+            $loaded = $document->loadHTML('<?xml encoding="UTF-8"?><div id="spup-about-content">' . $html . '</div>');
+            libxml_clear_errors();
+            libxml_use_internal_errors($previous);
+            if (!$loaded) {
+                continue;
+            }
+            $xpath = new DOMXPath($document);
+            foreach ($allowed as $key) {
+                $nodes = $xpath->query('//*[@id="spup-about-' . $key . '" or @data-spup-about="' . $key . '"]');
+                if (!$nodes || !$nodes->length) {
+                    continue;
+                }
+                $fragment = '';
+                foreach ($nodes->item(0)->childNodes as $child) {
+                    $fragment .= $document->saveHTML($child);
+                }
+                if (trim(strip_tags($fragment))) {
+                    $sections[$key] = $fragment;
+                }
+            }
+        }
+        return $sections;
+    }
+
     /** Reuse each journal's saved theme colour in its root directory and cover frame. */
     private function getJournalAccentColors(array $journals): array
     {
@@ -508,6 +544,10 @@ class SpupLightExplorerThemePlugin extends ThemePlugin
             'spupPublisherJournals' => $journals,
             'spupJournalAccentColors' => $this->getJournalAccentColors($journals),
             'journalFilesPath' => $this->getRequest()->getBaseUrl() . '/' . Config::getVar('files', 'public_files_dir') . '/journals/',
+            'spupAboutSections' => $isAbout ? $this->getRootAboutSections(
+                (string) $args[0]->getTemplateVars('content'),
+                (string) $this->getRequest()->getSite()->getLocalizedAbout()
+            ) : [],
         ]);
         return false;
     }
