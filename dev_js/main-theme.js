@@ -61,6 +61,44 @@
 	}
 })();
 
+/* Reveal publisher sections when they enter view, while keeping no-JS content visible. */
+(function () {
+	if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+	const selector = [
+		'.page_index_site .index-site-journals > .spup-section-eyebrow',
+		'.page_index_site .index-site-journals > h2',
+		'.page_index_site .index-site-journals > .spup-section-rule',
+		'.page_index_site .spup-journal-cover',
+		'.page_index_site .spup-latest > .spup-section-eyebrow',
+		'.page_index_site .spup-latest > h2',
+		'.page_index_site .spup-latest > .spup-section-rule',
+		'.page_index_site .spup-latest__columns h3',
+		'.page_index_site .spup-editorial-list li',
+		'.spup-root .page_journals .spup-journal-directory__item',
+	].join(', ');
+	const elements = document.querySelectorAll(selector);
+	if (!elements.length) return;
+
+	const observer = new IntersectionObserver((entries) => {
+		for (const entry of entries) {
+			if (!entry.isIntersecting) continue;
+			entry.target.classList.remove('is-pending');
+			entry.target.classList.add('is-visible');
+			observer.unobserve(entry.target);
+		}
+	}, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+
+	for (const element of elements) {
+		if (element.getBoundingClientRect().top < window.innerHeight * .9) continue;
+		const siblings = Array.from(element.parentElement.children);
+		const delay = Math.min(siblings.indexOf(element) % 4, 3) * 90;
+		element.style.setProperty('--spup-reveal-delay', `${delay}ms`);
+		element.classList.add('spup-scroll-reveal', 'is-pending');
+		observer.observe(element);
+	}
+})();
+
 /* OJS renders menu links without a current-page marker for root custom pages. */
 (function () {
 	const navigation = document.querySelector('.spup-header__nav-band #navigationPrimary');

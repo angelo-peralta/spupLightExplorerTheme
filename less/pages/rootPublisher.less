@@ -87,7 +87,8 @@
     .spup-journal-directory { display: grid; gap: 0; }
     .spup-journal-directory__item { display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 28px; padding: 30px 0; border-bottom: 1px solid @spup-site-border; }
     .spup-journal-directory__item:first-child { padding-top: 8px; }
-    .spup-journal-directory__cover { position: relative; display: block; align-self: start; width: 160px; padding: 10px 0 0 10px; text-decoration: none; }
+    .spup-journal-directory__cover { position: relative; display: block; align-self: start; width: 160px; padding: 10px 0 0 10px; border-bottom: 0; text-decoration: none; }
+    .spup-journal-directory__cover:hover, .spup-journal-directory__cover:focus { border-bottom: 0; }
     .spup-journal-directory__cover::before { position: absolute; inset: 0 10px 10px 0; background: var(--spup-journal-accent, @spup-site-green); content: ""; }
     .spup-journal-directory__cover img { position: relative; display: block; width: 100%; height: auto; transition: transform @spup-root-transition; }
     .spup-journal-directory__cover:hover img, .spup-journal-directory__cover:focus-visible img { transform: scale(1.035); }

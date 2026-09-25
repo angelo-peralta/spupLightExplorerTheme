@@ -1,6 +1,6 @@
 /* Small, purposeful motion across the publisher and journal pages. */
 @keyframes spup-soft-reveal {
-  from { opacity: .55; transform: translateY(10px); }
+  from { opacity: .3; transform: translateY(18px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
@@ -9,12 +9,14 @@
   to { transform: scaleX(1); opacity: 1; }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .spup-root .spup-site-hero__divider,
-  .spup-root .spup-section-rule { animation: spup-rule-grow 600ms ease-out both; transform-origin: center; }
+@keyframes spup-scroll-enter {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-  .spup-root .spup-journal-cover,
-  .spup-root .spup-journal-directory__item,
+@media (prefers-reduced-motion: no-preference) {
+  .spup-root .spup-site-hero__divider { animation: spup-rule-grow 800ms ease-out both; transform-origin: center; }
+
   .spup-root .spup-publisher-section,
   .spup-root .spup-search-result,
   .spup-root .page_announcements .obj_announcement_summary,
@@ -22,15 +24,18 @@
   .spup-header--journal .spup-header__home-link,
   .page_index_journal .obj_issue_toc,
   .page_index_journal .obj_article_summary {
-    animation: spup-soft-reveal 480ms ease-out both;
+    animation: spup-soft-reveal 760ms ease-out both;
   }
 
-  .spup-root .spup-journal-grid > :nth-child(2),
-  .spup-root .spup-journal-directory__item:nth-child(2) { animation-delay: 60ms; }
-  .spup-root .spup-journal-grid > :nth-child(3),
-  .spup-root .spup-journal-directory__item:nth-child(3) { animation-delay: 120ms; }
-  .spup-root .spup-journal-grid > :nth-child(4),
-  .spup-root .spup-journal-directory__item:nth-child(4) { animation-delay: 180ms; }
+  /* JavaScript marks only below-the-fold items; content stays visible without it. */
+  .spup-root .spup-scroll-reveal.is-pending { opacity: 0; transform: translateY(28px); }
+  .spup-root .spup-scroll-reveal.is-visible {
+    animation: spup-scroll-enter 1050ms ease-in-out both;
+    animation-delay: var(--spup-reveal-delay, 0ms);
+  }
+  .spup-root .spup-journal-cover.spup-scroll-reveal.is-visible,
+  .spup-root .spup-journal-directory__item.spup-scroll-reveal.is-visible,
+  .spup-root .spup-editorial-list li.spup-scroll-reveal.is-visible { animation-duration: 1200ms; }
 
   .spup-root .spup-journal-cover__media img,
   .spup-root .spup-journal-directory__cover img { transition: transform 260ms ease; }
@@ -45,4 +50,8 @@
   .spup-root .spup-journal-directory__button:hover,
   .spup-root .spup-publisher-button:hover,
   .page_index_site .spup-site-hero__search-controls button:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(19, 65, 47, .14); }
+}
+
+@media print {
+  .spup-root .spup-scroll-reveal.is-pending { opacity: 1; transform: none; }
 }

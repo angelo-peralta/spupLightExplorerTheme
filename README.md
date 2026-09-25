@@ -29,6 +29,8 @@ The theme renders the first three pages dynamically; their custom-item content m
 
 The homepage uses site-level OJS announcements, published OJS submissions, and enabled journal contexts. Journal names, article titles, counts, and cover paths are not stored in the theme.
 
+Journal covers and Latest Scholarship entries reveal as they enter the viewport. The content stays visible without JavaScript, and the reveal is disabled when reduced motion is requested.
+
 ## Root theme options
 
 The site administrator may edit the network subtitle, publisher address, and Google Maps embed URL; show or hide network statistics, Latest Scholarship, announcements, About sections, and maps; and choose the recent publication and announcement counts. Counts are restricted to the choices shown in Appearance. Map URLs must be HTTPS Google Maps embed URLs; an empty or invalid URL renders no iframe. No Custom CSS, font, color, layout, or animation setting is provided for the root design.
