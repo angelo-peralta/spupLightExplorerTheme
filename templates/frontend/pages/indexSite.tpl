@@ -2,7 +2,7 @@
 <main class="page_index_site">
   <section class="spup-site-hero spup-site-hero-image" aria-labelledby="spup-site-hero-title">
     <div class="spup-site-hero-bg" aria-hidden="true"
-      style="background-image: url('{$baseUrl|escape}/plugins/themes/spupLightExplorerTheme/resources/hero-image.png');"></div>
+      style="--spup-site-hero-desktop-image: url('{$baseUrl|escape}/plugins/themes/spupLightExplorerTheme/resources/hero-image-desktop.png'); --spup-site-hero-mobile-image: url('{$baseUrl|escape}/plugins/themes/spupLightExplorerTheme/resources/hero-image-mobile.png');"></div>
     <div class="spup-site-container spup-site-hero__inner">
       <p class="spup-site-hero__institution">St. Paul University Philippines</p>
       <h1 id="spup-site-hero-title" class="spup-site-hero__title">{$siteTitle|escape}</h1>

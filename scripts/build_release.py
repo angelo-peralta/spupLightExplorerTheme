@@ -18,7 +18,8 @@ SINGLE_FILES = (
     "resources/root-reset.css",
     "resources/spup-seal.png",
     "resources/footer-image.jpg",
-    "resources/hero-image.png",
+    "resources/hero-image-desktop.png",
+    "resources/hero-image-mobile.png",
 )
 DIRECTORIES = ("fonts", "less", "locale", "templates")
 
