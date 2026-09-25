@@ -1,6 +1,8 @@
 {include file="frontend/components/header.tpl" spupSiteHeroHeading=true}
 <main class="page_index_site">
-  <section class="spup-site-hero" aria-labelledby="spup-site-hero-title">
+  <section class="spup-site-hero spup-site-hero-image" aria-labelledby="spup-site-hero-title">
+    <div class="spup-site-hero-bg" aria-hidden="true"
+      style="background-image: url('{$baseUrl|escape}/plugins/themes/spupLightExplorerTheme/resources/hero-image.png');"></div>
     <div class="spup-site-container spup-site-hero__inner">
       <p class="spup-site-hero__institution">St. Paul University Philippines</p>
       <h1 id="spup-site-hero-title" class="spup-site-hero__title">{$siteTitle|escape}</h1>
