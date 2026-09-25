@@ -396,24 +396,20 @@
 			align-items: center;
 			justify-content: center;
 			flex: 0 0 auto;
-			min-width: 82px;
+			width: 44px;
 			min-height: 44px;
-			gap: 9px;
-			padding: 8px 12px;
-			border: 1px solid #CCD8CF;
-			border-radius: 4px;
-			background: #fff;
+			padding: 0;
+			border: 0;
+			background: transparent;
 			color: #26382E;
-			font-family: @font-family-secondary;
-			font-size: 13px;
-			font-weight: 700;
 			cursor: pointer;
 		}
+		.spup-header__menu-toggle:hover { color: #075B39; }
 
 		.spup-header__menu-icon {
 			position: relative;
 			display: block;
-			width: 18px;
+			width: 20px;
 			height: 2px;
 			background: currentColor;
 
@@ -421,7 +417,7 @@
 			&::after {
 				position: absolute;
 				left: 0;
-				width: 18px;
+				width: 20px;
 				height: 2px;
 				background: currentColor;
 				content: "";
@@ -433,6 +429,16 @@
 
 		.spup-header__menu-close-label {
 			display: none;
+		}
+		.spup-header__menu-open-label,
+		.spup-header__menu-close-label {
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			padding: 0;
+			overflow: hidden;
+			clip-path: inset(50%);
+			white-space: nowrap;
 		}
 
 		&.is-open {
@@ -589,7 +595,7 @@
 		.spup-header__institutional-link { min-height: 32px; }
 		.spup-header__identity-band .spup-header__inner { min-height: 96px; }
 		.spup-header__site-title { font-size: 30px; }
-		.spup-header__nav-band .spup-header__inner { display: block; }
+		.spup-header__nav-band .spup-header__inner { display: flex; flex-direction: column; align-items: stretch; }
 		.spup-header__nav-band .spup-header__menu-toggle { display: inline-flex; margin: 4px 0; }
 		.spup-header__navigation { padding: 0; border: 0; background: transparent; }
 		#navigationPrimary { align-items: stretch; justify-content: flex-start; gap: 0; border-top: 1px solid #DEE3DF; }
@@ -598,8 +604,8 @@
 		&.spup-header--enhanced:not(.is-open) .spup-header__navigation { display: none; }
 	}
 	.spup-header--site.spup-header__nav-band {
-		.spup-header__inner { display: block; }
-		.spup-header__menu-toggle { display: inline-flex; margin: 4px 0; }
+		.spup-header__inner { display: flex; flex-direction: column; align-items: stretch; }
+		.spup-header__menu-toggle { display: inline-flex; align-self: flex-end; margin: 4px 0; }
 		.spup-header__navigation { padding: 0; border: 0; background: transparent; }
 		&.is-open .spup-header__navigation { max-height: ~"calc(100svh - 60px)"; overflow-y: auto; }
 		#navigationPrimary { align-items: stretch; justify-content: flex-start; flex-direction: column; gap: 0; border-top: 1px solid #DEE3DF; }
