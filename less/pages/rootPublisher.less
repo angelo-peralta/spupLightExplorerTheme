@@ -35,14 +35,13 @@
   }
   .page_search {
     .row { margin: 0; }
-    .cmp_form { flex: none; width: 100%; max-width: 760px; margin: 0; padding: 0 0 28px; border-bottom: 1px solid @spup-site-border; }
-    .form-row, .form-group { margin: 0; padding: 0; }
-    .query { min-height: 52px; border: 1px solid @spup-site-border; border-radius: 4px; background: #fff; }
-    .search_advanced { margin-top: 24px; }
-    .search-advanced-legend, .search_advanced label { color: @spup-site-text; font: 700 12px/1.5 @font-family-secondary; }
+    .cmp_form { flex: none; width: 100%; max-width: 860px; margin: 0; padding: 0 0 28px; border-bottom: 1px solid @spup-site-border; }
+    .spup-search-bar .query { min-height: 52px; border-color: @spup-site-border; background: #fff; }
+    .spup-search-disclosure summary { color: @spup-site-green; }
+    .search_advanced { border-color: @spup-site-border; }
+    .search_advanced label { color: @spup-site-text; font: 700 12px/1.5 @font-family-secondary; }
     .spup-search-date-range { gap: 16px; }
     .spup-search-journal-filter select, .search_advanced select, .filter-authors input { min-height: 44px; border: 1px solid @spup-site-border; border-radius: 4px; background: #fff; }
-    .buttons { margin-top: 20px; }
     .btn-primary { min-height: 44px; padding: 10px 22px; border: 0; border-radius: 4px; background: @spup-site-green; color: #fff; transition: background-color @spup-root-transition; &:hover, &:focus { background: @spup-root-hover; color: #fff; } &:active { background: @spup-site-deep-green; } }
     .search_results { display: block; max-width: 860px; margin: 42px 0 30px; }
     .spup-search-count { margin: 26px 0 -26px; color: @spup-site-muted; font: 12px/1.5 @font-family-secondary; }
@@ -53,7 +52,7 @@
     .spup-search-result-journal, .spup-search-result-authors, .spup-search-result time { display: block; margin: 0 0 5px; color: @spup-site-muted; font: 12px/1.5 @font-family-secondary; }
     .spup-search-result-abstract { display: -webkit-box; max-height: 4.8em; margin-top: 12px; overflow: hidden; color: @spup-site-text; font: 13px/1.6 @font-family-secondary; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
     .spup-search-result-abstract p { margin: 0; }
-    .search-notifications { flex: none; max-width: 760px; margin: 0; padding: 0; }
+    .search-notifications { flex: none; max-width: 860px; margin: 0; padding: 0; }
     .cmp_pagination { max-width: 860px; }
   }
   .page_announcements {

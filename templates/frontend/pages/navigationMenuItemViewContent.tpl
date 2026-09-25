@@ -17,7 +17,7 @@
 			{include file="frontend/components/rootPublisherAbout.tpl"}
 		{elseif !$currentContext && $requestedPage == 'publisher-contact'}
 			{include file="frontend/components/rootPublisherContact.tpl"}
-		{elseif !$currentContext && $requestedPage == 'publisher-submit'}
+		{elseif !$currentContext && ($requestedPage == 'publisher-submit' || $requestedPage == 'submission')}
 			{include file="frontend/components/rootPublisherSubmission.tpl"}
 		{elseif !$currentContext && $requestedPage == 'journals'}
 			{include file="frontend/components/rootJournalDirectory.tpl"}

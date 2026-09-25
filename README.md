@@ -14,6 +14,8 @@ Version 1.0.2.0 designs the **root publisher site**. Individual journal design s
 
 The installed theme does not require Node.js, npm, Gulp, or Composer. The official Classic Theme can remain installed separately. The ZIP is larger than PHP's default 2 MB upload limit; set `upload_max_filesize` and `post_max_size` above the ZIP size before uploading.
 
+For an existing installation, use the **Upgrade** action on The Light Explorer Theme under the installed Theme Plugins list. OJS does not upgrade an installed plugin through **Upload a New Plugin**. After upgrading, clear the OJS template and compiled stylesheet caches.
+
 ## Root navigation and content
 
 Create site-level Custom Navigation Menu Items with these paths and assign them to the site's menus as needed:
@@ -26,6 +28,8 @@ Create site-level Custom Navigation Menu Items with these paths and assign them 
 | Submission Overview | `publisher-submit` | Administrator-edited item content plus live journal covers |
 
 The theme renders the first three pages dynamically; their custom-item content may be empty. Keep Submission Overview's guidance in the OJS custom item's content field. Its links should lead to individual journals, because manuscripts are submitted inside a journal.
+
+The Submission Overview journal chooser is rendered by the theme for a root-level custom navigation page at `publisher-submit` or `submission`. It lists enabled OJS journals and uses their saved cover images. If the chooser is missing, verify the custom page path, that this theme version is active for the root site, and that OJS template and stylesheet caches have been cleared after updating the plugin.
 
 The homepage uses site-level OJS announcements, published OJS submissions, and enabled journal contexts. Journal names, article titles, counts, and cover paths are not stored in the theme.
 

@@ -51,19 +51,20 @@
 
 				{* Repeat the label text just so that screen readers have a clear
 				   label/input relationship *}
-				<div class="form-row">
-					<div class="form-group col-sm-12">
+				<div class="spup-search-bar">
+					<div class="form-group">
 						<label class="pkp_screen_reader" for="query">
 							{translate key="search.searchFor"}
 						</label>
 						<input type="search" id="query" name="query" value="{$query|escape}" class="query form-control" placeholder="{translate|escape key="common.search"}">
 					</div>
+					<button class="submit btn btn-primary spup-search-submit" type="submit">{translate key="common.search"}</button>
 				</div>
 
-				<fieldset class="search_advanced">
-					<legend class="search-advanced-legend">
-						{translate key="search.advancedFilters"}
-					</legend>
+				<details class="spup-search-disclosure"{if $authors || (!$currentContext && $searchJournal) || $dateFromYear || $dateFromMonth || $dateFromDay || $dateToYear || $dateToMonth || $dateToDay} open{/if}>
+					<summary>{translate key="search.advancedFilters"}</summary>
+					<fieldset class="search_advanced">
+						<legend class="pkp_screen_reader">{translate key="search.advancedFilters"}</legend>
 
 					<div class="spup-search-date-range">
 						<div>
@@ -91,12 +92,8 @@
 							</select>
 						</div>
 					{/if}
-				</fieldset>
-
-
-				<div class="submit buttons">
-					<button class="submit btn btn-primary" type="submit">{translate key="common.search"}</button>
-				</div>
+					</fieldset>
+				</details>
 			</form>
 		</div>
 
