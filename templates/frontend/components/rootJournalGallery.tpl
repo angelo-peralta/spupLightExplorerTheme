@@ -7,7 +7,7 @@
       {assign var="thumb" value=$journal->getLocalizedData('journalThumbnail')}
       {assign var="descriptionPreview" value=$activeTheme->getJournalDescriptionPreview($journal->getLocalizedDescription(), 180)}
       {assign var="abbreviation" value=$journal->getLocalizedData('abbreviation')}
-      <article class="spup-journal-cover{if !$thumb} spup-journal-cover--missing{/if}">
+      <article class="spup-journal-cover{if !$thumb} spup-journal-cover--missing{/if}" style="--spup-journal-accent: {$spupJournalAccentColors[$journal->getId()]|escape};">
         <a class="spup-journal-cover__link" href="{$journalUrl|escape}" aria-labelledby="spup-journal-title-{$journal->getId()|escape}">
           <figure class="spup-journal-cover__figure">
             <div class="spup-journal-cover__media">

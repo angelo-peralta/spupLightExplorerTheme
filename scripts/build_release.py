@@ -16,6 +16,7 @@ SINGLE_FILES = (
     "resources/app.min.js",
     "resources/ionicons.js",
     "resources/root-reset.css",
+    "resources/spup-seal.png",
 )
 DIRECTORIES = ("fonts", "less", "locale", "templates")
 

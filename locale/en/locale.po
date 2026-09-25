@@ -105,7 +105,7 @@ msgid "plugins.themes.spupLightExplorerTheme.setting.googleMapsEmbedUrl"
 msgstr "Google Maps embed URL"
 
 msgid "plugins.themes.spupLightExplorerTheme.setting.googleMapsEmbedUrl.description"
-msgstr "Paste an HTTPS Google Maps URL beginning with https://www.google.com/maps/embed."
+msgstr "Paste the URL or full iframe from Google Maps > Share > Embed a map. Only secure Google Maps embed links are saved."
 
 msgid "plugins.themes.spupLightExplorerTheme.setting.showNetworkStats"
 msgstr "Show network statistics on homepage"

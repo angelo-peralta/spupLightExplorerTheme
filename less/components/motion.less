@@ -1,0 +1,48 @@
+/* Small, purposeful motion across the publisher and journal pages. */
+@keyframes spup-soft-reveal {
+  from { opacity: .55; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spup-rule-grow {
+  from { transform: scaleX(.3); opacity: .5; }
+  to { transform: scaleX(1); opacity: 1; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .spup-root .spup-site-hero__divider,
+  .spup-root .spup-section-rule { animation: spup-rule-grow 600ms ease-out both; transform-origin: center; }
+
+  .spup-root .spup-journal-cover,
+  .spup-root .spup-journal-directory__item,
+  .spup-root .spup-publisher-section,
+  .spup-root .spup-search-result,
+  .spup-root .page_announcements .obj_announcement_summary,
+  .spup-root .navigation-item-content .container-page > h1,
+  .spup-header--journal .spup-header__home-link,
+  .page_index_journal .obj_issue_toc,
+  .page_index_journal .obj_article_summary {
+    animation: spup-soft-reveal 480ms ease-out both;
+  }
+
+  .spup-root .spup-journal-grid > :nth-child(2),
+  .spup-root .spup-journal-directory__item:nth-child(2) { animation-delay: 60ms; }
+  .spup-root .spup-journal-grid > :nth-child(3),
+  .spup-root .spup-journal-directory__item:nth-child(3) { animation-delay: 120ms; }
+  .spup-root .spup-journal-grid > :nth-child(4),
+  .spup-root .spup-journal-directory__item:nth-child(4) { animation-delay: 180ms; }
+
+  .spup-root .spup-journal-cover__media img,
+  .spup-root .spup-journal-directory__cover img { transition: transform 260ms ease; }
+  .spup-root .spup-journal-cover__link:hover img,
+  .spup-root .spup-journal-cover__link:focus-visible img,
+  .spup-root .spup-journal-directory__cover:hover img,
+  .spup-root .spup-journal-directory__cover:focus-visible img { transform: scale(1.018); }
+
+  .spup-root .spup-journal-directory__button,
+  .spup-root .spup-publisher-button,
+  .page_index_site .spup-site-hero__search-controls button { transition: transform 180ms ease, background-color 180ms ease, color 180ms ease, box-shadow 180ms ease; }
+  .spup-root .spup-journal-directory__button:hover,
+  .spup-root .spup-publisher-button:hover,
+  .page_index_site .spup-site-hero__search-controls button:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(19, 65, 47, .14); }
+}

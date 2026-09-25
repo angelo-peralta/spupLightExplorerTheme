@@ -16,33 +16,34 @@
 	if (!header || !toggle) {
 		return;
 	}
+	const menuRoot = toggle.closest('.spup-header');
 
 	function setOpen(open) {
-		header.classList.toggle('is-open', open);
+		menuRoot.classList.toggle('is-open', open);
 		toggle.setAttribute('aria-expanded', String(open));
 	}
 
-	header.classList.add('spup-header--enhanced');
+	menuRoot.classList.add('spup-header--enhanced');
 	toggle.hidden = false;
 	toggle.addEventListener('click', function () {
-		setOpen(!header.classList.contains('is-open'));
+		setOpen(!menuRoot.classList.contains('is-open'));
 	});
 
-	header.addEventListener('keydown', function (event) {
+	menuRoot.addEventListener('keydown', function (event) {
 		if (event.key === ' ' && event.target.matches('.dropdown-toggle[role="button"]')) {
 			event.preventDefault();
 			event.target.click();
 			return;
 		}
 
-		if (event.key === 'Escape' && header.classList.contains('is-open') && !header.querySelector('.dropdown-menu.show')) {
+		if (event.key === 'Escape' && menuRoot.classList.contains('is-open') && !menuRoot.querySelector('.dropdown-menu.show')) {
 			setOpen(false);
 			toggle.focus();
 		}
 	});
 
 	document.addEventListener('click', function (event) {
-		if (header.classList.contains('is-open') && !header.contains(event.target)) {
+		if (menuRoot.classList.contains('is-open') && !menuRoot.contains(event.target)) {
 			setOpen(false);
 		}
 	});
@@ -62,7 +63,7 @@
 
 /* OJS renders menu links without a current-page marker for root custom pages. */
 (function () {
-	const navigation = document.querySelector('.spup-header--site #navigationPrimary');
+	const navigation = document.querySelector('.spup-header__nav-band #navigationPrimary');
 	if (!navigation) return;
 
 	const current = window.location.pathname.replace(/\/$/, '') || '/';

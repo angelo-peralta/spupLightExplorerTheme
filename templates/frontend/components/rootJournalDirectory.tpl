@@ -7,7 +7,7 @@
 			{assign var=abbreviation value=$journal->getLocalizedData('abbreviation')}
 			{assign var=summary value=$activeTheme->getJournalDescriptionPreview($journal->getLocalizedDescription())}
 			{capture assign=journalUrl}{url journal=$journal->getPath()}{/capture}
-			<article class="spup-journal-directory__item">
+			<article class="spup-journal-directory__item" style="--spup-journal-accent: {$spupJournalAccentColors[$journal->getId()]|escape};">
 				<a class="spup-journal-directory__cover" href="{$journalUrl|escape}" aria-label="{$journal->getLocalizedName()|escape}">
 					{if $thumb}
 						<img src="{$journalFilesPath}{$journal->getId()}/{$thumb.uploadName|escape:'url'}" alt="" loading="lazy" decoding="async">

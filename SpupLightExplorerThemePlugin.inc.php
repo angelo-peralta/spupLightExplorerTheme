@@ -189,13 +189,18 @@ class SpupLightExplorerThemePlugin extends ThemePlugin
     public function getSafeGoogleMapsEmbedUrl(?string $url): string
     {
         $url = trim((string) $url);
+        // Google Maps' "Share > Embed a map" action copies an iframe, not just its URL.
+        if (preg_match('/<iframe\b[^>]*\bsrc\s*=\s*(["\'])(.*?)\1/is', $url, $matches)) {
+            $url = $matches[2];
+        }
+        $url = html_entity_decode(trim($url), ENT_QUOTES | ENT_HTML5, 'UTF-8');
         if (!$url || !filter_var($url, FILTER_VALIDATE_URL)) {
             return '';
         }
         $parts = parse_url($url);
         if (!$parts || strtolower($parts['scheme'] ?? '') !== 'https'
             || !in_array(strtolower($parts['host'] ?? ''), ['www.google.com', 'google.com', 'maps.google.com'], true)
-            || ($parts['path'] ?? '') !== '/maps/embed'
+            || !in_array($parts['path'] ?? '', ['/maps/embed', '/maps/embed/v1/place', '/maps/embed/v1/search', '/maps/embed/v1/view', '/maps/embed/v1/directions'], true)
             || isset($parts['user']) || isset($parts['pass'])
             || (isset($parts['port']) && $parts['port'] !== 443)) {
             return '';
@@ -213,6 +218,19 @@ class SpupLightExplorerThemePlugin extends ThemePlugin
         $allowed = $name === 'recentPublicationCount' ? [3, 4, 5, 6] : [2, 3, 4, 5];
         $value = (int) $this->getOption($name);
         return in_array($value, $allowed, true) ? $value : ($name === 'recentPublicationCount' ? 4 : 3);
+    }
+
+    /** Reuse each journal's saved theme colour in its root directory and cover frame. */
+    private function getJournalAccentColors(array $journals): array
+    {
+        $settings = DAORegistry::getDAO('PluginSettingsDAO');
+        $colors = [];
+        foreach ($journals as $journal) {
+            $color = (string) $settings->getSetting($journal->getId(), $this->getName(), 'primaryColor');
+            $colors[$journal->getId()] = preg_match('/^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/', $color)
+                ? $color : '#0B6B43';
+        }
+        return $colors;
     }
 
     public function getDisplayName(): string
@@ -488,6 +506,7 @@ class SpupLightExplorerThemePlugin extends ThemePlugin
             'spupRecentPublications' => $recentPublications,
             'spupNetworkAnnouncements' => $announcements,
             'spupPublisherJournals' => $journals,
+            'spupJournalAccentColors' => $this->getJournalAccentColors($journals),
             'journalFilesPath' => $this->getRequest()->getBaseUrl() . '/' . Config::getVar('files', 'public_files_dir') . '/journals/',
         ]);
         return false;
@@ -502,8 +521,10 @@ class SpupLightExplorerThemePlugin extends ThemePlugin
             return false;
         }
 
+        $journals = DAORegistry::getDAO('JournalDAO')->getAll(true)->toArray();
         $args[0]->assign([
-            'spupDirectoryJournals' => DAORegistry::getDAO('JournalDAO')->getAll(true)->toArray(),
+            'spupDirectoryJournals' => $journals,
+            'spupJournalAccentColors' => $this->getJournalAccentColors($journals),
             'journalFilesPath' => $this->getRequest()->getBaseUrl() . '/' . Config::getVar('files', 'public_files_dir') . '/journals/',
         ]);
         return false;

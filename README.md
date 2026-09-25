@@ -33,7 +33,7 @@ The homepage uses site-level OJS announcements, published OJS submissions, and e
 
 The site administrator may edit the network subtitle, publisher address, and Google Maps embed URL; show or hide network statistics, Latest Scholarship, announcements, About sections, and maps; and choose the recent publication and announcement counts. Counts are restricted to the choices shown in Appearance. Map URLs must be HTTPS Google Maps embed URLs; an empty or invalid URL renders no iframe. No Custom CSS, font, color, layout, or animation setting is provided for the root design.
 
-Upload journal cover images through each OJS journal's settings. A journal without a cover receives a text fallback. The maps on About and Contact are optional and use the same configured URL. The footer map is off by default.
+Upload journal cover images through each OJS journal's settings. The root gallery and Journals page keep each image's natural proportions and frame it with that journal's saved primary colour. A journal without a cover receives a text fallback. The maps on About and Contact are optional and use the same configured URL. Paste either the URL or full iframe from Google Maps > Share > Embed a map into the theme setting; the theme stores only a validated Google Maps URL. The footer map is off by default. The SPUP seal in the root utility bar is packaged in `resources/spup-seal.png`.
 
 ## Development and packaging
 

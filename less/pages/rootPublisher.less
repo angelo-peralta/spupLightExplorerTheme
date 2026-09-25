@@ -87,10 +87,11 @@
     .spup-journal-directory { display: grid; gap: 0; }
     .spup-journal-directory__item { display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 28px; padding: 30px 0; border-bottom: 1px solid @spup-site-border; }
     .spup-journal-directory__item:first-child { padding-top: 8px; }
-    .spup-journal-directory__cover { display: flex; width: 160px; aspect-ratio: 3 / 4; overflow: hidden; align-items: center; justify-content: center; background: @spup-site-deep-green; text-decoration: none; }
-    .spup-journal-directory__cover img { display: block; width: 100%; height: 100%; object-fit: contain; transition: transform @spup-root-transition; }
+    .spup-journal-directory__cover { position: relative; display: block; align-self: start; width: 160px; padding: 10px 0 0 10px; text-decoration: none; }
+    .spup-journal-directory__cover::before { position: absolute; inset: 0 10px 10px 0; background: var(--spup-journal-accent, @spup-site-green); content: ""; }
+    .spup-journal-directory__cover img { position: relative; display: block; width: 100%; height: auto; transition: transform @spup-root-transition; }
     .spup-journal-directory__cover:hover img, .spup-journal-directory__cover:focus-visible img { transform: scale(1.035); }
-    .spup-journal-directory__cover-fallback { padding: 18px; color: #fff; font: 700 26px/1.2 @font-family-primary; text-align: center; overflow-wrap: anywhere; }
+    .spup-journal-directory__cover-fallback { position: relative; display: flex; align-items: center; justify-content: center; aspect-ratio: 3 / 4; padding: 18px; background: var(--spup-journal-accent, @spup-site-green); color: #fff; font: 700 26px/1.2 @font-family-primary; text-align: center; overflow-wrap: anywhere; }
     .spup-journal-directory__details { min-width: 0; align-self: center; }
     .spup-journal-directory__initials { margin: 0 0 5px; color: @spup-site-green; font: 700 12px/1.5 @font-family-secondary; letter-spacing: .12em; text-transform: uppercase; }
     .spup-journal-directory__details h2 { margin: 0 0 12px; font: 700 29px/1.22 @font-family-primary; overflow-wrap: anywhere; }
