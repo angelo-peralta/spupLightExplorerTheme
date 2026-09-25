@@ -59,7 +59,7 @@
   .spup-site-hero { text-align: center; border-bottom: 1px solid @spup-site-border; }
   .spup-site-hero__inner { display: flex; flex-direction: column; justify-content: center; min-height: ~"clamp(520px, 52vh, 620px)"; padding-top: 65px; padding-bottom: 70px; }
   .spup-site-hero__institution, .spup-site-hero__title, .spup-site-hero__subtitle,
-  .spup-site-hero__divider, .spup-site-hero__search { animation: spup-rise-in 760ms ease-out both; }
+  .spup-site-hero__divider, .spup-site-hero__search { animation: spup-rise-in 540ms ease-out both; }
   .spup-site-hero__subtitle { animation-delay: 40ms; }
   .spup-site-hero__search { animation-delay: 80ms; }
   .spup-site-hero__institution {
@@ -137,7 +137,7 @@
     > div + div { border-left: 1px solid @spup-site-border; }
     dd { order: -1; margin: 0; color: @spup-site-green; font: 700 30px/1.1 @font-family-primary; }
     dt { margin: 7px 0 0; color: @spup-site-muted; font: 700 10px/1.4 @font-family-secondary; letter-spacing: .12em; text-transform: uppercase; }
-    > div { animation: spup-rise-in 760ms ease-out both; }
+    > div { animation: spup-rise-in 540ms ease-out both; }
     > div:nth-child(2) { animation-delay: 70ms; }
     > div:nth-child(3) { animation-delay: 140ms; }
   }
@@ -218,8 +218,8 @@
 }
 .page_index_site .spup-site-hero__inner { min-height: ~"max(600px, calc(100svh - 192px))"; }
 @keyframes spup-rise-in {
-  from { opacity: .65; transform: translateY(7px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { transform: translateY(12px); }
+  to { transform: translateY(0); }
 }
 
 @media (hover: hover) and (pointer: fine) {

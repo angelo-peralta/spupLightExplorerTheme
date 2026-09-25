@@ -29,13 +29,13 @@ The theme renders the first three pages dynamically; their custom-item content m
 
 The homepage uses site-level OJS announcements, published OJS submissions, and enabled journal contexts. Journal names, article titles, counts, and cover paths are not stored in the theme.
 
-Journal covers and Latest Scholarship entries reveal as they enter the viewport. The content stays visible without JavaScript, and the reveal is disabled when reduced motion is requested.
+Journal covers and Latest Scholarship entries reveal with a brief slide and wipe as they enter the viewport. The content stays visible without JavaScript, and the reveal is disabled when reduced motion is requested.
 
 ## Root theme options
 
 The site administrator may edit the network subtitle, publisher address, and Google Maps embed URL; show or hide network statistics, Latest Scholarship, announcements, About sections, and maps; and choose the recent publication and announcement counts. Counts are restricted to the choices shown in Appearance. Map URLs must be HTTPS Google Maps embed URLs; an empty or invalid URL renders no iframe. No Custom CSS, font, color, layout, or animation setting is provided for the root design.
 
-Upload journal cover images through each OJS journal's settings. The root gallery and Journals page keep each image's natural proportions and frame it with that journal's saved primary colour. A journal without a cover receives a text fallback. The maps on About and Contact are optional and use the same configured URL. Paste either the URL or full iframe from Google Maps > Share > Embed a map into the theme setting; the theme stores only a validated Google Maps URL. The footer map is off by default. The SPUP seal in the root utility bar is packaged in `resources/spup-seal.png`.
+Upload journal cover images through each OJS journal's settings. The root gallery and Journals page keep each image's natural proportions and frame it with that journal's saved primary colour. A journal without a cover receives a text fallback. The maps on About and Contact are optional and use the same configured URL. Paste either the URL or full iframe from Google Maps > Share > Embed a map into the theme setting; the theme stores only a validated Google Maps URL. The footer map is off by default. The SPUP seal in the root utility bar is packaged in `resources/spup-seal.png`; the subdued institutional footer photograph is packaged in `resources/footer-image.jpg`.
 
 ## Development and packaging
 

@@ -1,21 +1,26 @@
 /* Small, purposeful motion across the publisher and journal pages. */
 @keyframes spup-soft-reveal {
-  from { opacity: .3; transform: translateY(18px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { transform: translateY(14px); }
+  to { transform: translateY(0); }
 }
 
 @keyframes spup-rule-grow {
-  from { transform: scaleX(.3); opacity: .5; }
-  to { transform: scaleX(1); opacity: 1; }
+  from { transform: scaleX(.3); }
+  to { transform: scaleX(1); }
 }
 
-@keyframes spup-scroll-enter {
-  from { opacity: 0; transform: translateY(28px); }
-  to { opacity: 1; transform: translateY(0); }
+@keyframes spup-content-wipe {
+  from { clip-path: inset(100% 0 0 0); transform: translateY(14px); }
+  to { clip-path: inset(0 0 0 0); transform: translateY(0); }
+}
+
+@keyframes spup-cover-wipe {
+  from { clip-path: inset(0 100% 0 0); transform: translateX(-14px); }
+  to { clip-path: inset(0 0 0 0); transform: translateX(0); }
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .spup-root .spup-site-hero__divider { animation: spup-rule-grow 800ms ease-out both; transform-origin: center; }
+  .spup-root .spup-site-hero__divider { animation: spup-rule-grow 540ms ease-out both; transform-origin: center; }
 
   .spup-root .spup-publisher-section,
   .spup-root .spup-search-result,
@@ -24,18 +29,19 @@
   .spup-header--journal .spup-header__home-link,
   .page_index_journal .obj_issue_toc,
   .page_index_journal .obj_article_summary {
-    animation: spup-soft-reveal 760ms ease-out both;
+    animation: spup-soft-reveal 540ms ease-out both;
   }
 
   /* JavaScript marks only below-the-fold items; content stays visible without it. */
-  .spup-root .spup-scroll-reveal.is-pending { opacity: 0; transform: translateY(28px); }
+  .spup-root .spup-scroll-reveal.is-pending { opacity: 0; transform: translateY(14px); }
   .spup-root .spup-scroll-reveal.is-visible {
-    animation: spup-scroll-enter 1050ms ease-in-out both;
+    animation: spup-content-wipe 580ms cubic-bezier(.2, .7, .2, 1) both;
     animation-delay: var(--spup-reveal-delay, 0ms);
   }
+  .spup-root .spup-journal-cover.spup-scroll-reveal.is-pending,
+  .spup-root .spup-journal-directory__item.spup-scroll-reveal.is-pending { transform: translateX(-14px); }
   .spup-root .spup-journal-cover.spup-scroll-reveal.is-visible,
-  .spup-root .spup-journal-directory__item.spup-scroll-reveal.is-visible,
-  .spup-root .spup-editorial-list li.spup-scroll-reveal.is-visible { animation-duration: 1200ms; }
+  .spup-root .spup-journal-directory__item.spup-scroll-reveal.is-visible { animation-name: spup-cover-wipe; animation-duration: 650ms; }
 
   .spup-root .spup-journal-cover__media img,
   .spup-root .spup-journal-directory__cover img { transition: transform 260ms ease; }

@@ -21,6 +21,7 @@
 			</div>
 		{/if}
 		<div class="spup-footer__main">
+			<img class="spup-footer__background" src="{$baseUrl|escape}/plugins/themes/spupLightExplorerTheme/resources/footer-image.jpg" alt="" loading="lazy" decoding="async">
 			<div class="spup-footer__container">
 				<div class="spup-footer__grid">
 					<div class="spup-footer__details">

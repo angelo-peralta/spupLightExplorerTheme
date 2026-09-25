@@ -92,7 +92,7 @@
 	for (const element of elements) {
 		if (element.getBoundingClientRect().top < window.innerHeight * .9) continue;
 		const siblings = Array.from(element.parentElement.children);
-		const delay = Math.min(siblings.indexOf(element) % 4, 3) * 90;
+		const delay = Math.min(siblings.indexOf(element) % 4, 3) * 45;
 		element.style.setProperty('--spup-reveal-delay', `${delay}ms`);
 		element.classList.add('spup-scroll-reveal', 'is-pending');
 		observer.observe(element);
