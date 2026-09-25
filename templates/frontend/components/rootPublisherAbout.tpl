@@ -21,11 +21,11 @@
     <div class="spup-about__identity-grid">
       <div class="spup-about__prose">{if $spupAboutSections.identity}{$spupAboutSections.identity|strip_unsafe_html}{else}<p>{translate key="plugins.themes.spupLightExplorerTheme.about.identity"}</p>{/if}</div>
       <ul class="spup-about__function-list">
-        <li>{translate key="plugins.themes.spupLightExplorerTheme.about.functionJournals"}</li>
-        <li>{translate key="plugins.themes.spupLightExplorerTheme.about.functionSearch"}</li>
-        <li>{translate key="plugins.themes.spupLightExplorerTheme.about.functionIssues"}</li>
-        <li>{translate key="plugins.themes.spupLightExplorerTheme.about.functionAnnouncements"}</li>
-        <li>{translate key="plugins.themes.spupLightExplorerTheme.about.functionSubmit"}</li>
+        <li><a href="{url page='journals'}">{translate key="plugins.themes.spupLightExplorerTheme.about.functionJournals"} <span aria-hidden="true">&rarr;</span></a></li>
+        <li><a href="{url page='search'}">{translate key="plugins.themes.spupLightExplorerTheme.about.functionSearch"} <span aria-hidden="true">&rarr;</span></a></li>
+        <li><a href="{url page='journals'}">{translate key="plugins.themes.spupLightExplorerTheme.about.functionIssues"} <span aria-hidden="true">&rarr;</span></a></li>
+        <li><a href="{url page='announcement'}">{translate key="plugins.themes.spupLightExplorerTheme.about.functionAnnouncements"} <span aria-hidden="true">&rarr;</span></a></li>
+        <li><a href="{if $spupRootOptions.showAboutSubmission}{url page='publisher-submit'}{else}{url page='journals'}{/if}">{translate key="plugins.themes.spupLightExplorerTheme.about.functionSubmit"} <span aria-hidden="true">&rarr;</span></a></li>
       </ul>
     </div>
   </section>
