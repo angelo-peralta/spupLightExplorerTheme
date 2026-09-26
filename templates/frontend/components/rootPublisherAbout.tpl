@@ -25,7 +25,7 @@
         <li><a href="{url page='search'}">{translate key="plugins.themes.spupLightExplorerTheme.about.functionSearch"} <span aria-hidden="true">&rarr;</span></a></li>
         <li><a href="{url page='journals'}">{translate key="plugins.themes.spupLightExplorerTheme.about.functionIssues"} <span aria-hidden="true">&rarr;</span></a></li>
         <li><a href="{url page='announcement'}">{translate key="plugins.themes.spupLightExplorerTheme.about.functionAnnouncements"} <span aria-hidden="true">&rarr;</span></a></li>
-        <li><a href="{if $spupRootOptions.showAboutSubmission}{url page='publisher-submit'}{else}{url page='journals'}{/if}">{translate key="plugins.themes.spupLightExplorerTheme.about.functionSubmit"} <span aria-hidden="true">&rarr;</span></a></li>
+        <li><a href="{if $spupRootOptions.showAboutSubmission}{url page='submission'}{else}{url page='journals'}{/if}">{translate key="plugins.themes.spupLightExplorerTheme.about.functionSubmit"} <span aria-hidden="true">&rarr;</span></a></li>
       </ul>
     </div>
   </section>
@@ -56,7 +56,7 @@
     <div class="spup-about__audience" aria-labelledby="spup-about-authors-title">
       <p class="spup-page-eyebrow">{translate key="plugins.themes.spupLightExplorerTheme.about.audienceEyebrow"}</p><h2 id="spup-about-authors-title">{translate key="plugins.themes.spupLightExplorerTheme.about.authors"}</h2>
       <div class="spup-about__prose">{if $spupAboutSections.authors}{$spupAboutSections.authors|strip_unsafe_html}{else}<p>{translate key="plugins.themes.spupLightExplorerTheme.about.authorsCopy"}</p>{/if}</div>
-      <div class="spup-about__links"><a class="spup-about__text-link" href="{url page='journals'}">{translate key="plugins.themes.spupLightExplorerTheme.about.exploreJournals"} <span aria-hidden="true">&rarr;</span></a>{if $spupRootOptions.showAboutSubmission}<a class="spup-about__text-link" href="{url page='publisher-submit'}">{translate key="plugins.themes.spupLightExplorerTheme.root.submissionOverview"} <span aria-hidden="true">&rarr;</span></a>{/if}</div>
+      <div class="spup-about__links"><a class="spup-about__text-link" href="{url page='journals'}">{translate key="plugins.themes.spupLightExplorerTheme.about.exploreJournals"} <span aria-hidden="true">&rarr;</span></a>{if $spupRootOptions.showAboutSubmission}<a class="spup-about__text-link" href="{url page='submission'}">{translate key="plugins.themes.spupLightExplorerTheme.root.submissionOverview"} <span aria-hidden="true">&rarr;</span></a>{/if}</div>
     </div>
   </section>
 
@@ -81,6 +81,6 @@
 
   <section class="spup-about__section spup-about__next spup-publisher-section" aria-labelledby="spup-about-next-title">
     <div class="spup-about__section-heading"><p class="spup-page-eyebrow">{translate key="plugins.themes.spupLightExplorerTheme.about.nextEyebrow"}</p><h2 id="spup-about-next-title">{translate key="plugins.themes.spupLightExplorerTheme.about.exploreNetwork"}</h2></div>
-    <div class="spup-about__links"><a class="spup-about__text-link" href="{url page='journals'}">{translate key="plugins.themes.spupLightExplorerTheme.about.exploreJournals"} <span aria-hidden="true">&rarr;</span></a><a class="spup-about__text-link" href="{url page='search'}">{translate key="plugins.themes.spupLightExplorerTheme.about.searchPublications"} <span aria-hidden="true">&rarr;</span></a>{if $spupRootOptions.showAboutSubmission}<a class="spup-about__text-link" href="{url page='publisher-submit'}">{translate key="plugins.themes.spupLightExplorerTheme.root.submissionOverview"} <span aria-hidden="true">&rarr;</span></a>{/if}</div>
+    <div class="spup-about__links"><a class="spup-about__text-link" href="{url page='journals'}">{translate key="plugins.themes.spupLightExplorerTheme.about.exploreJournals"} <span aria-hidden="true">&rarr;</span></a><a class="spup-about__text-link" href="{url page='search'}">{translate key="plugins.themes.spupLightExplorerTheme.about.searchPublications"} <span aria-hidden="true">&rarr;</span></a>{if $spupRootOptions.showAboutSubmission}<a class="spup-about__text-link" href="{url page='submission'}">{translate key="plugins.themes.spupLightExplorerTheme.root.submissionOverview"} <span aria-hidden="true">&rarr;</span></a>{/if}</div>
   </section>
 </div>

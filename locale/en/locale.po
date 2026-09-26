@@ -194,6 +194,27 @@ msgstr "Choose a Journal"
 msgid "plugins.themes.spupLightExplorerTheme.root.publishingContact"
 msgstr "Publishing Contact"
 
+msgid "plugins.themes.spupLightExplorerTheme.contact.eyebrow"
+msgstr "Contact"
+
+msgid "plugins.themes.spupLightExplorerTheme.contact.title"
+msgstr "Contact The Light Explorer"
+
+msgid "plugins.themes.spupLightExplorerTheme.contact.intro"
+msgstr "For inquiries concerning The Light Explorer journal network, publishing information, or access to its participating journals, please use the contact information below."
+
+msgid "plugins.themes.spupLightExplorerTheme.contact.inquiries"
+msgstr "Inquiries"
+
+msgid "plugins.themes.spupLightExplorerTheme.contact.nextEyebrow"
+msgstr "Explore and publish"
+
+msgid "plugins.themes.spupLightExplorerTheme.contact.publishingInformation"
+msgstr "Publishing Information"
+
+msgid "plugins.themes.spupLightExplorerTheme.contact.aboutNetwork"
+msgstr "About The Light Explorer"
+
 msgid "plugins.themes.spupLightExplorerTheme.root.mapTitle"
 msgstr "St. Paul University Philippines location map"
 

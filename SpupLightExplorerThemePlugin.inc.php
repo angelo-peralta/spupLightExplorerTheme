@@ -466,7 +466,7 @@ class SpupLightExplorerThemePlugin extends ThemePlugin
         }
         $isHomepage = $args[1] === 'frontend/pages/indexSite.tpl';
         $isCustomPage = $args[1] === 'frontend/pages/navigationMenuItemViewContent.tpl';
-        $isAbout = $isCustomPage && $this->getRequest()->getRequestedPage() === 'publisher-about';
+        $isAbout = $isCustomPage && in_array($this->getRequest()->getRequestedPage(), ['about', 'publisher-about'], true);
         $isSubmission = $isCustomPage && in_array($this->getRequest()->getRequestedPage(), ['publisher-submit', 'submission'], true);
         if (!$isHomepage && !$isAbout && !$isSubmission) {
             return false;

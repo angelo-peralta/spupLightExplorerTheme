@@ -27,9 +27,6 @@
 			<div class="spup-header__inner">
 				<a class="spup-header__institutional-link" href="{$spupInstitutionalUrl|escape}"><img src="{$baseUrl}/plugins/themes/spupLightExplorerTheme/resources/spup-seal.png" alt="" width="26" height="26" loading="eager">{translate key="plugins.themes.spupLightExplorerTheme.footer.institution"}</a>
 				<div id="spupHeaderUtilities" class="spup-header__utilities">
-					<nav class="spup-header__user-navigation" aria-label="{translate|escape key="plugins.themes.spupLightExplorerTheme.accountNavigation"}">
-						{load_menu name="user" id="navigationUser" ulClass="pkp_navigation_user"}
-					</nav>
 					{include file="frontend/components/languageSwitcher.tpl" id="languageNav"}
 				</div>
 			</div>

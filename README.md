@@ -9,7 +9,7 @@ Version 1.1.0.0 designs the **root publisher site**. Individual journal design s
 1. Sign in as a site administrator and open **Dashboard → Plugins → Upload a New Plugin**.
 2. Upload `spupLightExplorerTheme-v1.1.0.zip`, enable **The Light Explorer Theme**, and select it under **Settings → Website → Appearance** for the root site.
 3. Set the OJS **Site Name**, **Site Logo**, and **Site Contact Email**. Use **Site About** for section-specific About copy as described below.
-4. Assign the site's **User Navigation Menu** to the `user` area, the publisher menu to `primary`, and the footer menus to `footerExplore` and `footerInformation` in OJS Navigation Menus.
+4. Assign the publisher menu to `primary` and the footer menus to `footerExplore` and `footerInformation` in OJS Navigation Menus. The root header shows institutional and language controls, while individual journal headers retain their user navigation.
 5. Configure the root theme options under Appearance. If a changed template or LESS file is not visible, clear the OJS template and stylesheet caches.
 
 The installed theme does not require Node.js, npm, Gulp, or Composer. The official Classic Theme can remain installed separately. The ZIP is larger than PHP's default 2 MB upload limit; set `upload_max_filesize` and `post_max_size` above the ZIP size before uploading.
@@ -18,24 +18,24 @@ For an existing installation, use the **Upgrade** action on The Light Explorer T
 
 ## Root navigation and content
 
-Create site-level Custom Navigation Menu Items with these paths and assign them to the site's menus as needed:
+Use site-level Custom Navigation Menu Items with these paths and assign them to the site's menus as needed. On an existing site, keep its items and menu assignments; see the route audit before editing a path:
 
 | Label | Path | Content source |
 | --- | --- | --- |
 | Journals | `journals` | Enabled OJS journals and their uploaded covers |
-| About | `publisher-about` | Approved theme fallback text or sectioned OJS About copy, plus live statistics and journals |
-| Contact | `publisher-contact` | OJS Site Contact Email and the theme's publisher address |
-| Submission Overview | `publisher-submit` | Administrator-edited item content plus live journal covers |
+| About | `about` | Approved theme fallback text or sectioned OJS About copy, plus live statistics and journals |
+| Contact | `contact-us` | OJS Site Contact Email and the theme's publisher address; the existing `contact` alias also works |
+| Submission Overview | `submission` | Administrator-edited item content plus live journal covers |
 
-The theme renders the first three pages dynamically; their custom-item content may be empty. Keep Submission Overview's guidance in the OJS custom item's content field. Its links should lead to individual journals, because manuscripts are submitted inside a journal.
+Journals, About, and Contact are rendered from OJS data and theme sections; their custom-item content may be empty. Keep Submission Overview's guidance in the OJS custom item's content field. Its links should lead to individual journals, because manuscripts are submitted inside a journal.
 
-The Submission Overview journal chooser is rendered by the theme for a root-level custom navigation page at `publisher-submit` or `submission`. It lists enabled OJS journals and uses their saved cover images. If the chooser is missing, verify the custom page path, that this theme version is active for the root site, and that OJS template and stylesheet caches have been cleared after updating the plugin.
+The Submission Overview journal chooser is rendered by the theme for a root-level custom navigation page at `submission`. It lists enabled OJS journals and uses their saved cover images. If the chooser is missing, verify the custom page path, that this theme version is active for the root site, and that OJS template and stylesheet caches have been cleared after updating the plugin.
 
-The root About page uses the approved wording supplied for its V1 layout as English fallback text. To edit a narrative section in OJS, place its copy in **Site About** or the `publisher-about` custom page content inside a wrapper such as `<div id="spup-about-story"><p>Approved history text.</p></div>`. Supported IDs are `spup-about-intro`, `spup-about-story`, `spup-about-identity`, `spup-about-structure`, `spup-about-readers`, `spup-about-authors`, and `spup-about-platform`. The theme supplies headings and section order, so these wrappers should contain body copy only. Custom page sections override matching Site About sections; unstructured Site About text is not inserted into the redesigned page. Statistics, journal covers, contact email, publisher address, and map are sourced separately from OJS and the root theme settings.
+The root About page uses the approved wording supplied for its V1 layout as English fallback text. To edit a narrative section in OJS, place its copy in **Site About** or the `about` custom page content inside a wrapper such as `<div id="spup-about-story"><p>Approved history text.</p></div>`. Supported IDs are `spup-about-intro`, `spup-about-story`, `spup-about-identity`, `spup-about-structure`, `spup-about-readers`, `spup-about-authors`, and `spup-about-platform`. The theme supplies headings and section order, so these wrappers should contain body copy only. Custom page sections override matching Site About sections; unstructured Site About text is not inserted into the redesigned page. Statistics, journal covers, contact email, publisher address, and map are sourced separately from OJS and the root theme settings.
 
 The homepage uses site-level OJS announcements, published OJS submissions, and enabled journal contexts. Journal names, article titles, counts, and cover paths are not stored in the theme.
 
-Journal covers and Latest Scholarship entries reveal with a brief slide and wipe as they enter the viewport. The content stays visible without JavaScript, and the reveal is disabled when reduced motion is requested.
+Journal covers and Latest Scholarship entries reveal as they enter the viewport. The content stays visible without JavaScript, and the reveal is disabled when reduced motion is requested.
 
 ## Root theme options
 
@@ -48,6 +48,8 @@ Upload journal cover images through each OJS journal's settings. The root galler
 The runtime stylesheet is compiled by OJS from `less/import.less`. The committed `resources/app.min.js` and `resources/app.min.css` provide the runtime JavaScript and Bootstrap styles. If `dev_js/main-theme.js` changes, run `npx gulp scripts` and `npx gulp compress` before packaging. These tools are only needed by developers.
 
 Run `python scripts/build_release.py` to create `dist/spupLightExplorerTheme-v1.1.0.zip`. The archive has one top-level `spupLightExplorerTheme/` folder and contains only runtime code, styles, fonts, locales, templates, and license/documentation files. It excludes `.git`, `.local-dev`, `node_modules`, database dumps, credentials, screenshots, and development output. Test the exact ZIP through OJS's plugin upload workflow before publishing a release tag.
+
+Before building the next archive, resolve the production route items in [the root page path audit](docs/ROOT_PAGE_PATH_AUDIT.md). Theme templates alone cannot change a production OJS Custom Navigation Menu Item path.
 
 ## Credits and licenses
 

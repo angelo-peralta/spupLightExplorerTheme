@@ -61,9 +61,10 @@
 	}
 })();
 
-/* Reveal publisher sections when they enter view, while keeping no-JS content visible. */
+/* Reveal root content after the observer is ready; without JS everything stays visible. */
 (function () {
-	if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+	const root = document.body;
+	if (!root.classList.contains('spup-root') || !('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
 	const selector = [
 		'.page_index_site .index-site-journals > .spup-section-eyebrow',
@@ -73,29 +74,45 @@
 		'.page_index_site .spup-latest > .spup-section-eyebrow',
 		'.page_index_site .spup-latest > h2',
 		'.page_index_site .spup-latest > .spup-section-rule',
-		'.page_index_site .spup-latest__columns h3',
-		'.page_index_site .spup-editorial-list li',
-		'.spup-root .page_journals .spup-journal-directory__item',
+		'.page_index_site .spup-latest__columns > *',
+		'.page_publisher_about .spup-about__hero',
+		'.page_publisher_about .spup-about__section',
+		'.page_publisher_contact .spup-contact__intro',
+		'.page_publisher_contact .spup-contact__details > section',
+		'.page_publisher_contact .spup-contact__location',
+		'.page_publisher_contact .spup-contact__links',
+		'.page_search .cmp_form',
+		'.page_search .spup-search-result',
+		'.page_announcements .cmp_announcement',
+		'.page_announcement .announcement-full-description',
+		'.page_journals .spup-journal-directory__item',
+		'.navigation-item-content .spup-publisher-submission > *',
+		'.navigation-item-content:not(.page_publisher_about):not(.page_publisher_contact):not(.page_journals) .container-page > :not(.spup-root-breadcrumbs):not(.spup-publisher-submission)',
+		'.page_error .container-page > *',
+		'.page_message .container-page > *',
 	].join(', ');
-	const elements = document.querySelectorAll(selector);
+	const elements = Array.from(document.querySelectorAll(selector));
 	if (!elements.length) return;
 
-	const observer = new IntersectionObserver((entries) => {
-		for (const entry of entries) {
-			if (!entry.isIntersecting) continue;
-			entry.target.classList.remove('is-pending');
-			entry.target.classList.add('is-visible');
-			observer.unobserve(entry.target);
+	let observer;
+	try {
+		observer = new IntersectionObserver((entries) => {
+			for (const entry of entries) {
+				if (!entry.isIntersecting) continue;
+				entry.target.classList.remove('is-pending');
+				entry.target.classList.add('is-visible');
+				observer.unobserve(entry.target);
+			}
+		}, { rootMargin: '0px 0px -40px 0px', threshold: 0.1 });
+		for (const element of elements) {
+			element.classList.add('spup-scroll-reveal', 'is-pending');
+			observer.observe(element);
 		}
-	}, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
-
-	for (const element of elements) {
-		if (element.getBoundingClientRect().top < window.innerHeight * .9) continue;
-		const siblings = Array.from(element.parentElement.children);
-		const delay = Math.min(siblings.indexOf(element) % 4, 3) * 45;
-		element.style.setProperty('--spup-reveal-delay', `${delay}ms`);
-		element.classList.add('spup-scroll-reveal', 'is-pending');
-		observer.observe(element);
+		root.classList.add('spup-motion-ready');
+	} catch (error) {
+		if (observer) observer.disconnect();
+		root.classList.remove('spup-motion-ready');
+		for (const element of elements) element.classList.remove('is-pending');
 	}
 })();
 
