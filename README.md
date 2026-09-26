@@ -2,12 +2,12 @@
 
 The Light Explorer Theme is an OJS 3.5 theme for the St. Paul University Philippines journal network. It is based on the PKP Classic Theme and keeps OJS journals, publications, issues, announcements, authentication, and navigation menus as the source of their own data.
 
-Version 1.1.0.0 designs the **root publisher site**. Individual journal design systems are planned for V2; this release does not redesign their homepages, issues, or articles.
+Version 1.1.2.0 designs the **root publisher site**. Individual journal design systems are planned for V2; this release does not redesign their homepages, issues, or articles.
 
 ## Install in OJS
 
 1. Sign in as a site administrator and open **Dashboard → Plugins → Upload a New Plugin**.
-2. Upload `spupLightExplorerTheme-v1.1.0.zip`, enable **The Light Explorer Theme**, and select it under **Settings → Website → Appearance** for the root site.
+2. Upload `spupLightExplorerTheme-v1.1.2.zip`, enable **The Light Explorer Theme**, and select it under **Settings → Website → Appearance** for the root site.
 3. Set the OJS **Site Name**, **Site Logo**, and **Site Contact Email**. Use **Site About** for section-specific About copy as described below.
 4. Assign the publisher menu to `primary` and the footer menus to `footerExplore` and `footerInformation` in OJS Navigation Menus. The root header shows institutional and language controls, while individual journal headers retain their user navigation.
 5. Configure the root theme options under Appearance. If a changed template or LESS file is not visible, clear the OJS template and stylesheet caches.
@@ -47,7 +47,7 @@ Upload journal cover images through each OJS journal's settings. The root galler
 
 The runtime stylesheet is compiled by OJS from `less/import.less`. The committed `resources/app.min.js` and `resources/app.min.css` provide the runtime JavaScript and Bootstrap styles. If `dev_js/main-theme.js` changes, run `npx gulp scripts` and `npx gulp compress` before packaging. These tools are only needed by developers.
 
-Run `python scripts/build_release.py` to create `dist/spupLightExplorerTheme-v1.1.0.zip`. The archive has one top-level `spupLightExplorerTheme/` folder and contains only runtime code, styles, fonts, locales, templates, and license/documentation files. It excludes `.git`, `.local-dev`, `node_modules`, database dumps, credentials, screenshots, and development output. Test the exact ZIP through OJS's plugin upload workflow before publishing a release tag.
+Run `python scripts/build_release.py` to create `dist/spupLightExplorerTheme-v1.1.2.zip`. The archive has one top-level `spupLightExplorerTheme/` folder and contains only runtime code, styles, fonts, locales, templates, and license/documentation files. It excludes `.git`, `.local-dev`, `node_modules`, database dumps, credentials, screenshots, and development output. Test the exact ZIP through OJS's plugin upload workflow before publishing a release tag.
 
 Before building the next archive, resolve the production route items in [the root page path audit](docs/ROOT_PAGE_PATH_AUDIT.md). Theme templates alone cannot change a production OJS Custom Navigation Menu Item path.
 

@@ -5,7 +5,7 @@ from zipfile import ZIP_DEFLATED, ZipFile
 
 
 ROOT = Path(__file__).resolve().parents[1]
-DESTINATION = ROOT / "dist" / "spupLightExplorerTheme-v1.1.0.zip"
+DESTINATION = ROOT / "dist" / "spupLightExplorerTheme-v1.1.2.zip"
 SINGLE_FILES = (
     "index.php",
     "SpupLightExplorerThemePlugin.inc.php",
