@@ -15,12 +15,12 @@
 {if $languageToggleLocales && $languageToggleLocales|@count > 1}
 	<ul id="{$id|escape}" class="dropdown language-toggle nav nav-tabs">
 		<li class="nav-item dropdown">
-			<a class="nav-link dropdown-toggle" id="languageToggleMenu{$id|escape}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			<button class="nav-link dropdown-toggle spup-header__language-button" type="button" id="languageToggleMenu{$id|escape}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				<span class="visually-hidden">{translate key="plugins.themes.spupLightExplorerTheme.language.toggle"}</span>
 				{$languageToggleLocales[$currentLocale]|escape}
-			</a>
+			</button>
 
-			<div class="navigation-dropdown dropdown-menu dropdown-menu-right" aria-labelledby="languageToggleMenu{$id|escape}">
+			<div class="navigation-dropdown dropdown-menu dropdown-menu-end" aria-labelledby="languageToggleMenu{$id|escape}">
 				{foreach from=$languageToggleLocales item="localeName" key="localeKey"}
 					{if $localeKey !== $currentLocale}
 						<a class="dropdown-item" href="{url router=$smarty.const.ROUTE_PAGE page="user" op="setLocale" path=$localeKey}">

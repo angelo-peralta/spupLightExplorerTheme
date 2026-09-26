@@ -9,10 +9,23 @@
  *}
 {include file="frontend/components/header.tpl" pageTitleTranslated=$title|escape}
 
-<main class="page navigation-item-content">
+<main class="page navigation-item-content{if !$currentContext && $requestedPage == 'journals'} page_journals{/if}{if !$currentContext && ($requestedPage == 'about' || $requestedPage == 'publisher-about')} page_publisher_about{/if}{if !$currentContext && ($requestedPage == 'contact' || $requestedPage == 'contact-us' || $requestedPage == 'publisher-contact')} page_publisher_contact{/if}">
 	<div class="container-fluid container-page container-narrow">
-		<h1 class="page_title text-center">{$title|escape}</h1>
-		{$content}
+		{if !$currentContext}{include file="frontend/components/rootBreadcrumbs.tpl" currentTitle=$title}{/if}
+		{if !$currentContext && ($requestedPage == 'about' || $requestedPage == 'publisher-about')}
+			{include file="frontend/components/rootPublisherAbout.tpl"}
+		{elseif !$currentContext && ($requestedPage == 'contact' || $requestedPage == 'contact-us' || $requestedPage == 'publisher-contact')}
+			{include file="frontend/components/rootPublisherContact.tpl"}
+		{else}
+			<h1 class="page_title{if $currentContext} text-center{/if}">{$title|escape}</h1>
+			{if !$currentContext && ($requestedPage == 'publisher-submit' || $requestedPage == 'submission')}
+				{include file="frontend/components/rootPublisherSubmission.tpl"}
+			{elseif !$currentContext && $requestedPage == 'journals'}
+				{include file="frontend/components/rootJournalDirectory.tpl"}
+			{else}
+				{$content}
+			{/if}
+		{/if}
 	</div>
 </main>
 

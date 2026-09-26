@@ -11,11 +11,15 @@
  *}
 {include file="frontend/components/header.tpl" pageTitleTranslated=$announcement->getLocalizedData('title')|escape}
 
-<div class="page page_announcement">
+<main class="page page_announcement">
 	<div class="container-fluid container-page container-narrow">
+		{if !$currentContext}
+			{capture assign="spupAnnouncementsUrl"}{url page="announcement"}{/capture}
+			{include file="frontend/components/rootBreadcrumbs.tpl" currentTitle=$announcement->getLocalizedData('title') parentTitleKey="announcement.announcements" parentUrl=$spupAnnouncementsUrl}
+		{/if}
 		{* Display book details *}
 		{include file="frontend/objects/announcement_full.tpl"}
 	</div>
-</div><!-- .page -->
+</main><!-- .page -->
 
 {include file="frontend/components/footer.tpl"}

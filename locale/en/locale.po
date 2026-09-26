@@ -23,6 +23,9 @@ msgstr "Search articles, authors, or keywords"
 msgid "plugins.themes.spupLightExplorerTheme.directory.openJournal"
 msgstr "Open Journal"
 
+msgid "plugins.themes.spupLightExplorerTheme.directory.viewJournal"
+msgstr "View Journal"
+
 msgid "plugins.themes.spupLightExplorerTheme.search.allJournals"
 msgstr "Search all journals"
 
@@ -32,17 +35,332 @@ msgstr "Search this journal"
 msgid "plugins.themes.spupLightExplorerTheme.search.allJournalsOption"
 msgstr "All journals"
 
+msgid "plugins.themes.spupLightExplorerTheme.root.networkStatistics"
+msgstr "Network statistics"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.journals"
+msgstr "Journals"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.articles"
+msgstr "Published articles"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.issues"
+msgstr "Published issues"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.discover"
+msgstr "Discover"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.exploreJournals"
+msgstr "Explore the Journals"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.aboutNetwork"
+msgstr "About the Network"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.eyebrow"
+msgstr "About"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.intro"
+msgstr "The Light Explorer Journal Network is the scholarly publishing network of St. Paul University Philippines, bringing together the University's specialized academic journals within one publishing and discovery platform."
+
+msgid "plugins.themes.spupLightExplorerTheme.about.history"
+msgstr "History"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.story"
+msgstr "Our Story"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.storyOne"
+msgstr "The Light Explorer Journal Network evolved from The Light Explorer Multidisciplinary Journal, the earlier scholarly publication platform of St. Paul University Philippines."
+
+msgid "plugins.themes.spupLightExplorerTheme.about.storyTwo"
+msgstr "As the University's research and publication activities expanded across different academic disciplines, The Light Explorer developed into a network of specialized scholarly journals, each with its own disciplinary focus, editorial scope, policies, and publication identity."
+
+msgid "plugins.themes.spupLightExplorerTheme.about.storyThree"
+msgstr "Today, The Light Explorer serves as the unified journal network of St. Paul University Philippines, connecting these distinct journals through a common publishing and discovery platform while preserving the individual identity and academic focus of each publication."
+
+msgid "plugins.themes.spupLightExplorerTheme.about.present"
+msgstr "Present"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.whoWeAre"
+msgstr "Who We Are"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.identity"
+msgstr "The Light Explorer is SPUP's scholarly journal network. It provides a shared publishing environment and a common discovery gateway for distinct journals, rather than operating as one multidisciplinary journal."
+
+msgid "plugins.themes.spupLightExplorerTheme.about.functionJournals"
+msgstr "Discover SPUP journals"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.functionSearch"
+msgstr "Search scholarship across the network"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.functionIssues"
+msgstr "Access current and past issues"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.functionAnnouncements"
+msgstr "Read announcements"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.functionSubmit"
+msgstr "Find a journal's submissions and policies"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.network"
+msgstr "The Network"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.ourJournals"
+msgstr "Our Journals"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.journalsIntro"
+msgstr "The Light Explorer brings together specialized scholarly journals serving distinct academic disciplines within St. Paul University Philippines."
+
+msgid "plugins.themes.spupLightExplorerTheme.about.structureEyebrow"
+msgstr "Journal Identity"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.structure"
+msgstr "One Network, Distinct Journals"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.structureOne"
+msgstr "Each journal maintains its own aims and scope, editorial leadership, author guidelines, peer-review and editorial procedures, publication policies, announcements, issues and articles, and submission process."
+
+msgid "plugins.themes.spupLightExplorerTheme.about.structureTwo"
+msgstr "The Light Explorer provides the shared publishing and discovery environment without replacing each journal's individual scholarly identity."
+
+msgid "plugins.themes.spupLightExplorerTheme.about.audiences"
+msgstr "For readers and authors"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.audienceEyebrow"
+msgstr "Explore and Publish"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.readers"
+msgstr "For Readers"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.readersCopy"
+msgstr "Readers can browse journals, search across the network, access recent publications, read announcements, and continue to individual journal issues and archives."
+
+msgid "plugins.themes.spupLightExplorerTheme.about.authors"
+msgstr "For Authors"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.authorsCopy"
+msgstr "Authors should identify the appropriate journal, review its aims and scope, read the Author Guidelines and publication and ethics policies, then submit directly through the selected journal."
+
+msgid "plugins.themes.spupLightExplorerTheme.about.institution"
+msgstr "Institution"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.institutionalWebsite"
+msgstr "Institutional Website"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.whereWeAre"
+msgstr "Where We Are"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.platformEyebrow"
+msgstr "Publishing System"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.platform"
+msgstr "Our Publishing Platform"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.platformCopy"
+msgstr "The Light Explorer operates using Open Journal Systems (OJS), an open-source scholarly publishing platform developed by the Public Knowledge Project (PKP). OJS supports journal publishing workflows, archives, editorial activities, user accounts, and access to published scholarly content."
+
+msgid "plugins.themes.spupLightExplorerTheme.about.nextEyebrow"
+msgstr "Next Steps"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.exploreNetwork"
+msgstr "Explore the Network"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.exploreJournals"
+msgstr "Explore the Journals"
+
+msgid "plugins.themes.spupLightExplorerTheme.about.searchPublications"
+msgstr "Search Publications"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.networkAtGlance"
+msgstr "Network at a Glance"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.publisher"
+msgstr "Publisher"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.institutionalWebsite"
+msgstr "SPUP website"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.publishWithUs"
+msgstr "Publish with the Network"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.submitHelp"
+msgstr "Select a journal, review its author guidelines, and submit your manuscript through that journal."
+
+msgid "plugins.themes.spupLightExplorerTheme.root.submissionOverview"
+msgstr "Submission Overview"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.chooseJournal"
+msgstr "Choose a Journal"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.publishingContact"
+msgstr "Publishing Contact"
+
+msgid "plugins.themes.spupLightExplorerTheme.contact.eyebrow"
+msgstr "Contact"
+
+msgid "plugins.themes.spupLightExplorerTheme.contact.title"
+msgstr "Contact The Light Explorer"
+
+msgid "plugins.themes.spupLightExplorerTheme.contact.intro"
+msgstr "For inquiries concerning The Light Explorer journal network, publishing information, or access to its participating journals, please use the contact information below."
+
+msgid "plugins.themes.spupLightExplorerTheme.contact.inquiries"
+msgstr "Inquiries"
+
+msgid "plugins.themes.spupLightExplorerTheme.contact.nextEyebrow"
+msgstr "Explore and publish"
+
+msgid "plugins.themes.spupLightExplorerTheme.contact.publishingInformation"
+msgstr "Publishing Information"
+
+msgid "plugins.themes.spupLightExplorerTheme.contact.aboutNetwork"
+msgstr "About The Light Explorer"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.mapTitle"
+msgstr "St. Paul University Philippines location map"
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.yes"
+msgstr "Yes"
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.no"
+msgstr "No"
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.networkSubtitle"
+msgstr "Network subtitle"
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.networkSubtitle.description"
+msgstr "Short subtitle shown below the site name on the root homepage."
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.publisherAddress"
+msgstr "Publisher address"
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.publisherAddress.description"
+msgstr "Address shown on the root About, Contact, and footer pages."
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.googleMapsEmbedUrl"
+msgstr "Google Maps embed URL"
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.googleMapsEmbedUrl.description"
+msgstr "Paste the URL or full iframe from Google Maps > Share > Embed a map. Only secure Google Maps embed links are saved."
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.showNetworkStats"
+msgstr "Show network statistics on homepage"
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.showLatestScholarship"
+msgstr "Show Latest Scholarship"
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.showAnnouncements"
+msgstr "Show announcements in Latest Scholarship"
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.showMapAbout"
+msgstr "Show map on About"
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.showMapContact"
+msgstr "Show map on Contact"
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.showMapFooter"
+msgstr "Show map in footer"
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.showAboutStats"
+msgstr "Show network statistics on About"
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.showAboutJournals"
+msgstr "Show journal gallery on About"
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.showAboutPublisher"
+msgstr "Show publisher information on About"
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.showAboutSubmission"
+msgstr "Show submission section on About"
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.recentPublicationCount"
+msgstr "Recent publication count"
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.announcementCount"
+msgstr "Announcement count"
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.count2"
+msgstr "2"
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.count3"
+msgstr "3"
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.count4"
+msgstr "4"
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.count5"
+msgstr "5"
+
+msgid "plugins.themes.spupLightExplorerTheme.setting.count6"
+msgstr "6"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.publishing"
+msgstr "Publishing"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.latestScholarship"
+msgstr "Latest Scholarship"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.recentPublications"
+msgstr "Recent Publications"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.noPublications"
+msgstr "Recent publications will appear here when available."
+
+msgid "plugins.themes.spupLightExplorerTheme.root.allAnnouncements"
+msgstr "All announcements"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.searchEyebrow"
+msgstr "Search"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.searchTitle"
+msgstr "Search The Light Explorer"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.researchArticle"
+msgstr "Research article"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.readArticle"
+msgstr "Read article"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.searchEmptyHelp"
+msgstr "Try a different term or browse the journals."
+
+msgid "plugins.themes.spupLightExplorerTheme.root.noSearchResults"
+msgstr "No results found"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.announcementsEyebrow"
+msgstr "Network updates"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.announcementEyebrow"
+msgstr "Announcement"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.announcementsIntro"
+msgstr "News and updates from The Light Explorer journal network."
+
+msgid "plugins.themes.spupLightExplorerTheme.root.noAnnouncements"
+msgstr "No announcements are available yet."
+
+msgid "plugins.themes.spupLightExplorerTheme.root.publisherEyebrow"
+msgstr "The Light Explorer"
+
+msgid "plugins.themes.spupLightExplorerTheme.root.backHome"
+msgstr "Return to the homepage"
+
 msgid "plugins.themes.spupLightExplorerTheme.footer.network"
 msgstr "Journal Network"
+
+msgid "plugins.themes.spupLightExplorerTheme.footer.explore"
+msgstr "Explore"
+
+msgid "plugins.themes.spupLightExplorerTheme.footer.information"
+msgstr "Information"
+
+msgid "plugins.themes.spupLightExplorerTheme.footer.platform"
+msgstr "Powered by Open Journal Systems"
 
 msgid "plugins.themes.spupLightExplorerTheme.footer.institution"
 msgstr "St. Paul University Philippines"
 
 msgid "plugins.themes.spupLightExplorerTheme.footer.sealAlt"
 msgstr "St. Paul University Philippines seal"
-
-msgid "plugins.themes.spupLightExplorerTheme.footer.description"
-msgstr "Scholarly journals from St. Paul University Philippines."
 
 msgid "plugins.themes.spupLightExplorerTheme.footer.contact"
 msgstr "Publishing contact"
@@ -67,6 +385,27 @@ msgstr "Change primary color of the theme"
 
 msgid "plugins.themes.spupLightExplorerTheme.menu"
 msgstr "Menu"
+
+msgid "plugins.themes.spupLightExplorerTheme.closeMenu"
+msgstr "Close menu"
+
+msgid "plugins.themes.spupLightExplorerTheme.primaryNavigation"
+msgstr "Primary navigation"
+
+msgid "plugins.themes.spupLightExplorerTheme.accountNavigation"
+msgstr "Account"
+
+msgid "plugins.themes.spupLightExplorerTheme.option.showJournalTitleInHeader.label"
+msgstr "Show journal title in header"
+
+msgid "plugins.themes.spupLightExplorerTheme.option.showJournalTitleInHeader.description"
+msgstr "On journal pages, show the title beside its header image. The title always appears when no image is configured."
+
+msgid "plugins.themes.spupLightExplorerTheme.option.showJournalTitleInHeader.hide"
+msgstr "Hide when a header image is available"
+
+msgid "plugins.themes.spupLightExplorerTheme.option.showJournalTitleInHeader.show"
+msgstr "Show beside the header image"
 
 msgid "plugins.themes.spupLightExplorerTheme.issueDescription"
 msgstr "Issue Description"

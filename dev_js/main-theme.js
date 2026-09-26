@@ -9,29 +9,141 @@
  */
 
 
-/* This self-invoking function provides primary menu rendering for small screens
- * We want to treat it like a typical modal
- */
+/* Keep OJS's single set of menu links available in an inline mobile panel. */
 (function () {
-	var modal = document.getElementById('modal-on-small');
-	var btn = document.getElementById("show-modal");
-	var span = document.getElementById("close-small-modal");
+	const header = document.querySelector('.spup-header');
+	const toggle = document.getElementById('spup-menu-toggle');
+	if (!header || !toggle) {
+		return;
+	}
+	const menuRoot = toggle.closest('.spup-header');
 
-	if ((btn && span && modal) !== null) {
-		btn.onclick = function () {
-			modal.classList.remove('hide');
-		};
+	function setOpen(open) {
+		menuRoot.classList.toggle('is-open', open);
+		toggle.setAttribute('aria-expanded', String(open));
+	}
 
-		span.onclick = function () {
-			modal.classList.add('hide');
-		};
+	menuRoot.classList.add('spup-header--enhanced');
+	toggle.hidden = false;
+	toggle.addEventListener('click', function () {
+		setOpen(!menuRoot.classList.contains('is-open'));
+	});
 
-		// Close the menu when user clicks outside it
-		window.onclick = function (event) {
-			if (event.target == modal) {
-				modal.classList.add('hide');
+	menuRoot.addEventListener('keydown', function (event) {
+		if (event.key === ' ' && event.target.matches('.dropdown-toggle[role="button"]')) {
+			event.preventDefault();
+			event.target.click();
+			return;
+		}
+
+		if (event.key === 'Escape' && menuRoot.classList.contains('is-open') && !menuRoot.querySelector('.dropdown-menu.show')) {
+			setOpen(false);
+			toggle.focus();
+		}
+	});
+
+	document.addEventListener('click', function (event) {
+		if (menuRoot.classList.contains('is-open') && !menuRoot.contains(event.target)) {
+			setOpen(false);
+		}
+	});
+
+	const desktopQuery = window.matchMedia('(min-width: 992px)');
+	function closeAtDesktop(event) {
+		if (event.matches) {
+			setOpen(false);
+		}
+	}
+	if (desktopQuery.addEventListener) {
+		desktopQuery.addEventListener('change', closeAtDesktop);
+	} else if (desktopQuery.addListener) {
+		desktopQuery.addListener(closeAtDesktop);
+	}
+})();
+
+/* Reveal root content after the observer is ready; without JS everything stays visible. */
+(function () {
+	const root = document.body;
+	if (!root.classList.contains('spup-root') || !('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+	const selector = [
+		'.page_index_site .index-site-journals > .spup-section-eyebrow',
+		'.page_index_site .index-site-journals > h2',
+		'.page_index_site .index-site-journals > .spup-section-rule',
+		'.page_index_site .spup-journal-cover',
+		'.page_index_site .spup-latest > .spup-section-eyebrow',
+		'.page_index_site .spup-latest > h2',
+		'.page_index_site .spup-latest > .spup-section-rule',
+		'.page_index_site .spup-latest__columns > *',
+		'.page_publisher_about .spup-about__hero',
+		'.page_publisher_about .spup-about__section',
+		'.page_publisher_contact .spup-contact__intro',
+		'.page_publisher_contact .spup-contact__details > section',
+		'.page_publisher_contact .spup-contact__location',
+		'.page_publisher_contact .spup-contact__links',
+		'.page_search .cmp_form',
+		'.page_search .spup-search-result',
+		'.page_announcements .cmp_announcement',
+		'.page_announcement .announcement-full-description',
+		'.page_journals .spup-journal-directory__item',
+		'.navigation-item-content .spup-publisher-submission > *',
+		'.navigation-item-content:not(.page_publisher_about):not(.page_publisher_contact):not(.page_journals) .container-page > :not(.spup-root-breadcrumbs):not(.spup-publisher-submission)',
+		'.page_error .container-page > *',
+		'.page_message .container-page > *',
+	].join(', ');
+	const elements = Array.from(document.querySelectorAll(selector));
+	if (!elements.length) return;
+
+	let observer;
+	try {
+		observer = new IntersectionObserver((entries) => {
+			for (const entry of entries) {
+				if (!entry.isIntersecting) continue;
+				entry.target.classList.remove('is-pending');
+				entry.target.classList.add('is-visible');
+				observer.unobserve(entry.target);
 			}
-		};
+		}, { rootMargin: '0px 0px -40px 0px', threshold: 0.1 });
+		for (const element of elements) {
+			element.classList.add('spup-scroll-reveal', 'is-pending');
+			observer.observe(element);
+		}
+		root.classList.add('spup-motion-ready');
+	} catch (error) {
+		if (observer) observer.disconnect();
+		root.classList.remove('spup-motion-ready');
+		for (const element of elements) element.classList.remove('is-pending');
+	}
+})();
+
+/* OJS renders menu links without a current-page marker for root custom pages. */
+(function () {
+	const navigation = document.querySelector('.spup-header__nav-band #navigationPrimary');
+	if (!navigation) return;
+
+	const current = window.location.pathname.replace(/\/$/, '') || '/';
+	let best = null;
+	let bestLength = -1;
+	for (const link of navigation.querySelectorAll('a[href]')) {
+		const url = new URL(link.href, window.location.href);
+		if (url.origin !== window.location.origin) continue;
+		const path = url.pathname.replace(/\/$/, '') || '/';
+		if (url.hash && url.hash !== window.location.hash) continue;
+		const matches = current === path || (path !== '/' && current.startsWith(path + '/'));
+		const score = path.length + (url.hash ? 1000 : 0);
+		if (matches && score > bestLength) {
+			best = link;
+			bestLength = score;
+		}
+	}
+	if (!best && current === '/') best = navigation.querySelector('a[href$="/index/index"]');
+	if (!best) return;
+	best.setAttribute('aria-current', 'page');
+	best.classList.add('active');
+	const dropdown = best.closest('.dropdown');
+	if (dropdown && dropdown.contains(best)) {
+		const parent = dropdown.querySelector(':scope > .nav-link');
+		if (parent && parent !== best) parent.classList.add('active');
 	}
 })();
 

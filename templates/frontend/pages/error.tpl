@@ -13,7 +13,10 @@
 
 <main class="page page_error">
 	<div class="container-fluid container-page container-narrow">
-		{include file="frontend/components/headings.tpl" currentTitleKey=$pageTitle}
+		{if !$currentContext}
+			{include file="frontend/components/rootBreadcrumbs.tpl" currentTitleKey=$pageTitle}
+			<h1 class="page_title">{translate key=$pageTitle}</h1>
+		{else}{include file="frontend/components/headings.tpl" currentTitleKey=$pageTitle}{/if}
 		<div class="error-description">
 			<p>{translate key=$errorMsg params=$errorParams}</p>
 		</div>
@@ -22,6 +25,7 @@
 				<a href="{$backLink}">{translate key=$backLinkLabel}</a>
 			</div>
 		{/if}
+		{if !$currentContext}<a class="spup-text-link" href="{url page="index"}">{translate key="plugins.themes.spupLightExplorerTheme.root.backHome"} <span aria-hidden="true">&rarr;</span></a>{/if}
 	</div>
 </main>
 

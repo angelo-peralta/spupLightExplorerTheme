@@ -74,13 +74,18 @@ a, a:not([href]) {
 	overflow-wrap: break-word;
 	word-break: break-word;
 	word-wrap: break-word;
-	transition: all .15s ease-in-out;
+	transition: color .18s ease, border-color .18s ease;
 
 	&:hover, &:active, &:focus {
-		color: @contrast-colour;
+		color: #26382E;
 		text-decoration: none;
-		background-color: @primary-colour;
-		border-color: @primary-colour;
+		background-color: transparent;
+		border-color: currentColor;
+	}
+
+	&:focus-visible {
+		outline: 2px solid currentColor;
+		outline-offset: 3px;
 	}
 }
 

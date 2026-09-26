@@ -1,0 +1,75 @@
+.spup-root {
+  .page_login, .page_register, .page_lost_password {
+    min-height: 54vh;
+    padding: 54px 24px 88px;
+    .container-page { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0; }
+  }
+  .spup-auth-shell {
+    display: grid;
+    grid-template-columns: minmax(280px, .85fr) minmax(0, 1.15fr);
+    min-height: 490px;
+    overflow: hidden;
+    border: 1px solid @spup-site-border;
+    border-radius: 4px;
+    background: #fff;
+    animation: spup-auth-enter 420ms ease-out both;
+  }
+  .spup-auth-shell--register { grid-template-columns: minmax(260px, .7fr) minmax(0, 1.3fr); }
+  .spup-auth-identity {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    min-width: 0;
+    padding: 48px;
+    background: #EDF2EC;
+    img { width: auto; height: auto; max-width: 120px; max-height: 108px; margin-bottom: 28px; object-fit: contain; }
+  }
+  .spup-auth-identity__institution { margin: 0 0 12px; color: @spup-site-green; font: 700 11px/1.5 @font-family-secondary; letter-spacing: .13em; text-transform: uppercase; }
+  .spup-auth-identity__title { margin: 0; color: @spup-site-text; font: 700 36px/1.17 @font-family-primary; overflow-wrap: anywhere; }
+  .spup-auth-identity__subtitle { margin: 10px 0 0; color: @spup-site-muted; font: 15px/1.5 @font-family-secondary; }
+  .spup-auth-content {
+    min-width: 0;
+    padding: 54px 56px;
+    h1 { margin: 0 0 28px; color: @spup-site-text; font: 700 36px/1.2 @font-family-primary; text-align: left !important; }
+    .cmp_form { margin-top: 0; }
+    .cmp_form .row { margin-left: 0; margin-right: 0; }
+    .cmp_form.login .form-group.col-md-6,
+    .cmp_form.login .buttons.col-md-6,
+    .cmp_form.login .checkbox-remember.col-md-6,
+    .cmp_form.lost_password .form-group.col-md-6,
+    .cmp_form.lost_password .buttons .col-md-6,
+    .cmp_form.lost_password .pkp_form_error.col-md-6,
+    .cmp_form.login .pkp_form_error.col-md-6 { flex: 0 0 100%; max-width: 100%; margin-left: 0; padding-left: 0; padding-right: 0; }
+    .cmp_form.login .checkbox-remember.col-md-6 { padding-left: 2.5rem; }
+    .form-control { width: 100%; min-height: 46px; border: 1px solid @spup-site-border; border-radius: 3px; background: #fff; }
+    label { color: @spup-site-text; font-family: @font-family-secondary; }
+    .buttons { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 26px; }
+    .btn-primary { min-height: 44px; padding: 10px 22px; border: 1px solid @spup-site-green; border-radius: 3px; background: @spup-site-green; color: #fff; }
+    .btn-primary:hover, .btn-primary:focus { border-color: @spup-root-hover; background: @spup-root-hover; color: #fff; }
+    .register.btn, .login.btn { min-height: 44px; padding: 10px 0; border: 0; background: transparent; color: @spup-site-green; }
+    a { color: @spup-site-green; }
+    :is(a, button, input, select):focus-visible { outline: 3px solid @spup-site-green; outline-offset: 3px; }
+  }
+  .spup-auth-shell--register .spup-auth-content { padding: 48px; }
+  .spup-auth-shell--register .cmp_form.register { max-width: 100%; }
+  .spup-auth-shell--register .cmp_form.register :is(input, select, textarea) { max-width: 100%; }
+}
+@keyframes spup-auth-enter {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 767px) {
+  .spup-root {
+    .page_login, .page_register, .page_lost_password { padding: 34px 18px 64px; }
+    .spup-auth-shell, .spup-auth-shell--register { grid-template-columns: minmax(0, 1fr); }
+    .spup-auth-identity { padding: 28px; }
+    .spup-auth-identity img { max-width: 76px; max-height: 70px; margin-bottom: 16px; }
+    .spup-auth-identity__title { font-size: 28px; }
+    .spup-auth-content, .spup-auth-shell--register .spup-auth-content { padding: 34px 28px; }
+    .spup-auth-content h1 { font-size: 31px; }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .spup-root .spup-auth-shell { animation: none; }
+}

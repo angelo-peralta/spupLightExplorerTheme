@@ -22,15 +22,21 @@
 	{capture assign="spupSearchUrl"}{url router=$smarty.const.ROUTE_PAGE journal=$currentContext->getPath() page="search" op="search" escape=false}{/capture}
 {else}
 	{assign var="spupSearchScopeKey" value="plugins.themes.spupLightExplorerTheme.search.allJournals"}
+	{assign var="spupSearchTitleKey" value="plugins.themes.spupLightExplorerTheme.root.searchTitle"}
 	{capture assign="spupSearchUrl"}{url router=$smarty.const.ROUTE_PAGE page="search" op="search" escape=false}{/capture}
 {/if}
 {assign var=formUrlParameters value=$activeTheme->getSearchFormParameters($spupSearchUrl)}
-{include file="frontend/components/header.tpl" pageTitle=$spupSearchScopeKey}
+{include file="frontend/components/header.tpl" pageTitle=$spupSearchTitleKey|default:$spupSearchScopeKey}
 
 <main class="page page_search">
 	<section class="container-fluid container-page">
 
-		{include file="frontend/components/headings.tpl" currentTitleKey=$spupSearchScopeKey}
+		{if !$currentContext}
+			{include file="frontend/components/rootBreadcrumbs.tpl" currentTitleKey=$spupSearchTitleKey}
+			<h1 class="page_title">{translate key=$spupSearchTitleKey}</h1>
+		{else}
+			{include file="frontend/components/headings.tpl" currentTitleKey=$spupSearchScopeKey}
+		{/if}
 		{if $currentContext}
 			<p class="spup-search-scope">{$currentContext->getLocalizedName()|escape}</p>
 		{/if}
@@ -45,19 +51,20 @@
 
 				{* Repeat the label text just so that screen readers have a clear
 				   label/input relationship *}
-				<div class="form-row">
-					<div class="form-group col-sm-12">
+				<div class="spup-search-bar">
+					<div class="form-group">
 						<label class="pkp_screen_reader" for="query">
 							{translate key="search.searchFor"}
 						</label>
 						<input type="search" id="query" name="query" value="{$query|escape}" class="query form-control" placeholder="{translate|escape key="common.search"}">
 					</div>
+					<button class="submit btn btn-primary spup-search-submit" type="submit">{translate key="common.search"}</button>
 				</div>
 
-				<fieldset class="search_advanced">
-					<legend class="search-advanced-legend">
-						{translate key="search.advancedFilters"}
-					</legend>
+				<details class="spup-search-disclosure"{if $authors || (!$currentContext && $searchJournal) || $dateFromYear || $dateFromMonth || $dateFromDay || $dateToYear || $dateToMonth || $dateToDay} open{/if}>
+					<summary>{translate key="search.advancedFilters"}</summary>
+					<fieldset class="search_advanced">
+						<legend class="pkp_screen_reader">{translate key="search.advancedFilters"}</legend>
 
 					<div class="spup-search-date-range">
 						<div>
@@ -85,25 +92,31 @@
 							</select>
 						</div>
 					{/if}
-				</fieldset>
-
-
-				<div class="submit buttons">
-					<button class="submit btn btn-primary" type="submit">{translate key="common.search"}</button>
-				</div>
+					</fieldset>
+				</details>
 			</form>
 		</div>
 
 		{* Search results, finally! *}
 		{if !$results->wasEmpty()}
+			{if !$currentContext}<p class="spup-search-count">{page_info iterator=$results}</p>{/if}
 
 			<div id="results" class="search_results">
 				{iterate from=results item=result}
 					<div class="spup-search-result">
-						{if !$currentContext && $result.journal}
+						{if !$currentContext}
+							{assign var=spupResultPublication value=$result.publishedSubmission->getCurrentPublication()}
+							<p class="spup-search-result-type">{translate key="plugins.themes.spupLightExplorerTheme.root.researchArticle"}</p>
+							<h2><a href="{url journal=$result.journal->getPath() page="article" op="view" path=$result.publishedSubmission->getBestId()}">{$spupResultPublication->getLocalizedFullTitle(null, 'text')|escape}</a></h2>
 							<p class="spup-search-result-journal">{$result.journal->getLocalizedName()|escape}</p>
+							{assign var=spupResultAuthors value=$activeTheme->getPublicationAuthors($spupResultPublication)}
+							{if $spupResultAuthors}<p class="spup-search-result-authors">{$spupResultAuthors|escape}</p>{/if}
+							{if $spupResultPublication->getData('datePublished')}<time datetime="{$spupResultPublication->getData('datePublished')|date_format:'Y-m-d'|escape}">{$spupResultPublication->getData('datePublished')|date_format:$dateFormatShort}</time>{/if}
+							{if $spupResultPublication->getLocalizedData('abstract')}<div class="spup-search-result-abstract">{$spupResultPublication->getLocalizedData('abstract')|strip_unsafe_html}</div>{/if}
+							<a class="spup-text-link" href="{url journal=$result.journal->getPath() page="article" op="view" path=$result.publishedSubmission->getBestId()}">{translate key="plugins.themes.spupLightExplorerTheme.root.readArticle"} <span aria-hidden="true">&rarr;</span></a>
+						{else}
+							{include file="frontend/objects/article_summary.tpl" headingLevel="2" article=$result.publishedSubmission journal=$result.journal showDatePublished=true hideGalleys=true}
 						{/if}
-						{include file="frontend/objects/article_summary.tpl" headingLevel="2" article=$result.publishedSubmission journal=$result.journal showDatePublished=true hideGalleys=true}
 					</div>
 				{/iterate}
 			</div>
@@ -111,6 +124,8 @@
 
 		{* No results found *}
 		{if $results->wasEmpty()}
+			{if !$currentContext && !$error}<div class="spup-empty-state"><h2>{translate key="plugins.themes.spupLightExplorerTheme.root.noSearchResults"}</h2><p>{translate key="plugins.themes.spupLightExplorerTheme.root.searchEmptyHelp"} <a href="{url page="journals"}">{translate key="plugins.themes.spupLightExplorerTheme.root.exploreJournals"}</a></p></div>{/if}
+			{if $currentContext || $error}
 			<div class="row">
 				<div class="search-notifications col-sm-10 offset-sm-1 col-md-8 offset-md-2">
 					{if $error}
@@ -120,6 +135,7 @@
 					{/if}
 				</div>
 			</div>
+			{/if}
 
 		{* Results pagination *}
 		{else}

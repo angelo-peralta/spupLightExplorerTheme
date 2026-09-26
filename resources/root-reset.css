@@ -1,0 +1,14 @@
+/* The OJS password-token form uses the backend layout, not frontend theme LESS. */
+.spup-reset-shell{display:grid;grid-template-columns:minmax(250px,.85fr) minmax(0,1.15fr);max-width:1100px;margin:36px auto 72px;border:1px solid #dce5df;background:#fff}
+.spup-reset-identity{display:flex;flex-direction:column;justify-content:center;min-width:0;padding:48px;background:#edf2ec}
+.spup-reset-identity img{display:block;max-width:120px;max-height:108px;width:auto;height:auto;object-fit:contain;margin-bottom:28px}
+.spup-reset-identity__publisher{margin:0 0 12px;color:#086341;font:700 11px/1.5 sans-serif;letter-spacing:.13em;text-transform:uppercase}
+.spup-reset-identity__title{margin:0;color:#182928;font:700 36px/1.2 Georgia,serif;overflow-wrap:anywhere}
+.spup-reset-identity__subtitle{margin:10px 0 0;color:#5f6c68;font:15px/1.5 sans-serif}
+.spup-reset-content{min-width:0;padding:48px}
+.spup-reset-content .app__pageHeading{margin-top:0;color:#182928;font-family:Georgia,serif}
+.spup-reset-content .app__contentPanel{max-width:100%}
+.spup-reset-content .pkp_form .pkp_helpers_half{float:none;width:100%;max-width:420px}
+.spup-reset-content .pkp_form input[type=password]{box-sizing:border-box;width:100%;max-width:420px;min-height:42px}
+.spup-reset-content :is(a,button,input):focus-visible{outline:3px solid #086341;outline-offset:3px}
+@media(max-width:767px){.spup-reset-shell{grid-template-columns:minmax(0,1fr);margin:18px auto 48px}.spup-reset-identity{padding:28px}.spup-reset-identity img{max-width:76px;max-height:70px;margin-bottom:16px}.spup-reset-identity__title{font-size:28px}.spup-reset-content{padding:28px}}

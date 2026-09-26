@@ -14,6 +14,7 @@
 
 <main class="page page_register">
 	<div class="container-fluid container-page container-narrow">
+		{if !$currentContext}<div class="spup-auth-shell spup-auth-shell--register">{include file="frontend/components/rootAuthIdentity.tpl"}<div class="spup-auth-content">{/if}
 
 		{include file="frontend/components/headings.tpl" currentTitleKey="user.register"}
 
@@ -165,6 +166,7 @@
 				<a href="{url page="login" source=$rolesProfileUrl}" class="login btn register-button">{translate key="user.login"}</a>
 			</div>
 		</form>
+		{if !$currentContext}</div></div>{/if}
 	</div>
 </main><!-- .page -->
 

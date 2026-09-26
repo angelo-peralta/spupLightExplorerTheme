@@ -10,9 +10,12 @@
  *}
 {include file="frontend/components/header.tpl"}
 
-<div class="page page_message">
+<main class="page page_message">
 	<div class="container-fluid container-page container-narrow">
-		{include file="frontend/components/headings.tpl" currentTitleKey=$pageTitle}
+		{if !$currentContext}
+			{include file="frontend/components/rootBreadcrumbs.tpl" currentTitleKey=$pageTitle}
+			<h1 class="page_title">{translate key=$pageTitle}</h1>
+		{else}{include file="frontend/components/headings.tpl" currentTitleKey=$pageTitle}{/if}
 		<div class="message-description">
 			{if $messageTranslated}
 				{$messageTranslated}
@@ -26,6 +29,6 @@
 			</div>
 		{/if}
 	</div>
-</div>
+</main>
 
 {include file="frontend/components/footer.tpl"}
