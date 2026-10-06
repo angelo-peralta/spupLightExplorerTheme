@@ -11,6 +11,9 @@
  * @uses $currentTitleKey string Translation key for title of current page.
  *}
 
+{if $currentContext}
+	{include file="frontend/components/spup/layout/pageIntro.tpl" variant="journal" title=$currentTitle titleKey=$currentTitleKey}
+{else}
 <header>
 	<div class="current_page_title">
 		<h1 class="{if $requestedPage|escape === 'issue' && $requestedOp|escape === "view"}text-left issue-header{else}text-center{/if}">
@@ -22,3 +25,4 @@
 		</h1>
 	</div>
 </header>
+{/if}

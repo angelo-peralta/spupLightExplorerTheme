@@ -16,6 +16,7 @@
 <main class="page page_submissions">
 	<div class="container-fluid container-page container-narrow">
 
+		{include file="frontend/components/spup/layout/breadcrumbs.tpl" items=[] currentTitleKey="about.submissions"}
 		{include file="frontend/components/headings.tpl" currentTitleKey="about.submissions"}
 
 		{* Login/register prompt *}

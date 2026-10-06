@@ -14,8 +14,9 @@
 
 <main class="page page_register">
 	<div class="container-fluid container-page container-narrow">
-		{if !$currentContext}<div class="spup-auth-shell spup-auth-shell--register">{include file="frontend/components/rootAuthIdentity.tpl"}<div class="spup-auth-content">{/if}
+		{if !$currentContext}<div class="spup-auth-shell spup-auth-shell--register">{include file="frontend/components/spup/root/rootAuthIdentity.tpl"}<div class="spup-auth-content">{/if}
 
+		{include file="frontend/components/spup/layout/breadcrumbs.tpl" items=[] currentTitleKey="user.register"}
 		{include file="frontend/components/headings.tpl" currentTitleKey="user.register"}
 
 		<form class="cmp_form register" id="register" method="post" action="{url op="register"}">
@@ -88,9 +89,9 @@
 							</div>
 
 							<div id="reviewerInterests" class="reviewer_interests hidden">
-								<div class="label">
+								<label class="label" for="interests">
 									{translate key="user.interests"}
-								</div>
+								</label>
 								<input type="text" name="interests" id="interests" value="{$interests|default:""|escape}">
 							</div>
 						</div>
@@ -108,6 +109,7 @@
 						{translate key="user.register.noContextReviewerInterests"}
 					</legend>
 					<div class="fields">
+						<label class="label" for="interests">{translate key="user.interests"}</label>
 						<input type="text" name="interests" id="interests" value="{$interests|default:""|escape}">
 					</div>
 				</fieldset>

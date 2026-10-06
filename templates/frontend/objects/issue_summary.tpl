@@ -10,22 +10,25 @@
  * @uses $issue Issue The issue
  *}
 
-{if $issue->getShowTitle()}
-{assign var=issueTitle value=$issue->getLocalizedTitle()}
-{/if}
-{assign var=issueSeries value=$issue->getIssueSeries()}
 {assign var=issueCover value=$issue->getLocalizedCoverImageUrl()}
+{capture assign=spupIssueViewUrl}{url page="issue" op="view" path=$issue->getBestIssueId() escape=false}{/capture}
 
 <div class="obj_issue_summary">
 
 	{if $issueCover}
-		<a class="cover" href="{url op="view" path=$issue->getBestIssueId()}">
-			<img class="archive_issue_cover" src="{$issueCover|escape}" alt="{$issue->getLocalizedCoverImageAltText()|escape|default:''}">
-		</a>
+		{include file="frontend/components/spup/layout/coverMedia.tpl"
+			imageUrl=$issueCover
+			alt=$issue->getLocalizedCoverImageAltText()|default:$issue->getIssueIdentification()
+			linkUrl=$spupIssueViewUrl
+			variant="archive"
+			className="cover"
+			imageClass="archive_issue_cover"
+			showOffset=true
+		}
 	{/if}
 
 	{if $issue->getShowVolume() || $issue->getShowNumber() || $issue->getShowYear()}
-		<a class="issue_summary_title" href="{url op="view" path=$issue->getBestIssueId()}">
+		<a class="issue_summary_title" href="{$spupIssueViewUrl|escape}">
 			{strip}
 				{if $issue->getVolume() && $issue->getShowVolume()}
 					<span class="current-issue-volume">{translate key="plugins.themes.spupLightExplorerTheme.volume-abbr"} {$issue->getVolume()|escape}</span>
@@ -40,12 +43,11 @@
 		</a>
 	{/if}
 	{if $issue->getLocalizedTitle() && $issue->getShowTitle()}
-		<a class="issue_title" href="{url op="view" path=$issue->getBestIssueId()}">
+		<a class="issue_title" href="{$spupIssueViewUrl|escape}">
 			{$issue->getLocalizedTitle()|escape}
 		</a>
 	{/if}
 
-	<div class="issue_summary_date">
-		{$issue->getDatePublished()|date_format:$dateFormatLong}
-	</div>
+	{if $issue->getDatePublished()}<div class="issue_summary_date">{$issue->getDatePublished()|date_format:$dateFormatLong}</div>{/if}
+	<a class="spup-archive__view" href="{$spupIssueViewUrl|escape}">View Issue <span aria-hidden="true">&rarr;</span></a>
 </div><!-- .obj_issue_summary -->

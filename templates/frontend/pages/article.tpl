@@ -22,13 +22,20 @@
 
 <main class="page page_article">
 	<div class="container-fluid container-page">
+		{assign var=spupArticleBreadcrumbs value=[]}
+		{if $issue}
+			{capture assign=spupArchiveLabel}{translate key="archive.archives"}{/capture}
+			{capture assign=spupArchiveUrl}{url page="issue" op="archive" escape=false}{/capture}
+			{capture assign=spupIssueUrl}{url page="issue" op="view" path=$issue->getBestIssueId() escape=false}{/capture}
+			{append var=spupArticleBreadcrumbs value=['label'=>$spupArchiveLabel, 'url'=>$spupArchiveUrl]}
+			{append var=spupArticleBreadcrumbs value=['label'=>$issue->getIssueIdentification(), 'url'=>$spupIssueUrl]}
+		{/if}
+		{append var=spupArticleBreadcrumbs value=['label'=>$publication->getLocalizedFullTitle(null, 'text'), 'current'=>true]}
+		{include file="frontend/components/spup/layout/breadcrumbs.tpl" items=$spupArticleBreadcrumbs}
 
 		{* Show article overview *}
 		{include file="frontend/objects/article_details.tpl"}
 
-		<div class="footer-hook-block">
-			{call_hook name="Templates::Article::Footer::PageFooter"}
-		</div>
 	</div>
 
 </main><!-- .page -->

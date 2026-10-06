@@ -13,6 +13,7 @@
 <main class="page page_masthead">
 	<div class="container-fluid container-page container-narrow">
 
+        {include file="frontend/components/spup/layout/breadcrumbs.tpl" items=[] currentTitleKey="common.editorialMasthead"}
         {include file="frontend/components/headings.tpl" currentTitleKey="common.editorialMasthead"}
 
         {foreach from=$mastheadRoles item="mastheadRole"}

@@ -13,9 +13,9 @@
 
 <main class="page page_error">
 	<div class="container-fluid container-page container-narrow">
+		{include file="frontend/components/spup/layout/breadcrumbs.tpl" items=[] currentTitleKey=$pageTitle}
 		{if !$currentContext}
-			{include file="frontend/components/rootBreadcrumbs.tpl" currentTitleKey=$pageTitle}
-			<h1 class="page_title">{translate key=$pageTitle}</h1>
+			{include file="frontend/components/spup/layout/pageIntro.tpl" titleKey=$pageTitle}
 		{else}{include file="frontend/components/headings.tpl" currentTitleKey=$pageTitle}{/if}
 		<div class="error-description">
 			<p>{translate key=$errorMsg params=$errorParams}</p>

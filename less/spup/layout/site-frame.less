@@ -1,0 +1,16 @@
+/* Shared root and journal outer container. */
+
+.spup-root, .spup-journal {
+  background: @spup-site-background;
+  color: @spup-site-text;
+
+  .spup-site-container {
+    width: 100%;
+    max-width: @spup-content-width;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+}
+
+/* The announcement dialog returns focus to the page heading after dismissal. */
+:is(.spup-root, .spup-journal) main h1[tabindex="-1"]:focus { outline: none; }

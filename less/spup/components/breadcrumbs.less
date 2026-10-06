@@ -1,0 +1,49 @@
+/* One semantic list contract for root and journal trails. */
+.spup-breadcrumbs,
+.spup-root-breadcrumbs,
+.spup-journal-breadcrumbs,
+.spup-article__breadcrumbs {
+  margin: 0 0 24px;
+  font: 600 12px/1.5 @font-family-secondary;
+
+  ol { display: flex; flex-wrap: wrap; gap: 0; margin: 0; padding: 0; list-style: none; }
+  ol > li { margin: 0; padding: 0; color: inherit; font: inherit; }
+  ol > li::before { display: none; content: none; counter-increment: none; }
+  .separator { display: inline-block; margin: 0 10px; color: inherit; }
+  a { font: inherit; text-decoration: none; }
+  a:hover, a:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+  .current { overflow-wrap: anywhere; }
+}
+
+.spup-root .spup-root-breadcrumbs {
+  display: block;
+  width: 100%;
+  margin: 0 0 30px;
+  color: @spup-site-muted;
+  a { color: @spup-site-green; }
+  a:hover, a:focus-visible { color: @spup-root-hover; }
+  .current { color: @spup-site-text; }
+  ol { display: flex; flex-wrap: wrap; margin: 0; padding: 0; list-style: none; }
+  ol > li, ol > li + li { margin: 0; padding: 0; color: inherit; font: 600 12px/1.5 @font-family-secondary; list-style: none; }
+  .separator { margin: 0 10px; }
+}
+
+body.spup-journal {
+  .spup-breadcrumbs { font: 500 var(--journal-breadcrumb)/1.5 var(--journal-font-body); }
+  .spup-journal-breadcrumbs,
+  .spup-article__breadcrumbs {
+    display: block;
+    width: 100%;
+    max-width: none;
+    margin: 0 0 20px;
+    color: var(--journal-page-muted);
+  }
+  main.page .spup-breadcrumbs ol { padding: 0; list-style: none; }
+  main.page .spup-breadcrumbs ol > li { list-style: none; font: inherit; line-height: inherit; }
+  .spup-journal-breadcrumbs a,
+  .spup-article__breadcrumbs a { color: var(--journal-primary); }
+  .spup-journal-breadcrumbs a:hover,
+  .spup-journal-breadcrumbs a:focus-visible,
+  .spup-article__breadcrumbs a:hover,
+  .spup-article__breadcrumbs a:focus-visible { color: var(--journal-primary); }
+}

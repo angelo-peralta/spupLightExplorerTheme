@@ -12,9 +12,11 @@
  *}
 
 <article class="obj_announcement_full">
-	<h1 class="announcement-full-title">
-		{$announcement->getLocalizedData('title')|escape}
-	</h1>
+	{if !$currentContext}
+		{include file="frontend/components/spup/layout/pageIntro.tpl" title=$announcement->getLocalizedData('title')}
+	{else}
+		{include file="frontend/components/spup/layout/pageIntro.tpl" variant="journal" title=$announcement->getLocalizedData('title')}
+	{/if}
 	<div class="announcement-full-wrapper">
 		{if !$currentContext}<p class="spup-announcement-source">{$siteTitle|escape}</p>{/if}
 		<time class="announcement-full-date" datetime="{$announcement->datePosted|date_format:'Y-m-d'|escape}">

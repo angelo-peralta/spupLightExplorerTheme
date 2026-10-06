@@ -13,6 +13,7 @@
 <main class="page page_masthead">
 	<div class="container-fluid container-page container-narrow">
 
+        {include file="frontend/components/spup/layout/breadcrumbs.tpl" items=[] currentTitleKey="common.editorialHistory.page"}
         {include file="frontend/components/headings.tpl" currentTitleKey="common.editorialHistory.page"}
 
 		<p>{translate key="common.editorialHistory.page.description"}</p>

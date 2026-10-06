@@ -1,0 +1,27 @@
+/* Native journal contact and account form presentation. */
+
+body.spup-journal {
+  .page_contact { --journal-page-width: var(--journal-page-standard); }
+  .page_contact .contact_section { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--journal-block-gap) 32px; }
+  .page_contact .contact_section > * { min-width: 0; padding-top: 20px; border-top: 1px solid var(--journal-page-line); }
+  .page_contact .contact-heading { margin: 0 0 12px; color: var(--journal-primary); }
+  .page_contact .contact_section .name { font-size: var(--journal-author); font-weight: 600; }
+  .page_contact .contact_section :is(.title, .affiliation) { font-size: var(--journal-affiliation); }
+  .page_contact .contact_section :is(.phone, .email) { font-size: var(--journal-meta); }
+  .page_login { --journal-page-width: 600px; }
+  .page_register { --journal-page-width: 980px; }
+  .page_login .cmp_form, .page_register .cmp_form { margin-top: var(--journal-block-gap); }
+  .page_login .cmp_form input:not([type="checkbox"]):not([type="radio"]), .page_login .cmp_form select,
+  .page_register .cmp_form input:not([type="checkbox"]):not([type="radio"]), .page_register .cmp_form select { max-width: 100%; padding-left: 12px; padding-right: 12px; }
+  .page_login .cmp_form label, .page_register .cmp_form label { color: var(--journal-page-ink); }
+  .page_login .btn-primary, .page_register .btn-primary, .page_submissions .btn-primary { background: var(--journal-primary); border-color: var(--journal-primary); }
+  .page_register .cmp_form fieldset { margin: var(--journal-inner-section-gap) 0; }
+  .page_register .cmp_form fieldset:first-of-type { margin-top: 0; }
+  .page_register .register-form-legend { margin-bottom: 16px; padding: 0; font-size: var(--journal-h3); }
+  .page_register .form-group.middle-name { margin-bottom: 16px; }
+  .page_register :is(.identity, .login-data, .reviewer) { margin-top: var(--journal-inner-section-gap); }
+}
+
+@media (max-width: 767px) {
+  body.spup-journal .page_contact .contact_section { grid-template-columns: minmax(0, 1fr); }
+}

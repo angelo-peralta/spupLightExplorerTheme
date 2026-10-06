@@ -3,3 +3,27 @@ node_modules/
 .local-dev/
 /nav contents
 dist/
+
+# Local documentation and agent instructions
+/docs/
+AGENTS.md
+AGENTS.override.md
+/.agents/
+/.codex/
+/agents/
+/fonts/journals/README.md
+
+# Local credentials, private keys, database backups, and diagnostic output
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.pfx
+*.sql
+*.dump
+*.db
+*.sqlite
+*.sqlite3
+*.bak
+*.log

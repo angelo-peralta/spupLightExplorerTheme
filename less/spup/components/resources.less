@@ -1,0 +1,25 @@
+/* Reusable resource links for the active journal context. */
+.spup-journal .spup-journal-link-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li { margin: 0; padding: 0; border-top: 1px solid var(--journal-accent); }
+  a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    min-height: var(--journal-control-height);
+    padding: 8px 0;
+    border-bottom: 0;
+    color: var(--journal-ink);
+    font: 500 var(--journal-sidebar)/1.5 var(--journal-font-body);
+    text-decoration: none;
+    transition: color @spup-root-transition;
+  }
+  a:hover, a:focus-visible { color: var(--journal-primary); text-decoration: underline; text-underline-offset: 3px; }
+  a:focus-visible { outline: 3px solid var(--journal-primary); outline-offset: 3px; }
+  a span { flex: 0 0 auto; transition: transform @spup-root-transition; }
+  a:hover span, a:focus-visible span { transform: translateX(3px); }
+}

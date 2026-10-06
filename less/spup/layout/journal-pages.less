@@ -1,0 +1,101 @@
+/* Shared journal inner-page type, reading width, and form-safe defaults. */
+
+body.spup-journal {
+  font-family: var(--journal-font-body);
+  font-size: var(--journal-body);
+  :is(p, li, a, blockquote, label, input, select, textarea, button, dt, dd, address, table) { font-family: var(--journal-font-body); }
+  :is(h1, h2, h3, h4, h5, h6) { font-family: var(--journal-font-heading); }
+  :is(h1, h2, h3, h4, h5, h6) a { font-family: inherit; font-size: inherit; }
+  main.page { background: #fafaf8; color: var(--journal-page-ink); }
+  .pkp_screen_reader { position: absolute !important; display: block !important; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+  main.page .container-page,
+  main.page .container-page.container-narrow {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: var(--journal-page-full);
+    margin: 0 auto;
+    padding: var(--journal-content-top) 24px var(--journal-content-bottom);
+  }
+  main.page .container-page > * { max-width: var(--journal-page-reading); margin-right: 0; margin-left: 0; }
+  main.page .container-page > .spup-journal-reading { width: 100%; max-width: var(--journal-page-reading); }
+  main.page .container-page > .spup-journal-reading:has(.journal-grid, .journal-service-grid, table, .table) { max-width: var(--journal-page-standard); }
+  main.page .container-page > .spup-breadcrumbs { width: 100%; max-width: none; }
+  main.page :is(p, li) { line-height: 1.72; }
+  main.page p { margin-bottom: 16px; }
+  main.page :is(a, button):focus-visible { outline: 3px solid var(--journal-primary); outline-offset: 3px; }
+  main.page a { color: var(--journal-primary); border-bottom-color: transparent; }
+  main.page a:hover, main.page a:focus-visible { color: var(--journal-primary); border-bottom-color: currentColor; text-decoration: underline; text-underline-offset: 3px; }
+  main.page :is(.current_page_title, .page_title) { margin: 0 0 var(--journal-block-gap); }
+  main.page .current_page_title h1, main.page h1.page_title {
+    max-width: var(--journal-page-article);
+    margin: 0;
+    color: var(--journal-page-ink);
+    font: 600 var(--journal-page-h1)/1.22 var(--journal-font-heading);
+    text-align: left !important;
+    overflow-wrap: anywhere;
+  }
+  main.page .container-page > h1.page_title { max-width: 860px; margin-bottom: var(--journal-block-gap); }
+  main.page .current_page_title::after, main.page h1.page_title::after, main.page .announcement-full-title::after {
+    display: block;
+    width: 46px;
+    height: 2px;
+    margin-top: 12px;
+    background: var(--journal-primary);
+    content: "";
+  }
+  main.page :is(h2, h3, h4) { color: var(--journal-page-ink); }
+  main.page h2 { font: 600 var(--journal-h2)/1.3 var(--journal-font-heading); }
+  main.page h3 { font: 600 var(--journal-h3)/1.35 var(--journal-font-heading); }
+  main.page h4 { font: 600 17px/1.4 var(--journal-font-heading); }
+  main.page :is(ul, ol) { padding-left: 26px; }
+  main.page ol { list-style: decimal; }
+  main.page ol li::before { content: none; }
+  main.page :is(table, .table) { display: block; max-width: 100%; overflow-x: auto; }
+  main.page .cmp_notification { border-left-color: var(--journal-primary); }
+  main.page .cmp_form label { font: 400 14px/1.5 var(--journal-font-body); }
+  main.page .cmp_form .form-group { margin-bottom: 16px; }
+  main.page .cmp_form :is(input.form-control, select.form-control):not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([multiple]) {
+    height: var(--journal-control-height);
+    min-height: var(--journal-control-height);
+    padding: 8px 12px;
+    border-radius: 2px;
+    font: 400 15px/1.4 var(--journal-font-body);
+  }
+  main.page .cmp_form .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: var(--journal-control-height);
+    padding: 8px 16px;
+    border-radius: 2px;
+    font: 500 var(--journal-nav)/1.4 var(--journal-font-body);
+  }
+  main.page .cmp_form .btn-primary { background: var(--journal-primary); border-color: var(--journal-primary); color: #fff; }
+  main.page .cmp_form .btn-primary:hover, main.page .cmp_form .btn-primary:focus-visible { background: var(--journal-primary); border-color: var(--journal-primary); color: #fff; filter: brightness(.9); }
+}
+
+@media (min-width: 992px) and (max-width: 1100px) {
+  body.spup-journal .spup-header--journal.spup-header__nav-band {
+    #navigationPrimary { column-gap: 10px; }
+    #navigationPrimary .nav-link { font-size: 13px; }
+  }
+}
+
+@media (max-width: 575px) {
+  body.spup-journal {
+    main.page :is(.current_page_title, .page_title) { margin-bottom: var(--journal-block-gap); }
+    main.page .container-page > h1.page_title { margin-bottom: var(--journal-block-gap); }
+  }
+}
+
+body.spup-journal {
+  main.page :is(p, li, dd, a, .references-raw) { overflow-wrap: anywhere; }
+  main.page :is(table, .table) { max-width: 100%; overflow-x: auto; }
+}
+
+@media (max-width: 767px) {
+  body.spup-journal {
+    main.page .container-page, main.page .container-page.container-narrow { padding-right: 18px; padding-left: 18px; }
+    .page_issue .spup-issue__identity, .page_article .spup-article__header { grid-template-columns: minmax(0, 1fr); gap: 26px; }
+  }
+}

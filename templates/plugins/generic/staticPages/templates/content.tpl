@@ -10,10 +10,11 @@
 {include file="frontend/components/header.tpl" pageTitleTranslated=$title|escape}
 
 <main class="page static_page">
-	<div class="container-fluid container-page container-narrow">
-		<h1 class="page_title text-center">{$title|escape}</h1>
-		{$content}
-	</div>
+	{if !$currentContext}
+		{include file="frontend/components/spup/layout/customPage.tpl" title=$title content=$spupRootCustomContent}
+	{else}
+		{include file="frontend/components/spup/layout/customPage.tpl" variant="journal" title=$title content=$spupJournalCustomContent breadcrumbItems=[]}
+	{/if}
 </main>
 
 {include file="frontend/components/footer.tpl"}

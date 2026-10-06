@@ -23,13 +23,20 @@
 
 		{* Display a message if no current issue exists *}
 		{if !$issue}
+			{include file="frontend/components/spup/layout/breadcrumbs.tpl" currentTitleKey="current.noCurrentIssue"}
 			{include file="frontend/components/headings.tpl" currentTitleKey="current.noCurrentIssue"}
 			{include file="frontend/components/notification.tpl" type="warning" messageKey="current.noCurrentIssueDesc"}
 
 		{* Display an issue with the Table of Contents *}
 		{else}
-			{include file="frontend/components/headings.tpl" currentTitle=$issueIdentificationString}
-			{include file="frontend/objects/issue_toc.tpl"}
+			{capture assign=spupArchiveLabel}{translate key="archive.archives"}{/capture}
+			{capture assign=spupArchiveUrl}{url page="issue" op="archive" escape=false}{/capture}
+			{assign var=spupIssueBreadcrumbs value=[]}
+			{append var=spupIssueBreadcrumbs value=['label'=>$spupArchiveLabel, 'url'=>$spupArchiveUrl]}
+			{append var=spupIssueBreadcrumbs value=['label'=>$issue->getIssueIdentification(), 'current'=>true]}
+			{include file="frontend/components/spup/layout/breadcrumbs.tpl" items=$spupIssueBreadcrumbs}
+			{include file="frontend/components/spup/issue/identity.tpl" issue=$issue issueIdentificationString=$issueIdentificationString}
+			{include file="frontend/objects/issue_toc.tpl" spupIssueIdentityShown=true}
 		{/if}
 	</div>
 </main>

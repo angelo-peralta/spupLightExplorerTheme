@@ -21,6 +21,7 @@
 <main class="page page_user_subscriptions">
 	<div class="container-fluid container-page container_subscriptions container-narrow">
 
+		{include file="frontend/components/spup/layout/breadcrumbs.tpl" items=[] currentTitleKey="user.subscriptions.mySubscriptions"}
 		{include file="frontend/components/headings.tpl" currentTitleKey="user.subscriptions.mySubscriptions"}
 		{include file="frontend/components/subscriptionContact.tpl"}
 

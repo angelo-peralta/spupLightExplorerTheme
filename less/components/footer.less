@@ -321,8 +321,9 @@ footer {
 			font-size: 14px;
 			line-height: 1.4;
 			overflow-wrap: anywhere;
-			text-decoration: underline;
+			text-decoration: none;
 			text-underline-offset: 3px;
+			&:hover, &:focus-visible { text-decoration: underline; }
 		}
 	}
 
@@ -394,6 +395,47 @@ footer {
 		outline: 3px solid #F4D471;
 		outline-offset: 3px;
 	}
+}
+
+.site-footer--journal .spup-footer__navigation { grid-template-columns: minmax(0, 1fr); }
+.site-footer--journal .spup-footer__menu { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 20px; }
+.site-footer--journal .spup-footer__site-title a { color: inherit; text-decoration: none; }
+.site-footer--journal .spup-footer__site-title a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+body.spup-journal .site-footer--institutional.site-footer--journal {
+  background-color: var(--journal-chrome);
+  font-family: var(--journal-font-body);
+  .spup-footer__background { display: none; }
+  .spup-footer__main > .spup-footer__container { padding-top: 32px; padding-bottom: 32px; }
+  .spup-footer__grid { gap: var(--journal-block-gap); }
+  .spup-footer__institution { font: 600 16px/1.35 var(--journal-font-heading); }
+  .spup-footer__seal { width: 52px; height: 52px; margin-bottom: 12px; }
+  .spup-footer__site-title,
+  .spup-footer__detail p,
+  .spup-footer__detail a,
+  .spup-footer__admin-content :is(p, li, a) { font: 400 var(--journal-meta)/1.6 var(--journal-font-body); }
+  .spup-footer__detail a { min-height: 28px; }
+  .spup-footer__detail + .spup-footer__detail { margin-top: var(--journal-block-gap); }
+  .spup-footer__menu-section h3,
+  .spup-footer__detail h3 { margin-bottom: 10px; font: 600 14px/1.4 var(--journal-font-body); letter-spacing: .04em; }
+  .spup-footer__menu li { margin-bottom: 8px; }
+  .spup-footer__bottom-inner { padding-top: 12px; padding-bottom: 12px; }
+  .spup-footer__utilities { background-color: var(--journal-chrome); }
+  .spup-footer__main { background-color: var(--journal-chrome); }
+  .spup-footer__bottom { background-color: ~"color-mix(in srgb, var(--journal-chrome) 82%, #000)"; }
+  .spup-footer__eyebrow,
+  .spup-footer__menu-section h3,
+  .spup-footer__detail h3 { color: #fff; }
+  .spup-footer__site-title,
+  .spup-footer__credits p,
+  .spup-footer__platform { color: rgba(255,255,255,.84); }
+  .spup-footer__menu a:hover,
+  .spup-footer__menu a:focus,
+  .spup-footer__menu .nav-link:hover,
+  .spup-footer__menu .nav-link:focus,
+  a:hover,
+  a:focus { color: #fff; }
+  a:focus-visible { outline-color: #fff; }
 }
 
 @media (max-width: 1023px) {

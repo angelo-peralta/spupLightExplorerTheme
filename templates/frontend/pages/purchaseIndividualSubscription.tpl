@@ -12,6 +12,7 @@
 
 <div class="pkp_page_content pkp_page_purchaseIndividualSubscription">
 	<div class="container-fluid container-page container-narrow">
+		{include file="frontend/components/spup/layout/breadcrumbs.tpl" items=[] currentTitleKey="user.subscriptions.purchaseIndividualSubscription"}
 		<form class="cmp_form purchase_subscription" method="post" id="subscriptionForm" action="{url op="payPurchaseSubscription" path="individual"|to_array:$subscriptionId}">
 			{csrf}
 
