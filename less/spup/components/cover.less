@@ -1,0 +1,55 @@
+/* One media frame for OJS-supplied journal, issue, archive, and article covers. */
+.spup-cover-media {
+  position: relative;
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  border: 0;
+
+  img {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+}
+
+.spup-cover-media--offset::before {
+  position: absolute;
+  z-index: 0;
+  inset: -10px 10px 10px -10px;
+  background: var(--journal-accent, var(--spup-journal-accent, var(--spup-context-primary)));
+  content: "";
+}
+
+/* The journal landing issue cover keeps its approved right-side offset. */
+.spup-journal-issue__cover.spup-cover-media--offset::before {
+  inset: -8px -8px 8px 8px;
+}
+
+/* Root journal cover variants share the same non-cropping media contract. */
+.spup-cover-media--journal-directory {
+  width: 160px;
+  padding: 10px 0 0 10px;
+}
+.spup-cover-media--journal-directory.spup-cover-media--offset::before {
+  inset: 0 10px 10px 0;
+  background: var(--spup-journal-accent, @spup-site-green);
+}
+.spup-cover-media--journal-directory img { width: 100%; }
+.spup-cover-media--journal-gallery { width: 100%; }
+.spup-cover-media--journal-gallery.spup-cover-media--offset::before {
+  inset: -16px 16px 16px -16px;
+  background: var(--spup-journal-accent, @spup-site-green);
+}
+.spup-cover-media--journal-gallery img { width: 100%; }
+@media (max-width: 767px) {
+  .spup-cover-media--journal-directory { width: 120px; }
+}
+@media (max-width: 520px) {
+  .spup-cover-media--journal-directory { width: 132px; }
+}

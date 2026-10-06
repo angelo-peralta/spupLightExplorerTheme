@@ -1,0 +1,16 @@
+/* Journal search presentation; OJS still owns the search query. */
+
+body.spup-journal {
+  .page_search { --journal-page-width: var(--journal-page-standard); }
+  .page_search .spup-search-scope { margin: 0 0 20px; color: var(--journal-page-muted); font-size: var(--journal-meta); text-align: left; }
+  .page_search .row { margin: 0; }
+  .page_search .cmp_form { flex: 0 0 100%; width: 100%; max-width: 100%; margin: 0; padding: 0; }
+  .page_search .search_results { display: block; max-width: var(--journal-page-standard); margin: 32px 0; }
+  .page_search .spup-search-result { padding: 18px 0; border-top: 1px solid var(--journal-page-line); }
+  .page_search .article_summary { width: 100%; margin: 0; }
+  .page_search :is(.summary_title_wrapper, .summary_title) { font-size: var(--journal-row-title); line-height: 1.35; }
+  .page_search .summary_meta { margin-top: 8px; font-size: var(--journal-meta); }
+  .page_search .summary_meta .authors { font-size: var(--journal-author); }
+  .page_search .search-notifications { flex: 0 0 100%; max-width: 100%; margin-left: 0; padding: 0; }
+  .page_search .spup-search-disclosure summary { color: var(--journal-primary); }
+}

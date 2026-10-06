@@ -15,6 +15,7 @@
 
 <main class="page page_information">
 	<div class="container-fluid container-page container-narrow">
+		{include file="frontend/components/spup/layout/breadcrumbs.tpl" items=[] currentTitleKey=$pageTitle}
 		{include file="frontend/components/headings.tpl" currentTitleKey=$pageTitle}
 		{include file="frontend/components/editLink.tpl" page="management" op="settings" path="website" anchor="setup/information" sectionTitleKey="manager.website.information"}
 

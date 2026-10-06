@@ -1,0 +1,54 @@
+/* Native archive issue list and actual issue covers. */
+
+body.spup-journal {
+  .page_issue_archive { --journal-page-width: var(--journal-page-full); padding-bottom: 0; }
+  main.page.page_issue_archive .container-page { max-width: var(--journal-page-full); }
+  .page_issue_archive .container-page > :is(.spup-journal-breadcrumbs, header, .issues_list, .no_issues, .cmp_pagination) {
+    width: 100%; max-width: 1080px; margin-right: 0; margin-left: 0;
+  }
+  .page_issue_archive .issues_list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px 28px; margin-top: 0; }
+  .page_issue_archive .issue_item { width: auto; min-width: 0; margin: 0; padding: 0 0 20px; border-bottom: 1px solid var(--journal-page-line); }
+  .page_issue_archive .obj_issue_summary { max-width: 300px; }
+  .page_issue_archive .cover { position: relative; display: block; width: fit-content; max-width: 100%; margin: 10px 10px 16px 0; border: 0; }
+  .page_issue_archive .cover::before { position: absolute; inset: -8px -8px 8px 8px; background: var(--journal-accent); content: ""; }
+  .page_issue_archive .archive_issue_cover { position: relative; display: block; width: auto; height: auto; max-width: 100%; max-height: 280px; object-fit: contain; object-position: center; }
+  .page_issue_archive .issue_summary_title { display: block; color: var(--journal-primary); font: 500 var(--journal-meta)/1.5 var(--journal-font-body); }
+  .page_issue_archive .issue_title { display: block; margin-top: 8px; color: var(--journal-page-ink); font: 600 var(--journal-h3)/1.35 var(--journal-font-heading); }
+  .page_issue_archive .issue_summary_date { margin-top: var(--journal-meta-gap); color: var(--journal-page-muted); font: 400 var(--journal-meta)/1.5 var(--journal-font-body); }
+}
+
+@media (max-width: 991px) {
+  body.spup-journal {
+    .page_issue_archive .issues_list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+}
+
+@media (max-width: 575px) {
+  body.spup-journal {
+    .page_issue_archive .issues_list { grid-template-columns: minmax(0, 1fr); gap: var(--journal-block-gap); }
+    .page_issue_archive .issue_item { margin: 0; }
+  }
+}
+
+body.spup-journal {
+  .page_issue_archive .issues_list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .page_issue_archive .spup-archive__year { grid-column: ~"1 / -1"; justify-self: stretch; margin: 0 0 -8px; color: var(--journal-primary); font: 600 var(--journal-h2)/1.3 var(--journal-font-heading); text-align: left; }
+  .page_issue_archive .obj_issue_summary { max-width: none; }
+  // The native four-column archive mixin applies positional summary margins.
+  // The shared three/two/one-column grid owns its spacing at every breakpoint.
+  .page_issue_archive .issue_item:nth-child(n) .obj_issue_summary { margin: 0; }
+  .page_issue_archive .cover::before { inset: -8px 8px 8px -8px; }
+  .page_issue_archive .archive_issue_cover { object-fit: contain; object-position: center; }
+  .page_issue_archive .spup-archive__view { display: inline-block; margin-top: var(--journal-meta-gap); color: var(--journal-primary); font: 500 var(--journal-nav)/1.5 var(--journal-font-body); text-decoration: none; }
+  .page_issue_archive .spup-archive__view:hover, .page_issue_archive .spup-archive__view:focus-visible { text-decoration: underline; }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  body.spup-journal .page_issue_archive .issues_list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 767px) {
+  body.spup-journal {
+    .page_issue_archive .issues_list { grid-template-columns: minmax(0, 1fr); }
+  }
+}

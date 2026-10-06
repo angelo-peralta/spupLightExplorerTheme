@@ -23,6 +23,7 @@
 
 <main class="page page_contact">
 	<div class="container-fluid container-page container-narrow">
+	{include file="frontend/components/spup/layout/breadcrumbs.tpl" items=[] currentTitleKey="about.contact"}
 	{include file="frontend/components/headings.tpl" currentTitleKey="about.contact"}
 	<div class="edit-content-wrapper">
 		{include file="frontend/components/editLink.tpl" page="management" op="settings" path="context" anchor="contact" sectionTitleKey="about.contact"}

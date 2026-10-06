@@ -14,6 +14,7 @@
 
 <main class="page page_privacy">
 	<div class="container-fluid container-page container-narrow">
+		{include file="frontend/components/spup/layout/breadcrumbs.tpl" items=[] currentTitleKey="manager.setup.privacyStatement"}
 		{include file="frontend/components/headings.tpl" currentTitleKey="manager.setup.privacyStatement"}
 		{$privacyStatement}
 	</div>

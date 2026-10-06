@@ -21,6 +21,12 @@
 
 <main class="page page_catalog_category">
 	<div class="container-fluid container-page container-narrow">
+		{if $parentCategory}
+			{capture assign=spupParentCategoryUrl}{url router=$smarty.const.ROUTE_PAGE page="catalog" op="category" path=$parentCategory->getPath()}{/capture}
+			{include file="frontend/components/spup/layout/breadcrumbs.tpl" items=[['label'=>$parentCategory->getLocalizedTitle(),'url'=>$spupParentCategoryUrl],['label'=>$category->getLocalizedTitle(),'current'=>true]]}
+		{else}
+			{include file="frontend/components/spup/layout/breadcrumbs.tpl" items=[] currentTitle=$category->getLocalizedTitle()}
+		{/if}
 		<h1>
 			{$category->getLocalizedTitle()|escape}
 		</h1>

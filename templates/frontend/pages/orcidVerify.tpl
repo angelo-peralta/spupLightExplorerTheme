@@ -12,6 +12,7 @@
 
 <main class="page page_message page_orcid-profile">
 	<div class="container-fluid container-page container-narrow">
+		{include file="frontend/components/spup/layout/breadcrumbs.tpl" items=[] currentTitleKey="orcid.verify.title"}
 		{include file="frontend/components/headings.tpl" currentTitleKey="orcid.verify.title"}
 		<h2>
 			{translate key="orcid.verify.title"}

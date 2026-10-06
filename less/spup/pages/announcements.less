@@ -1,0 +1,19 @@
+/* Journal announcement index and detail. */
+
+body.spup-journal {
+  .page_announcements { --journal-page-width: var(--journal-page-standard); }
+  .page_announcements .announcements-introduction { margin: 0 0 var(--journal-block-gap); padding: 0 0 var(--journal-block-gap); border-bottom: 1px solid var(--journal-page-line); }
+  .page_announcements .announcements-introduction:empty { display: none; }
+  .page_announcements .cmp_announcements { display: block; margin: 0; }
+  .page_announcements .cmp_announcement { width: 100%; max-width: none; margin: 0; padding: 20px 0; border-bottom: 1px solid var(--journal-page-line); }
+  .page_announcements .announcement-summary-heading { margin: 0 0 10px; font-size: var(--journal-row-title); }
+  .page_announcements .obj_announcement_summary .date { color: var(--journal-page-muted); font: 400 var(--journal-meta)/1.5 var(--journal-font-body); }
+  .page_announcements .obj_announcement_summary .summary { font-size: var(--journal-body); }
+  .page_announcements .obj_announcement_summary .buttons { margin-top: 12px; }
+  .page_announcements .obj_announcement_summary .buttons .btn { padding: 0; border: 0; background: transparent; box-shadow: none; color: var(--journal-primary); font: 500 var(--journal-nav)/1.5 var(--journal-font-body); }
+  .page_announcements .obj_announcement_summary .buttons .btn::after { margin-left: 6px; content: "→"; }
+  .page_announcements .obj_announcement_summary .buttons .btn:hover, .page_announcements .obj_announcement_summary .buttons .btn:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+  .page_announcement { --journal-page-width: var(--journal-page-reading); }
+  .page_announcement .announcement-full-date { display: block; margin-bottom: 16px; color: var(--journal-page-muted); font: 400 var(--journal-meta)/1.5 var(--journal-font-body); }
+  .page_announcement .announcement-full-description { font-size: var(--journal-body); line-height: 1.7; }
+}

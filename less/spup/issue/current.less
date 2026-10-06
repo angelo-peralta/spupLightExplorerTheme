@@ -1,0 +1,68 @@
+/* Native issue output and current-issue presentation. */
+
+body.spup-journal {
+  .page_issue { --journal-page-width: 1160px; }
+  .page_issue .description_cover { display: flex; align-items: flex-start; justify-content: flex-start; gap: 32px; margin: 0 0 var(--journal-inner-section-gap); }
+  .page_issue .description { flex: 1 1 480px; width: auto; min-width: 0; margin: 0; }
+  .page_issue .description_label { margin: 0 0 12px; color: var(--journal-primary); }
+  .page_issue .description_text { max-width: var(--journal-page-reading); margin: 0; column-count: 1; }
+  .page_issue .issue_cover_block { order: -1; flex: 0 0 auto; width: auto; max-width: 260px; padding: 10px 10px 0 0; text-align: left; }
+  .page_issue .issue_cover_block a { position: relative; display: inline-block; max-width: 100%; border: 0; }
+  .page_issue .issue_cover_block a::before { position: absolute; inset: -10px -10px 10px 10px; background: var(--journal-accent); content: ""; }
+  .page_issue .cover_image { position: relative; display: block; width: auto; height: auto; max-width: 200px; max-height: 300px; object-fit: contain; object-position: center; }
+  .page_issue .sections { padding-top: 16px; border-top: 1px solid var(--journal-page-line); }
+  .page_issue .section { padding: var(--journal-block-gap) 0 16px; border-bottom: 0; }
+  .page_issue .section_title { margin: 0 0 16px; padding: 0; color: var(--journal-primary); font: 600 var(--journal-h3)/1.35 var(--journal-font-heading); }
+  .page_issue .section_content { display: block; }
+  .page_issue .article_summary { display: flex; justify-content: space-between; gap: var(--journal-block-gap); width: 100%; margin: 0; padding: 18px 0; border-top: 1px solid var(--journal-page-line); }
+  .page_issue .article_summary_body { flex: 1 1 auto; min-width: 0; }
+  .page_issue .summary_title_wrapper { margin: 0; font: 600 var(--journal-row-title)/1.35 var(--journal-font-heading); }
+  .page_issue .summary_title { color: var(--journal-page-ink); font: 600 var(--journal-row-title)/1.35 var(--journal-font-heading); }
+  .page_issue .summary_meta { margin-top: 8px; color: var(--journal-page-muted); font: 400 var(--journal-meta)/1.6 var(--journal-font-body); }
+  .page_issue .summary_meta .author_names { font-size: var(--journal-author); }
+  .page_issue .galleys_links { display: flex; flex-wrap: wrap; align-content: start; gap: 8px; }
+  .page_issue .read_more { margin-top: var(--journal-block-gap); border-color: var(--journal-primary); color: var(--journal-primary); }
+}
+
+@media (max-width: 991px) {
+  body.spup-journal {
+    .page_issue .description_cover { gap: 28px; }
+  }
+}
+
+@media (max-width: 575px) {
+  body.spup-journal {
+    .page_issue .description_cover { display: block; margin-bottom: var(--journal-inner-section-gap); }
+    .page_issue .issue_cover_block { max-width: 220px; margin: 0 0 var(--journal-block-gap); }
+    .page_issue .cover_image { max-width: 200px; max-height: 300px; }
+    .page_issue .article_summary { display: block; }
+    .page_issue .galleys_links { margin-top: 12px; }
+  }
+}
+
+body.spup-journal {
+  /* Current and archived issues use the same cover and identity treatment. */
+  main.page.page_issue .container-page { max-width: var(--journal-page-full); }
+  .page_issue .container-page > :is(.spup-journal-breadcrumbs, .spup-issue__eyebrow, header, .spup-issue__identity, .galleys, .sections, .cmp_notification) {
+    width: 100%; max-width: var(--journal-page-standard); margin-right: 0; margin-left: 0;
+  }
+  .page_issue .container-page > .read_more { margin-left: 0; }
+  .page_issue .spup-issue__eyebrow { margin: 0 0 8px; color: var(--journal-primary); font: 600 var(--journal-label)/1.4 var(--journal-font-body); letter-spacing: .1em; text-transform: uppercase; }
+  .page_issue .spup-issue__identity { display: grid; grid-template-columns: minmax(0, 210px) minmax(0, 1fr); gap: 32px; align-items: start; max-width: var(--journal-page-standard); margin: 0 0 var(--journal-inner-section-gap); }
+  .page_issue .spup-issue__identity--no-cover { grid-template-columns: minmax(0, 1fr); }
+  .page_issue .spup-issue__cover { position: relative; width: fit-content; max-width: 100%; margin: 10px 10px 0 0; }
+  .page_issue .spup-issue__cover::before { position: absolute; inset: -10px 10px 10px -10px; background: var(--journal-accent); content: ""; }
+  .page_issue .spup-issue__cover img { position: relative; display: block; max-width: 200px; max-height: 300px; width: auto; height: auto; object-fit: contain; object-position: center; }
+  .page_issue .spup-issue__details { min-width: 0; }
+  .page_issue .spup-issue__details h2 { margin: 0 0 12px; }
+  .page_issue .spup-issue__date { color: var(--journal-page-muted); font: 400 var(--journal-meta)/1.5 var(--journal-font-body); }
+  .page_issue .spup-issue__description { max-width: var(--journal-page-reading); margin-top: var(--journal-meta-gap); }
+  .page_issue .sections { max-width: var(--journal-page-standard); }
+  .page_issue .galleys { max-width: var(--journal-page-standard); }
+}
+
+@media (max-width: 767px) {
+  body.spup-journal {
+    .page_issue .spup-issue__cover img { max-width: 200px; }
+  }
+}

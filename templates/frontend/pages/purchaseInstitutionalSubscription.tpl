@@ -12,6 +12,7 @@
 
 <div class="pkp_page_content pkp_page_purchaseInstitutionalSubscription">
 	<div class="container-fluid container-page container-narrow">
+		{include file="frontend/components/spup/layout/breadcrumbs.tpl" items=[] currentTitleKey="user.subscriptions.purchaseInstitutionalSubscription"}
 		<h1 class="page_title">
 			{translate key="user.subscriptions.purchaseInstitutionalSubscription"}
 		</h1>

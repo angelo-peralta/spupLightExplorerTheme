@@ -469,3 +469,72 @@ msgstr "Downloads"
 
 msgid "plugins.themes.spupLightExplorerTheme.displayStats.noStats"
 msgstr "Download data is not yet available."
+
+msgid "plugins.themes.spupLightExplorerTheme.journal.issueCoverAlt"
+msgstr "Cover of {$journal}'s current issue"
+
+msgid "plugins.themes.spupLightExplorerTheme.journal.viewCurrentIssue"
+msgstr "View Current Issue"
+
+msgid "plugins.themes.spupLightExplorerTheme.journal.browseArchives"
+msgstr "Browse Archives"
+
+msgid "plugins.themes.spupLightExplorerTheme.journal.resources"
+msgstr "Resources"
+
+msgid "plugins.themes.spupLightExplorerTheme.journal.makeSubmission"
+msgstr "Make a Submission"
+
+msgid "plugins.themes.spupLightExplorerTheme.journal.latestArticles"
+msgstr "Latest Articles"
+
+msgid "plugins.themes.spupLightExplorerTheme.journal.information"
+msgstr "Journal Information"
+
+msgid "plugins.themes.spupLightExplorerTheme.journal.statistics"
+msgstr "Journal Statistics"
+
+msgid "plugins.themes.spupLightExplorerTheme.journal.indexing"
+msgstr "Indexing & Abstracting"
+
+msgid "plugins.themes.spupLightExplorerTheme.journal.readAnnouncement"
+msgstr "Read Announcement"
+
+msgid "plugins.themes.spupLightExplorerTheme.journal.home"
+msgstr "Home"
+
+msgid "plugins.themes.spupLightExplorerTheme.option.approvedIndexingServices.label"
+msgstr "Verified indexing services"
+
+msgid "plugins.themes.spupLightExplorerTheme.option.approvedIndexingServices.description"
+msgstr "Enter confirmed services separated by commas. Leave blank to hide the homepage band. Do not include applications or unverified discovery platforms."
+
+msgid "plugins.themes.spupLightExplorerTheme.spotlight.announcements"
+msgstr "Announcements"
+
+msgid "plugins.themes.spupLightExplorerTheme.spotlight.announcement"
+msgstr "Announcement"
+
+msgid "plugins.themes.spupLightExplorerTheme.spotlight.of"
+msgstr "of"
+
+msgid "plugins.themes.spupLightExplorerTheme.spotlight.previous"
+msgstr "Previous announcement"
+
+msgid "plugins.themes.spupLightExplorerTheme.spotlight.next"
+msgstr "Next announcement"
+
+msgid "plugins.themes.spupLightExplorerTheme.spotlight.close"
+msgstr "Close announcement"
+
+msgid "plugins.themes.spupLightExplorerTheme.spotlight.readFull"
+msgstr "Read Full Announcement"
+
+msgid "plugins.themes.spupLightExplorerTheme.spotlight.viewAll"
+msgstr "View All Announcements"
+
+msgid "plugins.themes.spupLightExplorerTheme.article.showFullTitle"
+msgstr "Show full title"
+
+msgid "plugins.themes.spupLightExplorerTheme.article.showLessTitle"
+msgstr "Show less"

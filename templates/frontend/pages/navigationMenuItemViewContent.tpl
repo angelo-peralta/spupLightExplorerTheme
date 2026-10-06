@@ -10,23 +10,29 @@
 {include file="frontend/components/header.tpl" pageTitleTranslated=$title|escape}
 
 <main class="page navigation-item-content{if !$currentContext && $requestedPage == 'journals'} page_journals{/if}{if !$currentContext && ($requestedPage == 'about' || $requestedPage == 'publisher-about')} page_publisher_about{/if}{if !$currentContext && ($requestedPage == 'contact' || $requestedPage == 'contact-us' || $requestedPage == 'publisher-contact')} page_publisher_contact{/if}">
+	{if $currentContext}
+		{include file="frontend/components/spup/layout/customPage.tpl" variant="journal" title=$title content=$spupJournalCustomContent breadcrumbItems=[]}
+	{elseif $requestedPage != 'journals' && $requestedPage != 'about' && $requestedPage != 'publisher-about' && $requestedPage != 'contact' && $requestedPage != 'contact-us' && $requestedPage != 'publisher-contact' && $requestedPage != 'publisher-submit' && $requestedPage != 'submission'}
+		{include file="frontend/components/spup/layout/customPage.tpl" title=$title content=$spupRootCustomContent breadcrumbItems=$spupRootBreadcrumbItems}
+	{else}
 	<div class="container-fluid container-page container-narrow">
-		{if !$currentContext}{include file="frontend/components/rootBreadcrumbs.tpl" currentTitle=$title}{/if}
+		{include file="frontend/components/spup/layout/breadcrumbs.tpl" items=[] currentTitle=$title}
 		{if !$currentContext && ($requestedPage == 'about' || $requestedPage == 'publisher-about')}
-			{include file="frontend/components/rootPublisherAbout.tpl"}
+			{include file="frontend/components/spup/root/rootPublisherAbout.tpl"}
 		{elseif !$currentContext && ($requestedPage == 'contact' || $requestedPage == 'contact-us' || $requestedPage == 'publisher-contact')}
-			{include file="frontend/components/rootPublisherContact.tpl"}
+			{include file="frontend/components/spup/root/rootPublisherContact.tpl"}
 		{else}
-			<h1 class="page_title{if $currentContext} text-center{/if}">{$title|escape}</h1>
+			{include file="frontend/components/spup/layout/pageIntro.tpl" title=$title}
 			{if !$currentContext && ($requestedPage == 'publisher-submit' || $requestedPage == 'submission')}
-				{include file="frontend/components/rootPublisherSubmission.tpl"}
+				{include file="frontend/components/spup/root/rootPublisherSubmission.tpl"}
 			{elseif !$currentContext && $requestedPage == 'journals'}
-				{include file="frontend/components/rootJournalDirectory.tpl"}
+				{include file="frontend/components/spup/root/rootJournalDirectory.tpl"}
 			{else}
 				{$content}
 			{/if}
 		{/if}
 	</div>
+	{/if}
 </main>
 
 {include file="frontend/components/footer.tpl"}

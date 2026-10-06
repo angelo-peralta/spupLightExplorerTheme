@@ -15,9 +15,10 @@
 
 <main class="page page_about_publishing_system">
 	<div class="container-fluid container-page container-narrow">
-		{include file="frontend/components/headings.tpl" currentTitleKey="about.aboutSoftware"}
+		{include file="frontend/components/spup/layout/breadcrumbs.tpl" items=[] currentTitleKey="about.aboutSoftware"}
+		{if !$currentContext}{include file="frontend/components/spup/layout/pageIntro.tpl" titleKey="about.aboutSoftware"}{else}{include file="frontend/components/headings.tpl" currentTitleKey="about.aboutSoftware"}{/if}
 
-		<p>
+		<p class="spup-root-reading">
 			{if $currentContext}
 				{translate key="about.aboutOJSJournal" ojsVersion=$appVersion contactUrl=$contactUrl}
 			{else}

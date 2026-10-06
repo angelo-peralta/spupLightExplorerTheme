@@ -1,0 +1,22 @@
+.spup-root, .spup-journal {
+  .spup-text-link {
+    display: inline-block;
+    min-height: 44px;
+    padding: 12px 0;
+    border-bottom: 0;
+    color: var(--spup-context-primary);
+    font: 700 12px/1.5 @font-family-secondary;
+    text-decoration: none;
+    transition: color @spup-root-transition;
+    &:hover,
+    &:focus {
+      color: var(--spup-context-hover);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    &:focus-visible {
+      outline: 3px solid var(--spup-context-primary);
+      outline-offset: 3px;
+    }
+  }
+}

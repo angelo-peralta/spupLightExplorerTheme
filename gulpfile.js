@@ -19,7 +19,12 @@ gulp.task('scripts', function() {
 		.src([
 			'node_modules/@popperjs/core/dist/umd/popper.js',
 			'node_modules/bootstrap/dist/js/bootstrap.js',
-			'dev_js/main-theme.js'
+			'dev_js/components/mobile-menu.js',
+			'dev_js/components/reveal.js',
+			'dev_js/components/active-navigation.js',
+			'dev_js/main-theme.js',
+			'dev_js/components/article-view.js',
+			'dev_js/components/announcement-spotlight.js'
 		])
 		.pipe(sourcemaps.init())
 		.pipe(concat('app.js'))

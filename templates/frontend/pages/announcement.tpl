@@ -13,12 +13,12 @@
 
 <main class="page page_announcement">
 	<div class="container-fluid container-page container-narrow">
-		{if !$currentContext}
-			{capture assign="spupAnnouncementsUrl"}{url page="announcement"}{/capture}
-			{include file="frontend/components/rootBreadcrumbs.tpl" currentTitle=$announcement->getLocalizedData('title') parentTitleKey="announcement.announcements" parentUrl=$spupAnnouncementsUrl}
-		{/if}
+		{capture assign="spupAnnouncementsUrl"}{url page="announcement" escape=false}{/capture}
+		{capture assign="spupAnnouncementsLabel"}{translate key="announcement.announcements"}{/capture}
+		{include file="frontend/components/spup/layout/breadcrumbs.tpl" items=[['label'=>$spupAnnouncementsLabel,'url'=>$spupAnnouncementsUrl],['label'=>$announcement->getLocalizedData('title'),'current'=>true]]}
 		{* Display book details *}
 		{include file="frontend/objects/announcement_full.tpl"}
+		{if !$currentContext}<a class="spup-text-link" href="{$spupAnnouncementsUrl|escape}">{translate key="announcement.announcements"} <span aria-hidden="true">&rarr;</span></a>{/if}
 	</div>
 </main><!-- .page -->
 

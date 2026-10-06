@@ -27,6 +27,7 @@
 <main class="page page_issue_archive">
 	<div class="container-fluid container-page">
 
+		{include file="frontend/components/spup/layout/breadcrumbs.tpl" currentTitle=$pageTitle}
 		{include file="frontend/components/headings.tpl" currentTitle=$pageTitle}
 
 		{* No issues have been published *}
@@ -37,13 +38,7 @@
 
 		{* List issues *}
 		{else}
-			<div class="flex_container issues_list">
-				{foreach from=$issues item=issue}
-					<div class="issue_item">
-						{include file="frontend/objects/issue_summary.tpl"}
-					</div>
-				{/foreach}
-			</div>
+			{include file="frontend/components/spup/issue/archiveList.tpl" issues=$issues}
 
 			{* Pagination *}
 			{capture assign="prevUrl"}

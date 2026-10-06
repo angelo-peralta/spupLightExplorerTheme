@@ -1,118 +1,24 @@
-{**
- * templates/frontend/pages/indexJournal.tpl
- *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
- * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
- *
- * @brief Display the index page for a journal
- *
- * @uses $currentJournal Journal This journal
- * @uses $journalDescription string Journal description from HTML text editor
- * @uses $homepageImage object Image to be displayed on the homepage
- * @uses $additionalHomeContent string Arbitrary input from HTML text editor
- * @uses $announcements array List of announcements
- * @uses $numAnnouncementsHomepage int Number of announcements to display on the
- *       homepage
- * @uses $issue Issue Current issue
- * @uses $issueIdentificationString string issue identification that relies on user's settings
- *}
+{** Journal homepage orchestrator. Content and URLs come from the active OJS context. *}
+{include file="frontend/components/header.tpl" pageTitleTranslated=$currentJournal->getLocalizedName() spupLandingPage=true}
 
-{include file="frontend/components/header.tpl" pageTitleTranslated=$currentJournal->getLocalizedName()}
+{assign var=spupJournalName value=$currentJournal->getLocalizedName()}
+{assign var=spupJournalInitials value=$currentJournal->getLocalizedAcronym()}
+{assign var=spupJournalCover value=$currentJournal->getLocalizedData('journalThumbnail')}
+{assign var=spupJournalIntro value=$activeTheme->getJournalHomepageIntro($currentJournal->getLocalizedDescription())}
 
 <main class="page_index_journal">
+  {include file="frontend/components/spup/journal/identity.tpl" spupJournalName=$spupJournalName spupJournalInitials=$spupJournalInitials spupJournalCover=$spupJournalCover spupJournalIntro=$spupJournalIntro showJournalSummary=$showJournalSummary}
+  {include file="frontend/components/spup/journal/indexing.tpl" services=$spupJournalIndexingServices}
 
-	{* Display homepage image if set, and wrap around journal summary if use chooses to display it *}
-	{if $homepageImage}
-		<div
-			class="homepage_image"
-			style="background-image: url('{$publicFilesDir}/{$homepageImage.uploadName|escape:"url"}'){if $showJournalSummary}, linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)){/if}">
-	{/if}
+  <div class="spup-site-container">{call_hook name="Templates::Index::journal"}</div>
 
-	{if $showJournalSummary && $currentJournal->getLocalizedDescription()}
-		<section class="container journal_summary"{if $homepageImage}style="color: #FFF"{/if}>
-			<h2>{translate key="navigation.about"}</h2>
-			{$currentJournal->getLocalizedDescription()}
-		</section>
-	{/if}
+  {include file="frontend/components/spup/journal/issueAndAuthors.tpl" issue=$issue authorLinks=$spupJournalAuthorLinks issueIdentificationString=$issueIdentificationString}
+  {include file="frontend/components/spup/journal/latestAndInfo.tpl" recentPublications=$spupJournalRecentPublications informationLinks=$spupJournalInformationLinks audienceLinks=$spupJournalAudienceLinks journalInitials=$spupJournalInitials hasSidebar=$hasSidebar}
+  {include file="frontend/components/spup/journal/announcements.tpl" announcements=$announcements journalInitials=$spupJournalInitials}
 
-	{if $homepageImage}
-		</div>
-	{/if}
+  {if $additionalHomeContent}<div class="spup-journal-band spup-journal-band--white"><section class="spup-journal-band__inner spup-site-container additional_content">{$additionalHomeContent}</section></div>{/if}
 
-	<div class="container-fluid container-page">
-		{capture assign="journalSearchUrl"}{url router=$smarty.const.ROUTE_PAGE journal=$currentJournal->getPath() page="search" op="search" escape=false}{/capture}
-		{assign var=journalSearchUrlParameters value=$activeTheme->getSearchFormParameters($journalSearchUrl)}
-		<form class="spup-journal-search" role="search" method="get" action="{$journalSearchUrl|strtok:"?"|escape}">
-			{foreach from=$journalSearchUrlParameters key=paramKey item=paramValue}
-				{if $paramKey != 'query' && $paramKey != 'searchJournal'}
-					<input type="hidden" name="{$paramKey|escape}" value="{$paramValue|escape}">
-				{/if}
-			{/foreach}
-			<label for="spup-journal-search-query">{translate key="plugins.themes.spupLightExplorerTheme.search.thisJournal"}</label>
-			<div class="spup-journal-search__controls">
-				<input id="spup-journal-search-query" type="search" name="query" placeholder="{translate|escape key="plugins.themes.spupLightExplorerTheme.hero.searchLabel"}" required>
-				<button type="submit">{translate key="common.search"}</button>
-			</div>
-		</form>
+  {include file="frontend/components/spup/journal/statistics.tpl" stats=$spupJournalStats journalInitials=$spupJournalInitials}
+</main>
 
-		{* Announcements *}
-		{if $announcements}
-			<section class="announcements">
-				<h2>{translate key="announcement.announcements"}</h2>
-				<div class="row">
-					{foreach from=$announcements item=announcement}
-						<article class="col-md-4 announcement">
-							<p class="announcement_date">{$announcement->datePosted|date_format:$dateFormatShort|escape}</p>
-							<h3 class="announcement_title">
-								<a href="{url router=$smarty.const.ROUTE_PAGE page="announcement" op="view" path=$announcement->id|escape}">
-									{$announcement->getLocalizedData('title')|escape}
-								</a>
-							</h3>
-						</article>
-					{/foreach}
-				</div>
-			</section>
-		{/if}
-
-		{call_hook name="Templates::Index::journal"}
-
-		{* Latest issue *}
-		{if $issue}
-			<section class="current_issue">
-				<header>
-					{strip}
-						<h2 class="current_issue_title">
-							<span class="current_issue_label">{translate key="journal.currentIssue"}</span>
-							{if $issueIdentificationString}
-						 		<span class="current_issue_identification">{$issueIdentificationString|escape}</span>
-							{/if}
-						</h2>
-					{/strip}
-
-					{* Published date *}
-					{if $issue->getDatePublished()}
-						<p class="published">
-							<span class="date_label">
-								{translate key="submissions.published"}
-							</span>
-							<span class="date_format">
-									{$issue->getDatePublished()|date_format:$dateFormatLong}
-							</span>
-						</p>
-					{/if}
-				</header>
-				{include file="frontend/objects/issue_toc.tpl"}
-			</section>
-		{/if}
-
-		{* Additional Homepage Content *}
-		{if $additionalHomeContent}
-			<section class="additional_content">
-				{$additionalHomeContent}
-			</section>
-		{/if}
-	</div>
-</main><!-- .page -->
-
-{include file="frontend/components/footer.tpl"}
+{include file="frontend/components/footer.tpl" spupSidebarInMain=true}

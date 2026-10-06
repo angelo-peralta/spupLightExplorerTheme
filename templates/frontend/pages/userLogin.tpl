@@ -13,8 +13,9 @@
 
 <main class="page page_login">
 	<div class="container-fluid container-page container-narrow">
-		{if !$currentContext}<div class="spup-auth-shell">{include file="frontend/components/rootAuthIdentity.tpl"}<div class="spup-auth-content">{/if}
+		{if !$currentContext}<div class="spup-auth-shell">{include file="frontend/components/spup/root/rootAuthIdentity.tpl"}<div class="spup-auth-content">{/if}
 
+		{include file="frontend/components/spup/layout/breadcrumbs.tpl" items=[] currentTitleKey="user.login"}
 		{include file="frontend/components/headings.tpl" currentTitleKey="user.login"}
 
 		{* A login message may be displayed if the user was redireceted to the
